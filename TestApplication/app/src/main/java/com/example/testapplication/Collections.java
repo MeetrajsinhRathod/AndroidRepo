@@ -21,7 +21,14 @@ public class Collections {
         arrayList.add(1);
         arrayList.add(2);
         arrayList.add(3);
-        System.out.println();
+
+
+        System.out.println(arrayList.stream());
+        System.out.println(arrayList.stream().count());
+        arrayList.set(1,0);
+
+        arrayList.removeIf(ele -> ele == 2);
+        System.out.println("arrrayList "+arrayList);
 
         Stack<String> stack = new Stack<String>();
         stack.push("A");
@@ -31,9 +38,9 @@ public class Collections {
         stack.push("E");
         stack.pop();
 
-        Iterator<String> itr=stack.iterator();
+        Iterator<String> itr = stack.iterator();
 
-        while(itr.hasNext()){
+        while(itr.hasNext()) {
             System.out.println(itr.next());
         }
 
@@ -43,6 +50,7 @@ public class Collections {
         queue.add(3);
         System.out.println(queue.peek());
         System.out.println(queue);
+        System.out.println(queue.poll());
 
         Set<String> set=new LinkedHashSet<>();
         set.add("Meetraj");
@@ -51,7 +59,7 @@ public class Collections {
         set.add("Harsh");
         System.out.println(set);
 
-        Map<Integer, String> map=new HashMap();
+        Map<Integer, String> map = new HashMap();
         map.put(5,"five");
         map.put(4,"four");
         map.put(2,"two");
