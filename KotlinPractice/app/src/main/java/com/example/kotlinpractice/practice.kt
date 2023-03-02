@@ -6,6 +6,10 @@ const val constantVal: String = "string"
 
 fun main() {
 
+    var str1: String? = "string"
+    var newString = str1 as String
+    println(newString::class.simpleName)
+
     //variables constants
     val immutableValue = 10
     var mutableVal = 9
@@ -80,7 +84,7 @@ fun main() {
 
     // while
     while (mutableVal > 0) {
-        print( "$mutableVal ")
+        print("$mutableVal ")
         mutableVal--
     }
     println()
@@ -109,10 +113,16 @@ fun main() {
     variableInputs(1, 2, 3, 4, 5)
 
     //lambda
-    fun addTwoNumbers(num1: Int, num2: Int, addLambda: (Int, Int) -> Int){
-        println("Sum of two numbers: "+addLambda(num1, num2))
+    var escape: (Int, Int) -> Int
+
+    fun addTwoNumbers(num1: Int, num2: Int, addLambda: (Int, Int) -> Int): (Int, Int) -> Int {
+        //escap = addLambda
+        println("Sum of two numbers: " + addLambda(num1, num2))
+        return addLambda
     }
     addTwoNumbers(num1, num2) { n1, n2 -> n1 + n2 }
+    escape = addTwoNumbers(num1, num2) { n1, n2 -> n1 + n2 }
+    println("from escape" + escape(1, 2))
 
     //null safety
     val notNullString = "Hello"
@@ -132,18 +142,20 @@ fun main() {
     class B {
         var c = 1
     }
+
     class A {
         var b: B? = null
     }
+
     var a: A? = A()
     println(a?.b?.c ?: 0)
 
     // scoping functions
     //let
     var str: String? = "Hi there"
-    str?.let { println(" $it ") }
+    str?.let { println(" ${it.length} ") }
     str = null
-    str?.let { println(" $it ") }
+    str?.let { println(" ${it} ") }
 
     //run
     str.run { str += str }
@@ -151,6 +163,16 @@ fun main() {
 
     //also
     var m = 1
-    println(m.also { it+1 })
+    println(m.also { it + 1 })
+
+    var infixExampleObj = InfixExample()
+    infixExampleObj printNumber 1
+
+}
+
+class InfixExample {
+    infix fun printNumber(num: Int) {
+        println("Number is: $num")
+    }
 
 }
