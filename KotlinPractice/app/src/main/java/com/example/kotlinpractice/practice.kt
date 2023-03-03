@@ -39,10 +39,25 @@ fun main() {
     var input: Int? = readLine()?.toIntOrNull()
 
     //array
-    var array: Array<Any>
-    array = Array(5, { i -> i })
-
+    val array = Array(5, { i -> i })
     //array = arrayOf<Int>(0,1,2,3,4)
+
+    val arr = array.plus(5)
+    println("arr")
+    arr.forEach { print(it) }
+    array.fill(6, 3, 4)
+    println(array.sliceArray(2..3))
+    array.forEach { print(it) }
+    println("filter: " + array.filter { it % 2 == 0 })
+    println("map: " + array.map { item -> item * 2 })
+    println("reduce: " + array.reduce { acc, i -> acc + i })
+
+    var arr2 = arrayOf(arrayOf(1, 2), arrayOf(3, 4))
+    println("flatMap: " + arr2.flatMap { it.asIterable() })
+
+    val arr3 = arrayOf(1, 2, null, 4, 5)
+    println("arr3 using map : " + (arr3.map { it?.times(2) ?: 0 }))
+    println("arr3 using mapNotNull: " + arr3.mapNotNull { it?.times(2) })
     array.forEach { element -> print("$element ") }
     println()
     println(array[0])
@@ -152,7 +167,7 @@ fun main() {
 
     // scoping functions
     //let
-    var str: String? = "Hi there"
+    var str: String? = null
     str?.let { println(" ${it.length} ") }
     str = null
     str?.let { println(" ${it} ") }
