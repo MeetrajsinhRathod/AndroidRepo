@@ -183,6 +183,16 @@ fun main() {
     var infixExampleObj = InfixExample()
     infixExampleObj printNumber 1
 
+    //Extension function
+    fun MutableList<Int>.swap(index1: Int, index2: Int) {
+        val tmp = this[index1]
+        this[index1] = this[index2]
+        this[index2] = tmp
+    }
+
+    val list = mutableListOf(1, 2, 3)
+    list.swap(0, 2)
+
 }
 
 class InfixExample {

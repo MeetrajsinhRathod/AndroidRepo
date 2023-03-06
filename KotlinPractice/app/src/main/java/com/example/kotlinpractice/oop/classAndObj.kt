@@ -28,6 +28,7 @@ open class Parent {
 }
 
 class Child : Parent {
+
     var nameChild: String
 
     constructor(name: String) : super("mkm") {
@@ -46,7 +47,6 @@ open class Shape(var type: String, open var color: String, var size: Int) {
         set(value) {
             field = value
         }
-
 }
 
 class Circle(var name: String, color: String, size: Int) : Shape("Circle", color, size) {
@@ -54,9 +54,11 @@ class Circle(var name: String, color: String, size: Int) : Shape("Circle", color
     init {
         println("From init block")
     }
+
     constructor(name: String) : this(name, "Black", 1) {
         println("From secondary block")
     }
+
     override fun describeShape() {
         println("This is a $name")
         super.describeShape()
@@ -75,16 +77,21 @@ class Circle(var name: String, color: String, size: Int) : Shape("Circle", color
         return@lazy 3.14
     }
 
-     var pi2 = lazy {
-         println("RUN")
-         return@lazy 3
-     }
-
+    var pi2 = lazy {
+        println("RUN")
+        return@lazy 3
+    }
 
 
 }
 
+data class Book(val name: String, val publisher: String, val reviewScore: Int)
+
 fun main() {
+
+    val original = Book("Kotlin", "Tutorials Point", 10)
+
+    val copied = original.copy()
 
     var person = Person("Meetraj")
     println(person.firstName)
@@ -92,8 +99,14 @@ fun main() {
 
     var child = Child("a")
 
+    fun Circle.cir() {
+        println("extension!")
+    }
+
     var circle = Circle("donut")
     circle.property = "new value"
+
+    circle.cir()
 
     println(circle.property)
 
@@ -101,4 +114,5 @@ fun main() {
     println("lazy : " + circle.pi2.value)
     circle.pi2 = lazy { 4 }
     println("lazy : " + circle.pi2.value)
+
 }
