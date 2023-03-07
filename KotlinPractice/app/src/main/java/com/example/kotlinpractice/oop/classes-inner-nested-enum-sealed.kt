@@ -41,8 +41,47 @@ open class Outer {
     }
 }
 
+inline class Width(val value: Int)
+
+inline class Height(val value: Int)
+
+class Rectangle(width: Width, height: Height) {
+    val width: Width = width
+    val height: Height = height
+
+    fun describe() {
+        println("${this.width} ${this.height}")
+    }
+}
+
+
 
 fun main() {
+
+    fun Rectangle.area() {
+        println("Area : ${this.width.value * this.height.value}")
+    }
+
+    val width = Width(100)
+    val height = Height(50)
+    val shape = Rectangle(width, height)
+    shape.describe()
+    shape.area()
+
+    val list = listOf<Int>(1, 2)
+
+    val set = setOf<Int>(1, 2)
+    val numbersMap = mapOf("key1" to 1, "key2" to 2, "key3" to 3, "key4" to 1)
+
+    val arrayList = arrayListOf(1, 2, 3)
+
+    val mutableList = mutableListOf(1, 2, 3)
+
+    val mutableNumbersMap = mutableMapOf<String, Int>().apply { this["one"] = 2; this["two"] = 1 }
+    println("Sorted map: "+mutableNumbersMap.entries.sortedBy{it.value})
+
+    //mutableNumbersMap.toSortedMap(compareValue)
+    mutableNumbersMap.iterator()
 
     val nestedObj = Outer.Nested()
     nestedObj.inSideNested()

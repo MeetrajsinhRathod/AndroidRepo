@@ -193,11 +193,23 @@ fun main() {
     val list = mutableListOf(1, 2, 3)
     list.swap(0, 2)
 
-}
+    class StringClass(var str: String = "" ) {
 
-class InfixExample {
-    infix fun printNumber(num: Int) {
-        println("Number is: $num")
+        operator fun get(index: Int) = this.str.get(index)
+        operator fun set(index: Int, value: String) {
+            println("Putting $value at index: $index")
+            this.str = this.str.replaceRange(index..index, value)
+        }
     }
 
+    val strObj = StringClass("String")
+    println("Element at index 2 is " + strObj[2])
+    strObj[2] = "e"
+    println(strObj.str)
 }
+
+    class InfixExample {
+        infix fun printNumber(num: Int) {
+            println("Number is: $num")
+        }
+    }
