@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Design</string>
     <string name="username">username</string>
+    <string name="textfromStringXML">This text is from string.xml</string>
+    <string name="underline"><u>Text With Underline</u></string>
+    <string name="strikeThrough"><strike>Text with strike through line</strike></string>
 </resources>

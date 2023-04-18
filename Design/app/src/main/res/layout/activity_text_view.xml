@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/simpleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="This is a textView with simple text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline3" />
+
+    <TextView
+        android:id="@+id/textFromXML"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/textfromStringXML"
+        app:layout_constraintEnd_toEndOf="@+id/simpleText"
+        app:layout_constraintStart_toStartOf="@+id/simpleText"
+        app:layout_constraintTop_toBottomOf="@+id/simpleText" />
+
+    <TextView
+        android:id="@+id/textWithColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Text view with color"
+        android:textColor="@color/purple_500"
+        app:layout_constraintEnd_toEndOf="@+id/simpleText"
+        app:layout_constraintStart_toStartOf="@+id/simpleText"
+        app:layout_constraintTop_toBottomOf="@+id/textFromXML" />
+
+    <TextView
+        android:id="@+id/textWithCustomFont"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Custom Font"
+        android:fontFamily="cursive"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/simpleText"
+        app:layout_constraintStart_toStartOf="@+id/simpleText"
+        app:layout_constraintTop_toBottomOf="@+id/textWithColor" />
+
+    <TextView
+        android:id="@+id/boldText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Text style - Bold"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/simpleText"
+        app:layout_constraintStart_toStartOf="@+id/simpleText"
+        app:layout_constraintTop_toBottomOf="@+id/textWithCustomFont" />
+
+    <TextView
+        android:id="@+id/italicText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Text style - Italic"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="@+id/simpleText"
+        app:layout_constraintStart_toStartOf="@+id/simpleText"
+        app:layout_constraintTop_toBottomOf="@+id/boldText" />
+
+    <TextView
+        android:id="@+id/underlinedText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/underline"
+        app:layout_constraintEnd_toEndOf="@+id/simpleText"
+        app:layout_constraintStart_toStartOf="@+id/simpleText"
+        app:layout_constraintTop_toBottomOf="@+id/italicText" />
+
+    <TextView
+        android:id="@+id/lineThroughText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/strikeThrough"
+        app:layout_constraintEnd_toEndOf="@+id/simpleText"
+        app:layout_constraintStart_toStartOf="@+id/simpleText"
+        app:layout_constraintTop_toBottomOf="@+id/underlinedText" />
+
+    <TextView
+        android:id="@+id/textWithLink"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        android:autoLink="web"
+        android:gravity="center"
+        android:text="www.google.com"
+        android:textColorLink="#3F51B5"
+        app:layout_constraintEnd_toEndOf="@+id/simpleText"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="@+id/simpleText"
+        app:layout_constraintTop_toBottomOf="@+id/lineThroughText" />
+
+    <TextView
+        android:id="@+id/textViewWithBg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Text view with background"
+        android:background="@color/teal_200"
+        app:layout_constraintEnd_toEndOf="@+id/simpleText"
+        app:layout_constraintStart_toStartOf="@+id/simpleText"
+        app:layout_constraintTop_toBottomOf="@+id/textWithLink" />
+
+    <TextView
+        android:id="@+id/selectableText"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        android:text="This text is selectable"
+        android:gravity="center"
+        android:textIsSelectable="true"
+        app:layout_constraintEnd_toEndOf="@+id/simpleText"
+        app:layout_constraintStart_toStartOf="@+id/simpleText"
+        app:layout_constraintTop_toBottomOf="@+id/textViewWithBg" />
+
+    <TextView
+        android:id="@+id/textWithShadow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Text view with shadow"
+        android:shadowColor="@color/purple_700"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="2"
+        app:layout_constraintEnd_toEndOf="@+id/simpleText"
+        app:layout_constraintStart_toStartOf="@+id/simpleText"
+        app:layout_constraintTop_toBottomOf="@+id/selectableText" />
+
+    <TextView
+        android:id="@+id/overFlowTextEnd"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Text view with overflow text"
+        android:ellipsize="end"
+        android:maxLines="1"
+        app:layout_constraintEnd_toEndOf="@+id/simpleText"
+        app:layout_constraintHorizontal_bias="0.535"
+        app:layout_constraintStart_toStartOf="@+id/simpleText"
+        app:layout_constraintTop_toBottomOf="@+id/textWithShadow" />
+
+    <TextView
+        android:id="@+id/overFlowTextStart"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ellipsize="start"
+        android:maxLines="1"
+        android:text="Text view with overflow text"
+        app:layout_constraintEnd_toEndOf="@+id/simpleText"
+        app:layout_constraintStart_toStartOf="@+id/simpleText"
+        app:layout_constraintTop_toBottomOf="@+id/overFlowTextEnd" />
+
+    <TextView
+        android:id="@+id/overFlowTextMiddle"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ellipsize="middle"
+        android:maxLines="1"
+        android:text="Text view with overflow text"
+        app:layout_constraintEnd_toEndOf="@+id/simpleText"
+        app:layout_constraintStart_toStartOf="@+id/simpleText"
+        app:layout_constraintTop_toBottomOf="@+id/overFlowTextStart" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="20dp" />
+
+    <TextView
+        android:id="@+id/scrollableText"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/black"
+        android:gravity="center"
+        android:maxLines="2"
+        android:textIsSelectable="true"
+        android:text="TextView with scroll \n1\n2\n3\n4\n5"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/overFlowTextMiddle"
+        app:layout_constraintStart_toStartOf="@+id/overFlowTextMiddle"
+        app:layout_constraintTop_toBottomOf="@+id/overFlowTextMiddle" />
+
+    <TextView
+        android:id="@+id/clickableText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="clickable text"
+        app:layout_constraintEnd_toEndOf="@+id/overFlowTextMiddle"
+        app:layout_constraintStart_toStartOf="@+id/overFlowTextMiddle"
+        app:layout_constraintTop_toBottomOf="@+id/scrollableText" />
+
+    <TextView
+        android:id="@+id/longPressText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Long press"
+        app:layout_constraintEnd_toEndOf="@+id/overFlowTextMiddle"
+        app:layout_constraintStart_toStartOf="@+id/overFlowTextMiddle"
+        app:layout_constraintTop_toBottomOf="@+id/clickableText" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
