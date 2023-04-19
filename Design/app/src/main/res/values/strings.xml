@@ -2,6 +2,21 @@
     <string name="app_name">Design</string>
     <string name="username">username</string>
     <string name="textfromStringXML">This text is from string.xml</string>
-    <string name="underline"><u>Text With Underline</u></string>
-    <string name="strikeThrough"><strike>Text with strike through line</strike></string>
+    <string name="underlinedText"><u>Text With Underline</u></string>
+    <string name="lineThroughText"><strike>Text with strike through line</strike></string>
+    <string name="simpleText">This is a textView with simple text</string>
+    <string name="textWithColor">Text view with color</string>
+    <string name="textWithCustomFont">Custom Font</string>
+    <string name="boldText">Text style - Bold</string>
+    <string name="italicText">Text style - Italic</string>
+    <string name="textWithLink">www.google.com</string>
+    <string name="textViewWithBg">Text view with background</string>
+    <string name="selectableText">This text is selectable</string>
+    <string name="textWithShadow">Text view with shadow</string>
+    <string name="overFlowTextEnd">Text view with overflow text</string>
+    <string name="overFlowTextStart">Text view with overflow text</string>
+    <string name="overFlowTextMiddle">Text view with overflow text</string>
+    <string name="scrollableText">TextView with scroll \n1\n2\n3\n4\n5</string>
+    <string name="clickableText">clickable text</string>
+    <string name="longPressText">Long press</string>
 </resources>
