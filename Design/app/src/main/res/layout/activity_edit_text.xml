@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EditText">
+    tools:context=".EditTextActivity">
 
     <EditText
         android:id="@+id/editText"
@@ -55,7 +55,6 @@
         app:layout_constraintTop_toBottomOf="@+id/emailTextInputLayout"
         app:passwordToggleEnabled="true"
         app:placeholderText="Enter password"
-        app:helperText="*required"
         app:helperTextTextColor="@android:color/holo_red_dark"
         app:counterEnabled="true"
         app:counterMaxLength="16">

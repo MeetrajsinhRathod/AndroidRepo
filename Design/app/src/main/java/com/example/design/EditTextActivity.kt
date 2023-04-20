@@ -3,12 +3,10 @@ package com.example.design
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
-import android.widget.EditText
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
-import java.util.regex.Pattern
 
-class EditText : AppCompatActivity() {
+class EditTextActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_text)
@@ -29,6 +27,8 @@ class EditText : AppCompatActivity() {
                 if(!Patterns.EMAIL_ADDRESS.matcher(emailField.text).matches()) {
                     emailLayout.helperText = "invalid email format"
                 }
+            } else {
+                emailLayout.helperText = null
             }
         }
 
@@ -47,6 +47,8 @@ class EditText : AppCompatActivity() {
                 else if (!password.matches(".*[@#$%^&+=-_].*".toRegex())) {
                     passwordLayout.helperText = "must contain one special character (@#$%^&+=-_)"
                 }
+            } else {
+                passwordLayout.helperText = null
             }
         }
     }

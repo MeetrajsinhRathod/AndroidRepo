@@ -9,7 +9,7 @@
         android:id="@+id/textViewBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="@dimen/margin10"
         android:textAllCaps="false"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,5 +27,27 @@
         app:layout_constraintEnd_toEndOf="@+id/textViewBtn"
         app:layout_constraintStart_toStartOf="@+id/textViewBtn"
         app:layout_constraintTop_toBottomOf="@+id/textViewBtn" />
+
+    <Button
+        android:id="@+id/buttonsBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin10"
+        android:text="Buttons"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="@+id/textViewBtn"
+        app:layout_constraintStart_toStartOf="@+id/textViewBtn"
+        app:layout_constraintTop_toBottomOf="@+id/editTextBtn" />
+
+    <Button
+        android:id="@+id/radioBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin10"
+        android:text="RadioBtn/CheckBox"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="@+id/textViewBtn"
+        app:layout_constraintStart_toStartOf="@+id/textViewBtn"
+        app:layout_constraintTop_toBottomOf="@+id/buttonsBtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

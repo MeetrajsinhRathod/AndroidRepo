@@ -12,6 +12,8 @@ class MainActivity : AppCompatActivity() {
 
         val textViewBtn = findViewById<Button>(R.id.textViewBtn)
         val editTextBtn = findViewById<Button>(R.id.editTextBtn)
+        val buttonsBtn = findViewById<Button>(R.id.buttonsBtn)
+        val radioBtn = findViewById<Button>(R.id.radioBtn)
 
         textViewBtn.setOnClickListener {
             val textViewPage = Intent(this, TextViewActivity::class.java)
@@ -19,9 +21,18 @@ class MainActivity : AppCompatActivity() {
         }
 
         editTextBtn.setOnClickListener {
-            val editTextPage = Intent(this, EditText::class.java)
+            val editTextPage = Intent(this, EditTextActivity::class.java)
             startActivity(editTextPage)
         }
 
+        buttonsBtn.setOnClickListener {
+            val buttonsPage = Intent(this, ButtonsActivity::class.java)
+            startActivity(buttonsPage)
+        }
+
+        radioBtn.setOnClickListener {
+            val radioBtnPage = Intent(this, RadioBtnActivity::class.java)
+            startActivity(radioBtnPage)
+        }
     }
 }
