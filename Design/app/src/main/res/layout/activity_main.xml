@@ -5,21 +5,40 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/textViewBtn"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/guideLine20" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="@dimen/guideLine20" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/guideLine20" />
+
+    <Button
+        android:id="@+id/textViewBtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin10"
-        android:textAllCaps="false"
         android:text="TextView"
+        android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintEnd_toStartOf="@id/guideline3"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/editTextBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin10"
         android:text="EditText"
@@ -30,7 +49,7 @@
 
     <Button
         android:id="@+id/buttonsBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin10"
         android:text="Buttons"
@@ -41,7 +60,7 @@
 
     <Button
         android:id="@+id/radioBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin10"
         android:text="RadioBtn/CheckBox"
@@ -49,5 +68,50 @@
         app:layout_constraintEnd_toEndOf="@+id/textViewBtn"
         app:layout_constraintStart_toStartOf="@+id/textViewBtn"
         app:layout_constraintTop_toBottomOf="@+id/buttonsBtn" />
+
+    <Button
+        android:id="@+id/toggleSwitch"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin10"
+        android:text="ToggleBtn/Switch"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="@+id/textViewBtn"
+        app:layout_constraintStart_toStartOf="@+id/textViewBtn"
+        app:layout_constraintTop_toBottomOf="@+id/radioBtn" />
+
+    <Button
+        android:id="@+id/imageViewBtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin10"
+        android:text="ImageView"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="@+id/textViewBtn"
+        app:layout_constraintStart_toStartOf="@+id/textViewBtn"
+        app:layout_constraintTop_toBottomOf="@+id/toggleSwitch" />
+
+    <Button
+        android:id="@+id/toastBtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Toast"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="@+id/textViewBtn"
+        app:layout_constraintStart_toStartOf="@+id/textViewBtn"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewBtn" />
+
+    <Button
+        android:id="@+id/progressBtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="ProgressBar/SeekBar"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="@+id/textViewBtn"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textViewBtn"
+        app:layout_constraintTop_toBottomOf="@+id/toastBtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

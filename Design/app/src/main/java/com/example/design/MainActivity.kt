@@ -14,6 +14,10 @@ class MainActivity : AppCompatActivity() {
         val editTextBtn = findViewById<Button>(R.id.editTextBtn)
         val buttonsBtn = findViewById<Button>(R.id.buttonsBtn)
         val radioBtn = findViewById<Button>(R.id.radioBtn)
+        val toggleSwitch = findViewById<Button>(R.id.toggleSwitch)
+        val imageViewBtn = findViewById<Button>(R.id.imageViewBtn)
+        val toastBtn = findViewById<Button>(R.id.toastBtn)
+        val progressBtn = findViewById<Button>(R.id.progressBtn)
 
         textViewBtn.setOnClickListener {
             val textViewPage = Intent(this, TextViewActivity::class.java)
@@ -33,6 +37,26 @@ class MainActivity : AppCompatActivity() {
         radioBtn.setOnClickListener {
             val radioBtnPage = Intent(this, RadioBtnActivity::class.java)
             startActivity(radioBtnPage)
+        }
+
+        toggleSwitch.setOnClickListener {
+            val toggleSwitchPage = Intent(this, ToggleSwitchActivity::class.java)
+            startActivity(toggleSwitchPage)
+        }
+
+        imageViewBtn.setOnClickListener {
+            val imageViewPage = Intent(this, ImageViewActivity::class.java)
+            startActivity(imageViewPage)
+        }
+
+        toastBtn.setOnClickListener {
+            val toastPage = Intent(this, ToastActivity::class.java)
+            startActivity(toastPage)
+        }
+
+        progressBtn.setOnClickListener {
+            val progressPage = Intent(this, ProgressActivity::class.java)
+            startActivity(progressPage)
         }
     }
 }
