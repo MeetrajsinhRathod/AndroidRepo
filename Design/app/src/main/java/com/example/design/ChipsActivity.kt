@@ -2,12 +2,11 @@ package com.example.design
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ProgressBar
-import android.widget.SeekBar
+import com.google.android.material.chip.Chip
 
-class ProgressActivity : AppCompatActivity() {
+class ChipsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_progress)
+        setContentView(R.layout.activity_chips)
     }
 }

@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
         val imageViewBtn = findViewById<Button>(R.id.imageViewBtn)
         val toastBtn = findViewById<Button>(R.id.toastBtn)
         val progressBtn = findViewById<Button>(R.id.progressBtn)
+        val chipsBtn = findViewById<Button>(R.id.chipsBtn)
 
         textViewBtn.setOnClickListener {
             val textViewPage = Intent(this, TextViewActivity::class.java)
@@ -57,6 +58,11 @@ class MainActivity : AppCompatActivity() {
         progressBtn.setOnClickListener {
             val progressPage = Intent(this, ProgressActivity::class.java)
             startActivity(progressPage)
+        }
+
+        chipsBtn.setOnClickListener {
+            val chipsPage = Intent(this, ChipsActivity::class.java)
+            startActivity(chipsPage)
         }
     }
 }
