@@ -19,6 +19,8 @@ class MainActivity : AppCompatActivity() {
         val toastBtn = findViewById<Button>(R.id.toastBtn)
         val progressBtn = findViewById<Button>(R.id.progressBtn)
         val chipsBtn = findViewById<Button>(R.id.chipsBtn)
+        val spinnerBtn = findViewById<Button>(R.id.spinnerBtn)
+        val datePickerBtn = findViewById<Button>(R.id.datePickerBtn)
 
         textViewBtn.setOnClickListener {
             val textViewPage = Intent(this, TextViewActivity::class.java)
@@ -63,6 +65,16 @@ class MainActivity : AppCompatActivity() {
         chipsBtn.setOnClickListener {
             val chipsPage = Intent(this, ChipsActivity::class.java)
             startActivity(chipsPage)
+        }
+
+        spinnerBtn.setOnClickListener {
+            val spinnerPage = Intent(this, SpinnerActivity::class.java)
+            startActivity(spinnerPage)
+        }
+
+        datePickerBtn.setOnClickListener {
+            val datePickerPage = Intent(this, DatePickerActivity::class.java)
+            startActivity(datePickerPage)
         }
     }
 }

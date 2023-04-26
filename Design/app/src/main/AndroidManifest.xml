@@ -12,29 +12,19 @@
         android:theme="@style/Theme.Design"
         tools:targetApi="31">
         <activity
-            android:name=".ChipsActivity"
+            android:name=".DatePickerActivity"
             android:exported="false" />
         <activity
-            android:name=".ProgressActivity"
+            android:name=".SpinnerActivity"
             android:exported="false" />
-        <activity
-            android:name=".ToastActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ImageViewActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ToggleSwitchActivity"
-            android:exported="false" />
-        <activity
-            android:name=".RadioBtnActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ButtonsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".EditTextActivity"
-            android:exported="false" />
+        <activity android:name=".ChipsActivity" />
+        <activity android:name=".ProgressActivity" />
+        <activity android:name=".ToastActivity" />
+        <activity android:name=".ImageViewActivity" />
+        <activity android:name=".ToggleSwitchActivity" />
+        <activity android:name=".RadioBtnActivity" />
+        <activity android:name=".ButtonsActivity" />
+        <activity android:name=".EditTextActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -44,9 +34,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".TextViewActivity"
-            android:exported="false" />
+        <activity android:name=".TextViewActivity" />
     </application>
 
 </manifest>

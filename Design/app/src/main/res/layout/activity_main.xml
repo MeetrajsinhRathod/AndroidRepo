@@ -103,18 +103,6 @@
         app:layout_constraintTop_toBottomOf="@+id/imageViewBtn" />
 
     <Button
-        android:id="@+id/chipsBtn"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Chips"
-        android:textAllCaps="false"
-        app:layout_constraintEnd_toEndOf="@+id/textViewBtn"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textViewBtn"
-        app:layout_constraintTop_toBottomOf="@+id/progressBtn" />
-
-    <Button
         android:id="@+id/progressBtn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -122,8 +110,40 @@
         android:text="ProgressBar/SeekBar"
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="@+id/textViewBtn"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textViewBtn"
         app:layout_constraintTop_toBottomOf="@+id/toastBtn" />
+
+    <Button
+        android:id="@+id/chipsBtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Chips"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="@+id/textViewBtn"
+        app:layout_constraintStart_toStartOf="@+id/textViewBtn"
+        app:layout_constraintTop_toBottomOf="@+id/progressBtn" />
+
+    <Button
+        android:id="@+id/spinnerBtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Spinner"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="@+id/textViewBtn"
+        app:layout_constraintStart_toStartOf="@+id/textViewBtn"
+        app:layout_constraintTop_toBottomOf="@+id/chipsBtn" />
+
+    <Button
+        android:id="@+id/datePickerBtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="DatePicker"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="@+id/textViewBtn"
+        app:layout_constraintStart_toStartOf="@+id/textViewBtn"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerBtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

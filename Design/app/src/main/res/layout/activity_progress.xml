@@ -45,13 +45,12 @@
     <SeekBar
 
         android:id="@+id/seekBar"
-        style="@style/Widget.AppCompat.SeekBar.Discrete"
         android:layout_width="0dp"
-
         android:layout_height="wrap_content"
         android:indeterminateTint="@color/black"
-        android:max="10"
+        android:max="8"
         android:min="0"
+        android:tickMark="@android:drawable/star_big_off"
         android:progress="2"
         android:progressBackgroundTint="@color/teal_200"
         android:progressTint="#FFD043"
@@ -92,6 +91,11 @@
         android:layout_marginTop="10dp"
         android:indeterminate="true"
         android:indeterminateTint="#814BE1"
+        app:trackThickness="@dimen/margin10"
+        app:trackCornerRadius="@dimen/margin10"
+        app:indeterminateAnimationType="disjoint"
+        android:secondaryProgressTint="@color/white"
+        android:progressTint="@color/black"
         app:layout_constraintEnd_toEndOf="@id/guideline3"
         app:layout_constraintStart_toStartOf="@+id/guideline1"
         app:layout_constraintTop_toBottomOf="@+id/progressBar3"
@@ -101,28 +105,43 @@
         android:id="@+id/progressBar5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:min="0"
+        android:max="100"
+        android:progress="20"
         android:layout_marginTop="@dimen/margin10"
-        android:indeterminate="true"
         app:indicatorColor="#FF5722"
         app:layout_constraintEnd_toEndOf="@id/guideline3"
         app:layout_constraintStart_toStartOf="@+id/guideline1"
         app:layout_constraintTop_toBottomOf="@+id/progressBar4"
         app:trackColor="#3F51B5"
-        app:trackThickness="8dp" />
+        app:trackThickness="30dp" />
 
     <com.google.android.material.slider.Slider
         android:id="@+id/slider1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:valueFrom="0"
+        android:valueTo="100"
+        android:value="40"
+        android:stepSize="20"
+        app:tickVisible="true"
+        app:tickColor="#F44336"
+        app:trackColorActive="@color/teal_200"
+        app:trackColorInactive="@color/black"
         app:layout_constraintEnd_toEndOf="@id/guideline3"
         app:layout_constraintStart_toStartOf="@+id/guideline1"
         app:layout_constraintTop_toBottomOf="@+id/progressBar5"/>
 
     <com.google.android.material.slider.RangeSlider
+        android:id="@+id/rangeSlider"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="@id/guideline3"
         app:layout_constraintStart_toStartOf="@+id/guideline1"
-        app:layout_constraintTop_toBottomOf="@+id/slider1"/>
+        app:layout_constraintTop_toBottomOf="@+id/slider1"
+        android:valueFrom="0"
+        android:valueTo="50"
+        app:values="@array/rangeSlider"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
