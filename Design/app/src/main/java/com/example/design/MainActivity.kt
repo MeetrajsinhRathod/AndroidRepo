@@ -4,77 +4,80 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import androidx.databinding.DataBindingUtil
+import com.example.design.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
-        val textViewBtn = findViewById<Button>(R.id.textViewBtn)
-        val editTextBtn = findViewById<Button>(R.id.editTextBtn)
-        val buttonsBtn = findViewById<Button>(R.id.buttonsBtn)
-        val radioBtn = findViewById<Button>(R.id.radioBtn)
-        val toggleSwitch = findViewById<Button>(R.id.toggleSwitch)
-        val imageViewBtn = findViewById<Button>(R.id.imageViewBtn)
-        val toastBtn = findViewById<Button>(R.id.toastBtn)
-        val progressBtn = findViewById<Button>(R.id.progressBtn)
-        val chipsBtn = findViewById<Button>(R.id.chipsBtn)
-        val spinnerBtn = findViewById<Button>(R.id.spinnerBtn)
-        val datePickerBtn = findViewById<Button>(R.id.datePickerBtn)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        textViewBtn.setOnClickListener {
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+
+        binding.goToTextView = "TextView(from data binding)"
+
+        binding.btnTextView.setOnClickListener {
             val textViewPage = Intent(this, TextViewActivity::class.java)
             startActivity(textViewPage)
         }
 
-        editTextBtn.setOnClickListener {
+        binding.btnEditText.setOnClickListener {
             val editTextPage = Intent(this, EditTextActivity::class.java)
             startActivity(editTextPage)
         }
 
-        buttonsBtn.setOnClickListener {
+        binding.btnButtons.setOnClickListener {
             val buttonsPage = Intent(this, ButtonsActivity::class.java)
             startActivity(buttonsPage)
         }
 
-        radioBtn.setOnClickListener {
+        binding.btnRadio.setOnClickListener {
             val radioBtnPage = Intent(this, RadioBtnActivity::class.java)
             startActivity(radioBtnPage)
         }
 
-        toggleSwitch.setOnClickListener {
+        binding.btnToggleSwitch.setOnClickListener {
             val toggleSwitchPage = Intent(this, ToggleSwitchActivity::class.java)
             startActivity(toggleSwitchPage)
         }
 
-        imageViewBtn.setOnClickListener {
+        binding.btnImageView.setOnClickListener {
             val imageViewPage = Intent(this, ImageViewActivity::class.java)
             startActivity(imageViewPage)
         }
 
-        toastBtn.setOnClickListener {
+        binding.btnToast.setOnClickListener {
             val toastPage = Intent(this, ToastActivity::class.java)
             startActivity(toastPage)
         }
 
-        progressBtn.setOnClickListener {
+        binding.btnProgress.setOnClickListener {
             val progressPage = Intent(this, ProgressActivity::class.java)
             startActivity(progressPage)
         }
 
-        chipsBtn.setOnClickListener {
+        binding.btnChips.setOnClickListener {
             val chipsPage = Intent(this, ChipsActivity::class.java)
             startActivity(chipsPage)
         }
 
-        spinnerBtn.setOnClickListener {
+        binding.btnSpinner.setOnClickListener {
             val spinnerPage = Intent(this, SpinnerActivity::class.java)
             startActivity(spinnerPage)
         }
 
-        datePickerBtn.setOnClickListener {
+        binding.btnDatePicker.setOnClickListener {
             val datePickerPage = Intent(this, DatePickerActivity::class.java)
             startActivity(datePickerPage)
+        }
+
+        binding.btnDataBinding.setOnClickListener {
+            val dataBindingPage = Intent(this, DataBindingActivity::class.java)
+            startActivity(dataBindingPage)
         }
     }
 }

@@ -1,149 +1,191 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="@dimen/guideLine20" />
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="@dimen/guideLine20" />
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="@dimen/guideLine20" />
+<layout>
 
-    <Button
-        android:id="@+id/textViewBtn"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin10"
-        android:text="TextView"
-        android:textAllCaps="false"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintEnd_toStartOf="@id/guideline3"
-        app:layout_constraintTop_toTopOf="parent" />
+    <data>
 
-    <Button
-        android:id="@+id/editTextBtn"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin10"
-        android:text="EditText"
-        android:textAllCaps="false"
-        app:layout_constraintEnd_toEndOf="@+id/textViewBtn"
-        app:layout_constraintStart_toStartOf="@+id/textViewBtn"
-        app:layout_constraintTop_toBottomOf="@+id/textViewBtn" />
+        <variable
+            name="goToTextView"
+            type="String" />
+    </data>
 
-    <Button
-        android:id="@+id/buttonsBtn"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin10"
-        android:text="Buttons"
-        android:textAllCaps="false"
-        app:layout_constraintEnd_toEndOf="@+id/textViewBtn"
-        app:layout_constraintStart_toStartOf="@+id/textViewBtn"
-        app:layout_constraintTop_toBottomOf="@+id/editTextBtn" />
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/radioBtn"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin10"
-        android:text="RadioBtn/CheckBox"
-        android:textAllCaps="false"
-        app:layout_constraintEnd_toEndOf="@+id/textViewBtn"
-        app:layout_constraintStart_toStartOf="@+id/textViewBtn"
-        app:layout_constraintTop_toBottomOf="@+id/buttonsBtn" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/guideLine20" />
 
-    <Button
-        android:id="@+id/toggleSwitch"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin10"
-        android:text="ToggleBtn/Switch"
-        android:textAllCaps="false"
-        app:layout_constraintEnd_toEndOf="@+id/textViewBtn"
-        app:layout_constraintStart_toStartOf="@+id/textViewBtn"
-        app:layout_constraintTop_toBottomOf="@+id/radioBtn" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="@dimen/guideLine20" />
 
-    <Button
-        android:id="@+id/imageViewBtn"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin10"
-        android:text="ImageView"
-        android:textAllCaps="false"
-        app:layout_constraintEnd_toEndOf="@+id/textViewBtn"
-        app:layout_constraintStart_toStartOf="@+id/textViewBtn"
-        app:layout_constraintTop_toBottomOf="@+id/toggleSwitch" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/guideLine20" />
 
-    <Button
-        android:id="@+id/toastBtn"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Toast"
-        android:textAllCaps="false"
-        app:layout_constraintEnd_toEndOf="@+id/textViewBtn"
-        app:layout_constraintStart_toStartOf="@+id/textViewBtn"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewBtn" />
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/guideline3"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="@+id/guideline2">
 
-    <Button
-        android:id="@+id/progressBtn"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="ProgressBar/SeekBar"
-        android:textAllCaps="false"
-        app:layout_constraintEnd_toEndOf="@+id/textViewBtn"
-        app:layout_constraintStart_toStartOf="@+id/textViewBtn"
-        app:layout_constraintTop_toBottomOf="@+id/toastBtn" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/scrollViewConstraintLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/chipsBtn"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Chips"
-        android:textAllCaps="false"
-        app:layout_constraintEnd_toEndOf="@+id/textViewBtn"
-        app:layout_constraintStart_toStartOf="@+id/textViewBtn"
-        app:layout_constraintTop_toBottomOf="@+id/progressBtn" />
+                <Button
+                    android:id="@+id/btnTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{goToTextView}"
+                    android:textAllCaps="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/spinnerBtn"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Spinner"
-        android:textAllCaps="false"
-        app:layout_constraintEnd_toEndOf="@+id/textViewBtn"
-        app:layout_constraintStart_toStartOf="@+id/textViewBtn"
-        app:layout_constraintTop_toBottomOf="@+id/chipsBtn" />
+                <Button
+                    android:id="@+id/btnEditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin10"
+                    android:text="EditText"
+                    android:textAllCaps="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnTextView" />
 
-    <Button
-        android:id="@+id/datePickerBtn"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="DatePicker"
-        android:textAllCaps="false"
-        app:layout_constraintEnd_toEndOf="@+id/textViewBtn"
-        app:layout_constraintStart_toStartOf="@+id/textViewBtn"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerBtn" />
+                <Button
+                    android:id="@+id/btnButtons"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin10"
+                    android:text="Buttons"
+                    android:textAllCaps="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnEditText" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <Button
+                    android:id="@+id/btnRadio"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin10"
+                    android:text="RadioBtn/CheckBox"
+                    android:textAllCaps="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnButtons" />
+
+                <Button
+                    android:id="@+id/btnToggleSwitch"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin10"
+                    android:text="ToggleBtn/Switch"
+                    android:textAllCaps="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnRadio" />
+
+                <Button
+                    android:id="@+id/btnImageView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin10"
+                    android:text="ImageView"
+                    android:textAllCaps="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnToggleSwitch" />
+
+                <Button
+                    android:id="@+id/btnToast"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Toast"
+                    android:textAllCaps="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnImageView" />
+
+                <Button
+                    android:id="@+id/btnProgress"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="ProgressBar/SeekBar"
+                    android:textAllCaps="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnToast" />
+
+                <Button
+                    android:id="@+id/btnChips"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Chips"
+                    android:textAllCaps="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnProgress" />
+
+                <Button
+                    android:id="@+id/btnSpinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Spinner"
+                    android:textAllCaps="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnChips" />
+
+                <Button
+                    android:id="@+id/btnDatePicker"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="DatePicker"
+                    android:textAllCaps="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnSpinner" />
+
+                <Button
+                    android:id="@+id/btnDataBinding"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="DataBinding"
+                    android:textAllCaps="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnDatePicker" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
