@@ -4,8 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
-import android.widget.Filterable
 import android.widget.Spinner
+import com.example.design.Adapters.SpinnerItemAdapter
 
 class SpinnerActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

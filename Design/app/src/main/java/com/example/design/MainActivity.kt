@@ -16,10 +16,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-
-        binding.goToTextView = "TextView(from data binding)"
-
         binding.btnTextView.setOnClickListener {
             val textViewPage = Intent(this, TextViewActivity::class.java)
             startActivity(textViewPage)
@@ -78,6 +74,26 @@ class MainActivity : AppCompatActivity() {
         binding.btnDataBinding.setOnClickListener {
             val dataBindingPage = Intent(this, DataBindingActivity::class.java)
             startActivity(dataBindingPage)
+        }
+
+        binding.btnFrameLayout.setOnClickListener {
+            val frameLayoutPage = Intent(this, FrameLayoutActivity::class.java)
+            startActivity(frameLayoutPage)
+        }
+
+        binding.btnFloatingActionButton.setOnClickListener {
+            val floatingActionButtonPage = Intent(this, FloatingActionButtonActivity::class.java)
+            startActivity(floatingActionButtonPage)
+        }
+
+        binding.btnSnackBar.setOnClickListener {
+            val snackBarPage = Intent(this, SnackbarActivity::class.java)
+            startActivity(snackBarPage)
+        }
+
+        binding.btnTabLayout.setOnClickListener {
+            val tabLayoutPage = Intent(this, TabLayoutActivity::class.java)
+            startActivity(tabLayoutPage)
         }
     }
 }

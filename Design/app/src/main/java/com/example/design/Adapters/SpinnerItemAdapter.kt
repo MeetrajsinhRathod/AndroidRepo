@@ -1,4 +1,4 @@
-package com.example.design
+package com.example.design.Adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import com.example.design.R
 
 class SpinnerItemAdapter: BaseAdapter {
 
