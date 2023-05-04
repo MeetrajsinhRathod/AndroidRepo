@@ -11,9 +11,9 @@ import com.example.design.R
 
 class SpinnerItemAdapter: BaseAdapter {
 
-    var context:Context
-    var countryNames: Array<String>
-    var countryFlags: Array<Int>
+    private var context:Context
+    private var countryNames: Array<String>
+    private var countryFlags: Array<Int>
 
     constructor(context: Context, countryNames: Array<String>, countryFlags: Array<Int>) : super() {
         this.context = context
@@ -21,9 +21,7 @@ class SpinnerItemAdapter: BaseAdapter {
         this.countryFlags = countryFlags
     }
 
-
     override fun getCount() = countryNames.size
-
 
     override fun getItem(p0: Int): Any {
         return 0
@@ -37,10 +35,8 @@ class SpinnerItemAdapter: BaseAdapter {
         val view = LayoutInflater.from(context).inflate(R.layout.custom_spinner_layout, p2, false)
         val imageView = view.findViewById<ImageView>(R.id.countryImageView)
         val textView = view.findViewById<TextView>(R.id.countryTextView)
-
         textView.text = countryNames[p0]
         imageView.setImageResource(countryFlags[p0])
-
         return view
     }
 }

@@ -6,20 +6,24 @@ import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Spinner
 import com.example.design.Adapters.SpinnerItemAdapter
+import com.example.design.databinding.ActivitySpinnerBinding
 
 class SpinnerActivity : AppCompatActivity() {
+    private lateinit var binding: ActivitySpinnerBinding
+    private val countryNames = arrayOf("india","australia", "china", "uae", "ukraine", "usa")
+    private val countryFlags = arrayOf(R.drawable.india,R.drawable.australia, R.drawable.china, R.drawable.uae, R.drawable.ukraine, R.drawable.usa)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_spinner)
+        binding = ActivitySpinnerBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        configureUI()
+    }
 
-        val countrySpinner = findViewById<Spinner>(R.id.countrySpinner)
-        val countryNames = arrayOf("india","australia", "china", "uae", "ukraine", "usa")
-        val countryFlags = arrayOf(R.drawable.india,R.drawable.australia, R.drawable.china, R.drawable.uae, R.drawable.ukraine, R.drawable.usa)
-        val autoCompleteTextView = findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView)
-
-        countrySpinner.adapter = SpinnerItemAdapter(this, countryNames, countryFlags)
+    private fun configureUI() {
+        binding.countrySpinner.adapter = SpinnerItemAdapter(this, countryNames, countryFlags)
 
         val arrayAdapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, countryNames)
-        autoCompleteTextView.setAdapter(arrayAdapter)
+        binding.autoCompleteTextView.setAdapter(arrayAdapter)
     }
 }

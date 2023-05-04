@@ -15,15 +15,17 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 class FloatingActionButtonActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityFloatingActionButtonBinding
+    private var isFabExtended = false
+    private var isCircularFabExtended = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityFloatingActionButtonBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        configureUI()
+    }
 
-        var isFabExtended = false
-        var isCircularFabExtended = false
+    private fun configureUI() {
         binding.groupSendMsg.visibility = View.GONE
         binding.groupCircularFloatingButtons.visibility = View.GONE
         binding.fabSendMsg.shrink()

@@ -12,10 +12,12 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        configureUI()
+    }
 
+    private fun configureUI() {
         binding.btnTextView.setOnClickListener {
             val textViewPage = Intent(this, TextViewActivity::class.java)
             startActivity(textViewPage)
@@ -94,6 +96,16 @@ class MainActivity : AppCompatActivity() {
         binding.btnTabLayout.setOnClickListener {
             val tabLayoutPage = Intent(this, TabLayoutActivity::class.java)
             startActivity(tabLayoutPage)
+        }
+
+        binding.btnGridLayout.setOnClickListener {
+            val gridLayoutPage = Intent(this, GridLayoutActivity::class.java)
+            startActivity(gridLayoutPage)
+        }
+
+        binding.btnAppBarLayout.setOnClickListener {
+            val appBarLayoutPage =Intent(this, AppBarLayoutActivity::class.java)
+            startActivity(appBarLayoutPage)
         }
     }
 }

@@ -20,57 +20,52 @@ import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.design.databinding.ActivityTextViewBinding
 
 class TextViewActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityTextViewBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_text_view)
+        binding = ActivityTextViewBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         configureUI()
     }
 
     private fun configureUI() {
-
-        val clickableText = findViewById<TextView>(R.id.clickableText)
-        val longPressText = findViewById<TextView>(R.id.longPressText)
-        val spanText = findViewById<TextView>(R.id.spanText)
-
         val spannableStr = SpannableString("Red Blue(Bold) Green")
-
         val blue = ForegroundColorSpan(Color.BLUE)
         val green = ForegroundColorSpan(Color.GREEN)
         val bold = StyleSpan(Typeface.BOLD)
         val underLine = UnderlineSpan()
         val lineThrough = StrikethroughSpan()
-
         val clickable = object : ClickableSpan() {
             override fun onClick(p0: View) {
                 Toast.makeText(applicationContext, "Tapped", Toast.LENGTH_SHORT).show()
             }
-            override fun updateDrawState(ds: TextPaint) {
-                super.updateDrawState(ds)
-                ds.color = Color.RED
-                ds.isUnderlineText = false
+            override fun updateDrawState(drawState: TextPaint) {
+                super.updateDrawState(drawState)
+                drawState.color = Color.RED
+                drawState.isUnderlineText = false
             }
         }
+        spannableStr.setSpan(clickable, 0, 3, Spanned.SPAN_INCLUSIVE_INCLUSIVE)
+        spannableStr.setSpan(blue, 4, 14, Spanned.SPAN_INCLUSIVE_INCLUSIVE)
+        spannableStr.setSpan(bold, 4, 14, Spanned.SPAN_INCLUSIVE_INCLUSIVE)
+        spannableStr.setSpan(green, 15, 20, Spanned.SPAN_INCLUSIVE_INCLUSIVE)
+        spannableStr.setSpan(lineThrough, 15, 20, Spanned.SPAN_INCLUSIVE_INCLUSIVE)
+        spannableStr.setSpan(underLine, 15, 20, Spanned.SPAN_INCLUSIVE_INCLUSIVE)
 
-        spannableStr.setSpan(clickable, 0,3, Spanned.SPAN_INCLUSIVE_INCLUSIVE)
-        spannableStr.setSpan(blue, 4,14, Spanned.SPAN_INCLUSIVE_INCLUSIVE)
-        spannableStr.setSpan(bold, 4,14, Spanned.SPAN_INCLUSIVE_INCLUSIVE)
-        spannableStr.setSpan(green, 15,20, Spanned.SPAN_INCLUSIVE_INCLUSIVE)
-        spannableStr.setSpan(lineThrough, 15,20, Spanned.SPAN_INCLUSIVE_INCLUSIVE)
-        spannableStr.setSpan(underLine, 15,20, Spanned.SPAN_INCLUSIVE_INCLUSIVE)
+        binding.spanText.movementMethod = LinkMovementMethod.getInstance()
+        binding.spanText.text = spannableStr
 
-        spanText.movementMethod = LinkMovementMethod.getInstance()
-        spanText.setText(spannableStr)
-
-        clickableText.setOnClickListener {
-            clickableText.setTextColor(Color.GREEN)
+        binding.clickableText.setOnClickListener {
+            binding.clickableText.setTextColor(Color.GREEN)
         }
 
-        longPressText.setOnLongClickListener {
+        binding.longPressText.setOnLongClickListener {
             Toast.makeText(applicationContext, "Long pressed", Toast.LENGTH_SHORT).show()
-            longPressText.setTextColor(Color.MAGENTA)
+            binding.longPressText.setTextColor(Color.MAGENTA)
             true
         }
     }

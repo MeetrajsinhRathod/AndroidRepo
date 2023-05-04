@@ -11,34 +11,34 @@ import android.widget.TextView
 import android.widget.ToggleButton
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.SwitchCompat
+import com.example.design.databinding.ActivityToggleSwitchBinding
 
 class ToggleSwitchActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityToggleSwitchBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_toggle_switch)
+        binding = ActivityToggleSwitchBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        configureUI()
+    }
 
-        val left = findViewById<Button>(R.id.leftAlign)
-        val center = findViewById<Button>(R.id.centerAlign)
-        val right = findViewById<Button>(R.id.rightAlign)
-        val text = findViewById<TextView>(R.id.textToAlign)
-        val nightModeSwitch = findViewById<SwitchCompat>(R.id.nightModeSwitch)
-
-        left.setOnClickListener {
-            text.textAlignment = View.TEXT_ALIGNMENT_TEXT_START
-            text.text = text.text
+    private fun configureUI(){
+        binding.leftAlign.setOnClickListener {
+            binding.textToAlign.textAlignment = View.TEXT_ALIGNMENT_TEXT_START
+            binding.textToAlign.text = binding.textToAlign.text
         }
 
-        center.setOnClickListener {
-            text.textAlignment = View.TEXT_ALIGNMENT_CENTER
-            text.text = text.text
+        binding.centerAlign.setOnClickListener {
+            binding.textToAlign.textAlignment = View.TEXT_ALIGNMENT_CENTER
+            binding.textToAlign.text = binding.textToAlign.text
         }
 
-        right.setOnClickListener {
-            text.textAlignment = View.TEXT_ALIGNMENT_TEXT_END
-            text.text = text.text
+        binding.rightAlign.setOnClickListener {
+            binding.textToAlign.textAlignment = View.TEXT_ALIGNMENT_TEXT_END
+            binding.textToAlign.text = binding.textToAlign.text
         }
 
-        nightModeSwitch.setOnCheckedChangeListener { _, checked ->
+        binding.nightModeSwitch.setOnCheckedChangeListener { _, checked ->
             if (checked) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
             } else {

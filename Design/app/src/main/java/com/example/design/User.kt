@@ -1,4 +1,4 @@
-package com.example.design.Modals
+package com.example.design
 
 import android.util.Log
 import android.widget.Button

@@ -11,10 +11,12 @@ class SnackbarActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySnackbarBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivitySnackbarBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        configureUI()
+    }
 
+    private fun configureUI() {
         binding.btnSimpleSnackBar.setOnClickListener {
             Snackbar.make(this,it,"This is a simple SnackBar",Snackbar.LENGTH_SHORT).show()
         }
@@ -49,7 +51,5 @@ class SnackbarActivity : AppCompatActivity() {
             layout.addView(customView)
             customSnackBar.show()
         }
-
-
     }
 }

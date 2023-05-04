@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ButtonsActivity">
 
-
     <Button
         android:id="@+id/TextBtn"
         android:layout_width="wrap_content"
@@ -57,7 +56,6 @@
         app:layout_constraintEnd_toEndOf="@+id/textBtn2"
         app:layout_constraintStart_toStartOf="@+id/textBtn2"
         app:layout_constraintTop_toBottomOf="@+id/textBtn2" />
-
 
     <Button
         android:id="@+id/button9"

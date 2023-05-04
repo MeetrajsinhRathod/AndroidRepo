@@ -6,28 +6,30 @@ import android.widget.Button
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
+import com.example.design.databinding.ActivityRadioBtnBinding
 
 class RadioBtnActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityRadioBtnBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_radio_btn)
+        binding = ActivityRadioBtnBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        configureUI()
+    }
 
-        val radioGroup = findViewById<RadioGroup>(R.id.radioGroup)
-        val respose = findViewById<TextView>(R.id.responseTextView)
-        val clearBtn = findViewById<Button>(R.id.clearBtn)
-
-        radioGroup.setOnCheckedChangeListener { radioGroup, i ->
-            if(radioGroup.checkedRadioButtonId != -1) {
-                val checkedRadio = findViewById<RadioButton>(radioGroup.checkedRadioButtonId)
-                respose.setText("Response: ${checkedRadio.text}")
+    private fun configureUI() {
+        binding.radioGroup.setOnCheckedChangeListener { _, _ ->
+            if(binding.radioGroup.checkedRadioButtonId != -1) {
+                val checkedRadio = findViewById<RadioButton>(binding.radioGroup.checkedRadioButtonId)
+                binding.responseTextView.text = "Response: ${checkedRadio.text}"
             } else {
-                respose.setText("Response: ")
+                binding.responseTextView.text = "Response: "
             }
         }
 
-        clearBtn.setOnClickListener {
-            radioGroup.clearCheck()
+        binding.clearBtn.setOnClickListener {
+            binding.radioGroup.clearCheck()
         }
-
     }
 }

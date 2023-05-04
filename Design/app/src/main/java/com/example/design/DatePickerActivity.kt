@@ -11,45 +11,42 @@ import android.widget.CalendarView
 import android.widget.DatePicker
 import android.widget.TextClock
 import android.widget.TextView
+import com.example.design.databinding.ActivityDatePickerBinding
 import com.google.android.material.timepicker.MaterialTimePicker
 
 class DatePickerActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityDatePickerBinding
+
+    private val calendar = Calendar.getInstance()
+    private val year = calendar.get(Calendar.YEAR)
+    private val month = calendar.get(Calendar.MONTH)
+    private val day = calendar.get(Calendar.DAY_OF_MONTH)
+    private val hour = calendar.get(Calendar.HOUR)
+    private val minute = calendar.get(Calendar.MINUTE)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_date_picker)
+        binding = ActivityDatePickerBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        configureUI()
+    }
 
-        val dateTV = findViewById<TextView>(R.id.dateTextView)
-        val timeTV = findViewById<TextView>(R.id.timeTextView)
-        val dateBtn = findViewById<Button>(R.id.selectDateBtn)
-        val timeBtn = findViewById<Button>(R.id.selectTimeBtn)
-        val textClock = findViewById<TextClock>(R.id.textClock)
-        val calendarView = findViewById<CalendarView>(R.id.calendarView)
-
-
-        val calendar = Calendar.getInstance()
-        val year = calendar.get(Calendar.YEAR)
-        val month = calendar.get(Calendar.MONTH)
-        val day = calendar.get(Calendar.DAY_OF_MONTH)
-        val hour = calendar.get(Calendar.HOUR)
-        val minute = calendar.get(Calendar.MINUTE)
-
-
-        dateBtn.setOnClickListener {
-
-            val datePickerDialog = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { datePicker, year, month, day ->
+    private fun configureUI() {
+        binding.selectDateBtn.setOnClickListener {
+            val datePickerDialog = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { _, year, month, day ->
                 val calendar1 = Calendar.getInstance()
                 calendar1.set(Calendar.YEAR, year)
                 calendar1.set(Calendar.MONTH, month)
                 calendar1.set(Calendar.DATE, day)
                 val dateFormat = DateFormat.format("EEEE, MMM d, yyyy",calendar1.time)
-                dateTV.text = "Selected Date is : $dateFormat"
+                binding.dateTextView.text = "Selected Date is : $dateFormat"
             }, year, month, day)
             datePickerDialog.show()
         }
 
-        timeBtn.setOnClickListener {
-            val timePickerDialog = TimePickerDialog(this,TimePickerDialog.OnTimeSetListener { timePicker, hour, minute ->
-                timeTV.text = "Selected Time is : $hour : $minute"
+        binding.selectTimeBtn.setOnClickListener {
+            val timePickerDialog = TimePickerDialog(this,TimePickerDialog.OnTimeSetListener { _, hour, minute ->
+                binding.timeTextView.text = "Selected Time is : $hour : $minute"
             }, hour, minute, true)
             timePickerDialog.show()
         }

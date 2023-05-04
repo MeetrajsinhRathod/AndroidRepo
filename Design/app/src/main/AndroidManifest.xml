@@ -12,26 +12,16 @@
         android:theme="@style/Theme.Design"
         tools:targetApi="31">
         <activity
-            android:name=".TabLayoutActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SnackbarActivity"
-            android:exported="false" />
-        <activity
-            android:name=".FloatingActionButtonActivity"
-            android:exported="false" />
-        <activity
-            android:name=".FrameLayoutActivity"
-            android:exported="false" />
-        <activity
-            android:name=".DataBindingActivity"
-            android:exported="false" />
-        <activity
-            android:name=".DatePickerActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SpinnerActivity"
-            android:exported="false" />
+            android:name=".AppBarLayoutActivity"
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"/>
+        <activity android:name=".GridLayoutActivity"/>
+        <activity android:name=".TabLayoutActivity" />
+        <activity android:name=".SnackbarActivity" />
+        <activity android:name=".FloatingActionButtonActivity"/>
+        <activity android:name=".FrameLayoutActivity"/>
+        <activity android:name=".DataBindingActivity" />
+        <activity android:name=".DatePickerActivity" />
+        <activity android:name=".SpinnerActivity" />
         <activity android:name=".ChipsActivity" />
         <activity android:name=".ProgressActivity" />
         <activity android:name=".ToastActivity" />

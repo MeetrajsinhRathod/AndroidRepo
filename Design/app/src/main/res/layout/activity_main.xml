@@ -28,7 +28,8 @@
             app:layout_constraintGuide_end="@dimen/guideLine20" />
 
         <ScrollView
-            android:scrollIndicators="none"
+            android:scrollbarThumbVertical="@null"
+            android:scrollbarAlwaysDrawVerticalTrack="false"
             android:id="@+id/scrollView"
             android:layout_width="0dp"
             android:layout_height="0dp"

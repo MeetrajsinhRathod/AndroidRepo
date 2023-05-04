@@ -14,7 +14,7 @@
 
         <variable
             name="user"
-            type="com.example.design.Modals.User" />
+            type="com.example.design.User" />
 
         <variable
             name="DataBindingActivity"
