@@ -3,9 +3,7 @@ package com.example.design
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
-import android.widget.AutoCompleteTextView
-import android.widget.Spinner
-import com.example.design.Adapters.SpinnerItemAdapter
+import com.example.design.adapters.SpinnerItemAdapter
 import com.example.design.databinding.ActivitySpinnerBinding
 
 class SpinnerActivity : AppCompatActivity() {

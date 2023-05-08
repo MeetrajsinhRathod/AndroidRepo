@@ -4,7 +4,8 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"
@@ -27,231 +28,31 @@
             android:orientation="vertical"
             app:layout_constraintGuide_end="@dimen/guideLine20" />
 
-        <ScrollView
-            android:scrollbarThumbVertical="@null"
-            android:scrollbarAlwaysDrawVerticalTrack="false"
-            android:id="@+id/scrollView"
+        <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="@dimen/guideLine20" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="UIWidgets"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvUIWidgets"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/guideline3"
+            android:layout_marginTop="10dp"
+            app:layout_constraintBottom_toBottomOf="@id/guideline4"
+            app:layout_constraintEnd_toStartOf="@+id/guideline3"
             app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toTopOf="@+id/guideline2">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/scrollViewConstraintLayout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <Button
-                    android:id="@+id/btnTextView"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="TextView"
-                    android:textAllCaps="false"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <Button
-                    android:id="@+id/btnEditText"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin10"
-                    android:text="EditText"
-                    android:textAllCaps="false"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btnTextView" />
-
-                <Button
-                    android:id="@+id/btnButtons"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin10"
-                    android:text="Buttons"
-                    android:textAllCaps="false"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btnEditText" />
-
-                <Button
-                    android:id="@+id/btnRadio"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin10"
-                    android:text="RadioBtn/CheckBox"
-                    android:textAllCaps="false"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btnButtons" />
-
-                <Button
-                    android:id="@+id/btnToggleSwitch"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin10"
-                    android:text="ToggleBtn/Switch"
-                    android:textAllCaps="false"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btnRadio" />
-
-                <Button
-                    android:id="@+id/btnImageView"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin10"
-                    android:text="ImageView"
-                    android:textAllCaps="false"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btnToggleSwitch" />
-
-                <Button
-                    android:id="@+id/btnToast"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="Toast"
-                    android:textAllCaps="false"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btnImageView" />
-
-                <Button
-                    android:id="@+id/btnProgress"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="ProgressBar/SeekBar"
-                    android:textAllCaps="false"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btnToast" />
-
-                <Button
-                    android:id="@+id/btnChips"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="Chips"
-                    android:textAllCaps="false"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btnProgress" />
-
-                <Button
-                    android:id="@+id/btnSpinner"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="Spinner"
-                    android:textAllCaps="false"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btnChips" />
-
-                <Button
-                    android:id="@+id/btnDatePicker"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="DatePicker"
-                    android:textAllCaps="false"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btnSpinner" />
-
-                <Button
-                    android:id="@+id/btnFloatingActionButton"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="FloatingActionButton"
-                    android:textAllCaps="false"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btnDatePicker" />
-
-                <Button
-                    android:id="@+id/btnSnackBar"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="SnackBar"
-                    android:textAllCaps="false"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btnFloatingActionButton" />
-
-                <Button
-                    android:id="@+id/btnDataBinding"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="DataBinding"
-                    android:textAllCaps="false"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btnSnackBar" />
-
-                <Button
-                    android:id="@+id/btnFrameLayout"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="FrameLayout"
-                    android:textAllCaps="false"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btnDataBinding" />
-
-                <Button
-                    android:id="@+id/btnTabLayout"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="TabLayout"
-                    android:textAllCaps="false"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btnFrameLayout" />
-
-                <Button
-                    android:id="@+id/btnGridLayout"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="GridLayout"
-                    android:textAllCaps="false"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btnTabLayout" />
-
-                <Button
-                    android:id="@+id/btnAppBarLayout"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="AppBarLayout"
-                    android:textAllCaps="false"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btnGridLayout" />
-
-                <Button
-                    android:id="@+id/btnCoordinatorLayout"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="CoordinatorLayout"
-                    android:textAllCaps="false"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btnAppBarLayout" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </ScrollView>
+            app:layout_constraintTop_toBottomOf="@id/tvTitle" />
 </androidx.constraintlayout.widget.ConstraintLayout>

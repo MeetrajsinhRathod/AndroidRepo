@@ -2,9 +2,8 @@ package com.example.design
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.widget.ViewPager2
-import com.example.design.Adapters.ViewPagerAdapter
+import com.example.design.adapters.ViewPagerAdapter
 import com.example.design.databinding.ActivityTabLayoutBinding
 import com.google.android.material.tabs.TabLayout
 
