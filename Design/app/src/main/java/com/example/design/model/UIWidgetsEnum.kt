@@ -13,6 +13,7 @@ import com.example.design.ImageViewActivity
 import com.example.design.ProgressActivity
 import com.example.design.RadioBtnActivity
 import com.example.design.RecyclerViewActivity
+import com.example.design.RecyclerViewLinearActivity
 import com.example.design.SnackbarActivity
 import com.example.design.SpinnerActivity
 import com.example.design.TabLayoutActivity

@@ -11,12 +11,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.design.R
 import com.example.design.model.UIWidgetsEnum
 
-class UIWidgetsAdapter(val widgetsArray: Array<UIWidgetsEnum>): RecyclerView.Adapter<UIWidgetsAdapter.ViewHolder>() {
+class UIWidgetsAdapter(private val widgetsArray: Array<UIWidgetsEnum>): RecyclerView.Adapter<UIWidgetsAdapter.ViewHolder>() {
 
     private lateinit var context: Context
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        val btnActivity = itemView.findViewById<Button>(R.id.btnActivity)
+        val btnActivity: Button = itemView.findViewById(R.id.btnActivity)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

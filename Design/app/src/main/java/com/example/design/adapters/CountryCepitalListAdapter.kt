@@ -8,11 +8,11 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.design.model.Country
 import com.example.design.R
 import com.example.design.databinding.ItemCountryBinding
+import com.example.design.model.Country
 
-class CountryListAdapter(var countryList: ArrayList<Country>): RecyclerView.Adapter<CountryListAdapter.CountryListViewHolder>() {
+class CountryCapitalListAdapter(var countryList: ArrayList<Country>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     inner class CountryListViewHolder(binding: ItemCountryBinding): RecyclerView.ViewHolder(binding.root) {
         private val countryFlag: ImageView = binding.countryImageView
@@ -43,28 +43,43 @@ class CountryListAdapter(var countryList: ArrayList<Country>): RecyclerView.Adap
         }
     }
 
-    fun setFilteredList(list: ArrayList<Country>){
-        countryList = list
-        notifyDataSetChanged()
+    class CapitalListViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)
+
+    override fun getItemViewType(position: Int): Int {
+        return if (position == 1) {
+            1
+        } else {
+            2
+        }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CountryListViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_country, parent, false)
-        val binding = ItemCountryBinding.bind(itemView)
-        return CountryListViewHolder(binding)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+
+        return when(viewType) {
+            1 -> { val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_capital, parent, false)
+                CapitalListViewHolder(itemView)
+            }
+            else -> {
+                val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_country, parent, false)
+                val binding = ItemCountryBinding.bind(itemView)
+                CountryListViewHolder(binding)
+            }
+        }
     }
 
     override fun getItemCount(): Int {
         return countryList.size
     }
 
-    override fun onBindViewHolder(holder: CountryListViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
 
-        holder.setUpView(countryList[position], position)
-        if (position % 2 == 0) {
-            holder.itemView.setBackgroundColor(Color.LTGRAY)
-        } else {
-            holder.itemView.setBackgroundColor(Color.WHITE)
+        if (holder is CountryListViewHolder) {
+            holder.setUpView(countryList[position],position)
+            if (position % 2 == 0) {
+                holder.itemView.setBackgroundColor(Color.LTGRAY)
+            } else {
+                holder.itemView.setBackgroundColor(Color.WHITE)
+            }
         }
     }
 }

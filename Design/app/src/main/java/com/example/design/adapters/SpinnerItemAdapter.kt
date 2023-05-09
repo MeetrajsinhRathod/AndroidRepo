@@ -32,7 +32,7 @@ class SpinnerItemAdapter: BaseAdapter {
     }
 
     override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {
-        val view = LayoutInflater.from(context).inflate(R.layout.custom_spinner_layout, p2, false)
+        val view = LayoutInflater.from(context).inflate(R.layout.item_country, p2, false)
         val imageView = view.findViewById<ImageView>(R.id.countryImageView)
         val textView = view.findViewById<TextView>(R.id.countryTextView)
         textView.text = countryNames[p0]

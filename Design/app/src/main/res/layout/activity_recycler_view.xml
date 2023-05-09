@@ -6,25 +6,60 @@
     android:layout_height="match_parent"
     tools:context=".RecyclerViewActivity">
 
-    <TextView
-        android:id="@+id/tvTitle"
+    <Button
+        android:id="@+id/btnLinearRecyclerView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin10"
-        android:text="List of countries"
-        android:textStyle="bold"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textAllCaps="false"
+        android:text="Linear RecyclerView"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvCountries"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="@dimen/margin10"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <Button
+        android:id="@+id/btnGridRecyclerView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
-
+        app:layout_constraintTop_toBottomOf="@id/btnLinearRecyclerView"
+        android:textAllCaps="false"
+        android:text="Grid RecyclerView"/>
+    <Button
+        android:id="@+id/btnStaggeredRecyclerView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnGridRecyclerView"
+        android:textAllCaps="false"
+        android:text="Staggered RecyclerView"/>
+    <Button
+        android:id="@+id/btnMultiViewRecyclerView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnStaggeredRecyclerView"
+        android:textAllCaps="false"
+        android:text="Multiple Viewholder RecyclerView"/>
+    <Button
+        android:id="@+id/btnTodoList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnMultiViewRecyclerView"
+        android:textAllCaps="false"
+        android:text="TodoList"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
