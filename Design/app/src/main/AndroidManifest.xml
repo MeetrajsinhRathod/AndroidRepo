@@ -12,6 +12,9 @@
         android:theme="@style/Theme.Design"
         tools:targetApi="31">
         <activity
+            android:name=".BottomNavigationActivity"
+            android:exported="false" />
+        <activity
             android:name=".TodoListActivity"
             android:exported="false" />
         <activity

@@ -1,6 +1,7 @@
 package com.example.design.model
 
 import com.example.design.AppBarLayoutActivity
+import com.example.design.BottomNavigationActivity
 import com.example.design.ButtonsActivity
 import com.example.design.ChipsActivity
 import com.example.design.DataBindingActivity
@@ -13,7 +14,6 @@ import com.example.design.ImageViewActivity
 import com.example.design.ProgressActivity
 import com.example.design.RadioBtnActivity
 import com.example.design.RecyclerViewActivity
-import com.example.design.RecyclerViewLinearActivity
 import com.example.design.SnackbarActivity
 import com.example.design.SpinnerActivity
 import com.example.design.TabLayoutActivity
@@ -41,5 +41,6 @@ enum class UIWidgetsEnum(val cls: Class<*>) {
     TabLayout(TabLayoutActivity::class.java),
     GridLayout(GridLayoutActivity::class.java),
     AppBarLayout(AppBarLayoutActivity::class.java),
-    RecyclerView(RecyclerViewActivity::class.java)
+    RecyclerView(RecyclerViewActivity::class.java),
+    BottomNavigation(BottomNavigationActivity::class.java)
 }
