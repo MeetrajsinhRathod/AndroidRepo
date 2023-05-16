@@ -4,31 +4,43 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.design.R
 import com.example.design.databinding.ItemCountryBinding
 import com.example.design.databinding.ItemTodoBinding
+import com.example.design.helper.TodosDiffCallBack
 import com.example.design.model.Todo
 import java.util.Collections
 
-class TodoAdapter(var todoList: ArrayList<Todo>): RecyclerView.Adapter<TodoAdapter.TodoViewHolder>() {
+class TodoAdapter: RecyclerView.Adapter<TodoAdapter.TodoViewHolder>() {
 
-    class TodoViewHolder(val binding: ItemTodoBinding): RecyclerView.ViewHolder(binding.root) {
+    private val oldTodoList: ArrayList<Todo> = arrayListOf()
+
+    inner class TodoViewHolder(val binding: ItemTodoBinding): RecyclerView.ViewHolder(binding.root) {
         fun setUpData(todo: Todo) {
             binding.tbTodo.text = todo.task
         }
     }
 
+    fun submitList(newTodoList: ArrayList<Todo>) {
+        val diffCallback = TodosDiffCallBack(oldTodoList, newTodoList)
+        val diffTodos = DiffUtil.calculateDiff(diffCallback)
+        oldTodoList.clear()
+        oldTodoList.addAll(newTodoList)
+        diffTodos.dispatchUpdatesTo(this)
+    }
+
     fun addTodo(todo: Todo){
-        todoList.add(todo)
-        notifyItemInserted(todoList.size-1)
+        oldTodoList.add(todo)
+        notifyItemInserted(oldTodoList.size-1)
     }
     fun deleteTodo(position: Int) {
-        todoList.removeAt(position)
+        oldTodoList.removeAt(position)
         notifyItemRemoved(position)
     }
     fun moveTodo(from:Int, to: Int) {
-        Collections.swap(todoList, from, to)
+        Collections.swap(oldTodoList, from, to)
         notifyItemMoved(from, to)
     }
 
@@ -39,10 +51,10 @@ class TodoAdapter(var todoList: ArrayList<Todo>): RecyclerView.Adapter<TodoAdapt
     }
 
     override fun getItemCount(): Int {
-        return todoList.size
+        return oldTodoList.size
     }
 
     override fun onBindViewHolder(holder: TodoViewHolder, position: Int) {
-        holder.setUpData(todoList[position])
+        holder.setUpData(oldTodoList[position])
     }
 }

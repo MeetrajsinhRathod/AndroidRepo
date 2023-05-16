@@ -21,7 +21,8 @@ class TodoListActivity : AppCompatActivity() {
         binding = ActivityTodoListBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val adapter = TodoAdapter(todos)
+        val adapter = TodoAdapter()
+        adapter.submitList(todos )
         binding.rvTodoList.adapter = adapter
         binding.rvTodoList.layoutManager = LinearLayoutManager(this)
 
@@ -49,7 +50,9 @@ class TodoListActivity : AppCompatActivity() {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                when (direction) {
                    ItemTouchHelper.LEFT -> {
-                       adapter.deleteTodo(viewHolder.adapterPosition)
+                       //adapter.deleteTodo(viewHolder.adapterPosition)
+                       todos.removeAt(viewHolder.adapterPosition)
+                       adapter.submitList(todos)
                    }
                }
             }
