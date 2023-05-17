@@ -1,12 +1,12 @@
-package com.example.design
+package com.example.design.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.Toast
-import androidx.databinding.BindingAdapter
 import androidx.databinding.DataBindingUtil
+import com.example.design.R
+import com.example.design.model.User
 import com.example.design.databinding.ActivityDataBindingBinding
 
 class DataBindingActivity : AppCompatActivity() {

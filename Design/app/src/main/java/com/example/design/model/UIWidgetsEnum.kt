@@ -1,26 +1,25 @@
 package com.example.design.model
 
-import com.example.design.AppBarLayoutActivity
-import com.example.design.BottomNavigationActivity
-import com.example.design.ButtonsActivity
-import com.example.design.ChipsActivity
-import com.example.design.DataBindingActivity
-import com.example.design.DatePickerActivity
-import com.example.design.EditTextActivity
-import com.example.design.FloatingActionButtonActivity
-import com.example.design.FrameLayoutActivity
-import com.example.design.GridLayoutActivity
-import com.example.design.ImageViewActivity
-import com.example.design.ProgressActivity
-import com.example.design.RadioBtnActivity
-import com.example.design.RecyclerViewActivity
-import com.example.design.SnackbarActivity
-import com.example.design.SpinnerActivity
-import com.example.design.TabLayoutActivity
-import com.example.design.TextViewActivity
-import com.example.design.ToastActivity
-import com.example.design.ToggleSwitchActivity
-import java.util.Date
+import com.example.design.activity.AppBarLayoutActivity
+import com.example.design.activity.BottomNavigationActivity
+import com.example.design.activity.ButtonsActivity
+import com.example.design.activity.ChipsActivity
+import com.example.design.activity.DataBindingActivity
+import com.example.design.activity.DatePickerActivity
+import com.example.design.activity.EditTextActivity
+import com.example.design.activity.FloatingActionButtonActivity
+import com.example.design.activity.FrameLayoutActivity
+import com.example.design.activity.GridLayoutActivity
+import com.example.design.activity.ImageViewActivity
+import com.example.design.activity.ProgressActivity
+import com.example.design.activity.RadioBtnActivity
+import com.example.design.activity.RecyclerViewActivity
+import com.example.design.activity.SnackbarActivity
+import com.example.design.activity.SpinnerActivity
+import com.example.design.activity.TabLayoutActivity
+import com.example.design.activity.TextViewActivity
+import com.example.design.activity.ToastActivity
+import com.example.design.activity.ToggleSwitchActivity
 
 enum class UIWidgetsEnum(val cls: Class<*>) {
     TextView(TextViewActivity::class.java),

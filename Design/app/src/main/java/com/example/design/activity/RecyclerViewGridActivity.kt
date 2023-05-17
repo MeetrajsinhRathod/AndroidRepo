@@ -1,43 +1,42 @@
-package com.example.design
+package com.example.design.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
+import com.example.design.R
 import com.example.design.adapters.CountryListAdapter
-import com.example.design.databinding.ActivityRecyclerViewBinding
 import com.example.design.databinding.ActivityRecyclerViewLinearBinding
 import com.example.design.model.Country
 
-class RecyclerViewLinearActivity : AppCompatActivity() {
+class RecyclerViewGridActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRecyclerViewLinearBinding
     private val countryList = arrayListOf<Country>(
-        Country("India",R.drawable.india),
-        Country("USA",R.drawable.usa),
-        Country("UAE",R.drawable.uae),
-        Country("Australia",R.drawable.australia),
-        Country("Ukraine",R.drawable.ukraine),
-        Country("China",R.drawable.china),
-        Country("India",R.drawable.india),
-        Country("USA",R.drawable.usa),
-        Country("UAE",R.drawable.uae),
-        Country("Australia",R.drawable.australia),
-        Country("Ukraine",R.drawable.ukraine),
-        Country("China",R.drawable.china),
-        Country("India",R.drawable.india),
-        Country("USA",R.drawable.usa),
-        Country("UAE",R.drawable.uae),
-        Country("Australia",R.drawable.australia),
-        Country("Ukraine",R.drawable.ukraine),
-        Country("China",R.drawable.china),
-        Country("India",R.drawable.india),
-        Country("USA",R.drawable.usa),
-        Country("UAE",R.drawable.uae),
-        Country("Australia",R.drawable.australia),
-        Country("Ukraine",R.drawable.ukraine),
-        Country("China",R.drawable.china)
+        Country("India", R.drawable.india),
+        Country("USA", R.drawable.usa),
+        Country("UAE", R.drawable.uae),
+        Country("Australia", R.drawable.australia),
+        Country("Ukraine", R.drawable.ukraine),
+        Country("China", R.drawable.china),
+        Country("India", R.drawable.india),
+        Country("USA", R.drawable.usa),
+        Country("UAE", R.drawable.uae),
+        Country("Australia", R.drawable.australia),
+        Country("Ukraine", R.drawable.ukraine),
+        Country("China", R.drawable.china),
+        Country("India", R.drawable.india),
+        Country("USA", R.drawable.usa),
+        Country("UAE", R.drawable.uae),
+        Country("Australia", R.drawable.australia),
+        Country("Ukraine", R.drawable.ukraine),
+        Country("China", R.drawable.china),
+        Country("India", R.drawable.india),
+        Country("USA", R.drawable.usa),
+        Country("UAE", R.drawable.uae),
+        Country("Australia", R.drawable.australia),
+        Country("Ukraine", R.drawable.ukraine),
+        Country("China", R.drawable.china)
     )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,7 +45,7 @@ class RecyclerViewLinearActivity : AppCompatActivity() {
 
         val adapter = CountryListAdapter(countryList)
         binding.rvCountries.adapter = adapter
-        binding.rvCountries.layoutManager = LinearLayoutManager(this)
+        binding.rvCountries.layoutManager = GridLayoutManager(this,2)
         binding.rvCountries.addItemDecoration(DividerItemDecoration(this, 1))
 
         fun filterList(text: String?){
@@ -71,5 +70,4 @@ class RecyclerViewLinearActivity : AppCompatActivity() {
             }
         })
     }
-
 }

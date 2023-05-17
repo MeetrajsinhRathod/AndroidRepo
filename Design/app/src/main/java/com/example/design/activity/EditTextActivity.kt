@@ -1,11 +1,9 @@
-package com.example.design
+package com.example.design.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
 import com.example.design.databinding.ActivityEditTextBinding
-import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
 
 class EditTextActivity : AppCompatActivity() {
     private lateinit var binding: ActivityEditTextBinding

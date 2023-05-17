@@ -14,17 +14,17 @@
 
         <variable
             name="user"
-            type="com.example.design.User" />
+            type="com.example.design.model.User" />
 
         <variable
             name="DataBindingActivity"
-            type="com.example.design.DataBindingActivity" />
+            type="com.example.design.activity.DataBindingActivity" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".DataBindingActivity">
+        tools:context=".activity.DataBindingActivity">
 
         <TextView
             android:id="@+id/textView1"

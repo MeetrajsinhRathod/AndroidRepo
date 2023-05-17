@@ -1,6 +1,5 @@
-package com.example.design
+package com.example.design.activity
 
-import android.content.ClipData.Item
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.inputmethod.EditorInfo
@@ -10,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.design.adapters.TodoAdapter
 import com.example.design.databinding.ActivityTodoListBinding
 import com.example.design.model.Todo
+import java.util.Collections
 
 class TodoListActivity : AppCompatActivity() {
     private lateinit var binding: ActivityTodoListBinding
@@ -22,13 +22,15 @@ class TodoListActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val adapter = TodoAdapter()
-        adapter.submitList(todos )
+        adapter.submitList(todos)
+
         binding.rvTodoList.adapter = adapter
         binding.rvTodoList.layoutManager = LinearLayoutManager(this)
 
         binding.btnAddTodo.setOnClickListener {
             if (binding.etTodoItem.text?.isEmpty() == false) {
-                adapter.addTodo(Todo(binding.etTodoItem.text.toString()))
+                todos.add(Todo(binding.etTodoItem.text.toString()))
+                adapter.submitList(todos)
                 binding.etTodoItem.editableText.clear()
                 binding.etTodoItem.onEditorAction(EditorInfo.IME_ACTION_DONE)
                 binding.etTodoItem.clearFocus()
@@ -43,14 +45,14 @@ class TodoListActivity : AppCompatActivity() {
             ): Boolean {
                 val from = viewHolder.adapterPosition
                 val to = target.adapterPosition
-                adapter.moveTodo(from, to)
+                Collections.swap(todos, from, to)
+                adapter.submitList(todos)
                 return true
             }
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                when (direction) {
                    ItemTouchHelper.LEFT -> {
-                       //adapter.deleteTodo(viewHolder.adapterPosition)
                        todos.removeAt(viewHolder.adapterPosition)
                        adapter.submitList(todos)
                    }

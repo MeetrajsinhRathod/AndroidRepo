@@ -1,9 +1,12 @@
 package com.example.design.adapters
 
+import android.content.Context
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.design.R
@@ -15,11 +18,11 @@ import java.util.Collections
 
 class TodoAdapter: RecyclerView.Adapter<TodoAdapter.TodoViewHolder>() {
 
-    private val oldTodoList: ArrayList<Todo> = arrayListOf()
+    var oldTodoList: ArrayList<Todo> = arrayListOf()
 
-    inner class TodoViewHolder(val binding: ItemTodoBinding): RecyclerView.ViewHolder(binding.root) {
+    inner class TodoViewHolder(val binding: ItemTodoBinding, val context: Context): RecyclerView.ViewHolder(binding.root) {
         fun setUpData(todo: Todo) {
-            binding.tbTodo.text = todo.task
+            binding.tvTodo.text = todo.task
         }
     }
 
@@ -31,23 +34,10 @@ class TodoAdapter: RecyclerView.Adapter<TodoAdapter.TodoViewHolder>() {
         diffTodos.dispatchUpdatesTo(this)
     }
 
-    fun addTodo(todo: Todo){
-        oldTodoList.add(todo)
-        notifyItemInserted(oldTodoList.size-1)
-    }
-    fun deleteTodo(position: Int) {
-        oldTodoList.removeAt(position)
-        notifyItemRemoved(position)
-    }
-    fun moveTodo(from:Int, to: Int) {
-        Collections.swap(oldTodoList, from, to)
-        notifyItemMoved(from, to)
-    }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TodoViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_todo, parent, false)
         val binding = ItemTodoBinding.bind(itemView)
-        return TodoViewHolder(binding)
+        return TodoViewHolder(binding, parent.context)
     }
 
     override fun getItemCount(): Int {

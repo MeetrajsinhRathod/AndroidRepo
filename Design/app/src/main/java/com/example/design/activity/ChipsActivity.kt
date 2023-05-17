@@ -1,8 +1,8 @@
-package com.example.design
+package com.example.design.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.google.android.material.chip.Chip
+import com.example.design.R
 
 class ChipsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

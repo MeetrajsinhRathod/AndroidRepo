@@ -1,4 +1,4 @@
-package com.example.design
+package com.example.design.activity
 
 import android.content.res.ColorStateList
 import android.graphics.Color

@@ -8,7 +8,7 @@
     android:columnCount="3"
     android:orientation="vertical"
     android:background="@color/black"
-    tools:context=".GridLayoutActivity">
+    tools:context=".activity.GridLayoutActivity">
 
     <ImageView
         android:layout_width="0dp"

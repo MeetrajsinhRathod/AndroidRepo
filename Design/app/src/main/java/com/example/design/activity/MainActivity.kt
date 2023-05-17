@@ -1,4 +1,4 @@
-package com.example.design
+package com.example.design.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -20,5 +20,6 @@ class MainActivity : AppCompatActivity() {
         val adapter = UIWidgetsAdapter(widgets)
         binding.rvUIWidgets.adapter = adapter
         binding.rvUIWidgets.layoutManager = LinearLayoutManager(this)
+
     }
 }

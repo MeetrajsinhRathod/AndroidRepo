@@ -1,9 +1,9 @@
-package com.example.design
+package com.example.design.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
-import android.view.MenuItem
+import com.example.design.R
 import com.example.design.databinding.ActivityAppBarLayoutBinding
 
 class AppBarLayoutActivity : AppCompatActivity() {

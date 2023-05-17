@@ -1,4 +1,4 @@
-package com.example.design
+package com.example.design.activity
 
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.Icon

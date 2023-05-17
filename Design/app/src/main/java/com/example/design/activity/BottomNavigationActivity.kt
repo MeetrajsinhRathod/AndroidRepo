@@ -1,14 +1,11 @@
-package com.example.design
+package com.example.design.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
+import com.example.design.R
 import com.example.design.adapters.ViewPagerAdapter
 import com.example.design.databinding.ActivityBottomNavigationBinding
-import com.example.design.fragments.TabLayoutFragment1
-import com.example.design.fragments.TabLayoutFragment2
-import com.example.design.fragments.TabLayoutFragment3
 
 class BottomNavigationActivity : AppCompatActivity() {
     private lateinit var binding: ActivityBottomNavigationBinding

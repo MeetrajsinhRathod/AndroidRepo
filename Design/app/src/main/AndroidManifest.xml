@@ -12,41 +12,41 @@
         android:theme="@style/Theme.Design"
         tools:targetApi="31">
         <activity
-            android:name=".BottomNavigationActivity"
+            android:name=".activity.BottomNavigationActivity"
             android:exported="false" />
         <activity
-            android:name=".TodoListActivity"
+            android:name=".activity.TodoListActivity"
             android:exported="false" />
         <activity
-            android:name=".RecyclerViewStaggeredActivity"
+            android:name=".activity.RecyclerViewStaggeredActivity"
             android:exported="false" />
         <activity
-            android:name=".RecyclerViewGridActivity"
+            android:name=".activity.RecyclerViewGridActivity"
             android:exported="false" />
-        <activity android:name=".RecyclerViewLinearActivity" />
-        <activity android:name=".RecyclerViewMultipleViewHolderActivity" />
-        <activity android:name=".RecyclerViewActivity" />
+        <activity android:name=".activity.RecyclerViewLinearActivity" />
+        <activity android:name=".activity.RecyclerViewMultipleViewHolderActivity" />
+        <activity android:name=".activity.RecyclerViewActivity" />
         <activity
-            android:name=".AppBarLayoutActivity"
+            android:name=".activity.AppBarLayoutActivity"
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
-        <activity android:name=".GridLayoutActivity" />
-        <activity android:name=".TabLayoutActivity" />
-        <activity android:name=".SnackbarActivity" />
-        <activity android:name=".FloatingActionButtonActivity" />
-        <activity android:name=".FrameLayoutActivity" />
-        <activity android:name=".DataBindingActivity" />
-        <activity android:name=".DatePickerActivity" />
-        <activity android:name=".SpinnerActivity" />
-        <activity android:name=".ChipsActivity" />
-        <activity android:name=".ProgressActivity" />
-        <activity android:name=".ToastActivity" />
-        <activity android:name=".ImageViewActivity" />
-        <activity android:name=".ToggleSwitchActivity" />
-        <activity android:name=".RadioBtnActivity" />
-        <activity android:name=".ButtonsActivity" />
-        <activity android:name=".EditTextActivity" />
+        <activity android:name=".activity.GridLayoutActivity" />
+        <activity android:name=".activity.TabLayoutActivity" />
+        <activity android:name=".activity.SnackbarActivity" />
+        <activity android:name=".activity.FloatingActionButtonActivity" />
+        <activity android:name=".activity.FrameLayoutActivity" />
+        <activity android:name=".activity.DataBindingActivity" />
+        <activity android:name=".activity.DatePickerActivity" />
+        <activity android:name=".activity.SpinnerActivity" />
+        <activity android:name=".activity.ChipsActivity" />
+        <activity android:name=".activity.ProgressActivity" />
+        <activity android:name=".activity.ToastActivity" />
+        <activity android:name=".activity.ImageViewActivity" />
+        <activity android:name=".activity.ToggleSwitchActivity" />
+        <activity android:name=".activity.RadioBtnActivity" />
+        <activity android:name=".activity.ButtonsActivity" />
+        <activity android:name=".activity.EditTextActivity" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:exported="true"
             android:theme="@style/HomeScreenStyle">
             <intent-filter>
@@ -55,7 +55,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TextViewActivity" />
+        <activity android:name=".activity.TextViewActivity" />
     </application>
 
 </manifest>

@@ -1,11 +1,12 @@
-package com.example.design
+package com.example.design.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.design.R
 
-class GridLayoutActivity : AppCompatActivity() {
+class ButtonsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_grid_layout)
+        setContentView(R.layout.activity_buttons)
     }
 }

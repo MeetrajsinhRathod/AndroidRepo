@@ -1,11 +1,10 @@
-package com.example.design
+package com.example.design.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Gravity
-import android.widget.Button
 import android.widget.Toast
-import androidx.core.view.GravityCompat
+import com.example.design.R
 import com.example.design.databinding.ActivityToastBinding
 
 class ToastActivity : AppCompatActivity() {

@@ -1,9 +1,10 @@
-package com.example.design
+package com.example.design.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
+import com.example.design.R
 import com.example.design.databinding.ActivitySnackbarBinding
 import com.google.android.material.snackbar.Snackbar
 
