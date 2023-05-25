@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.design.adapters.UIWidgetsAdapter
@@ -20,6 +21,5 @@ class MainActivity : AppCompatActivity() {
         val adapter = UIWidgetsAdapter(widgets)
         binding.rvUIWidgets.adapter = adapter
         binding.rvUIWidgets.layoutManager = LinearLayoutManager(this)
-
     }
 }

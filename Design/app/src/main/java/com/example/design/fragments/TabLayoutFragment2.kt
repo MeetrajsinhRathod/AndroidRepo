@@ -6,13 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.design.R
+import com.example.design.databinding.FragmentTabLayout2Binding
 
-class TabLayoutFragment2 : Fragment() {
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_tab_layout2, container, false)
-    }
-}
+class TabLayoutFragment2 : Fragment(R.layout.fragment_tab_layout2)

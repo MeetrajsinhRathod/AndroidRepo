@@ -62,6 +62,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/passwordField"
             android:layout_width="300dp"
+            android:inputType="textMultiLine"
             android:layout_height="wrap_content"
             android:maxLength="16"/>
 

@@ -9,17 +9,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.example.design.R
 
-class SpinnerItemAdapter: BaseAdapter {
-
-    private var context:Context
-    private var countryNames: Array<String>
+class SpinnerItemAdapter(
+    private var context:Context,
+    private var countryNames: Array<String>,
     private var countryFlags: Array<Int>
-
-    constructor(context: Context, countryNames: Array<String>, countryFlags: Array<Int>) : super() {
-        this.context = context
-        this.countryNames = countryNames
-        this.countryFlags = countryFlags
-    }
+): BaseAdapter() {
 
     override fun getCount() = countryNames.size
 

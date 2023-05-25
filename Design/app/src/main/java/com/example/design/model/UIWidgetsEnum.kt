@@ -8,6 +8,7 @@ import com.example.design.activity.DataBindingActivity
 import com.example.design.activity.DatePickerActivity
 import com.example.design.activity.EditTextActivity
 import com.example.design.activity.FloatingActionButtonActivity
+import com.example.design.activity.FragmentActivity
 import com.example.design.activity.FrameLayoutActivity
 import com.example.design.activity.GridLayoutActivity
 import com.example.design.activity.ImageViewActivity
@@ -41,5 +42,6 @@ enum class UIWidgetsEnum(val cls: Class<*>) {
     GridLayout(GridLayoutActivity::class.java),
     AppBarLayout(AppBarLayoutActivity::class.java),
     RecyclerView(RecyclerViewActivity::class.java),
-    BottomNavigation(BottomNavigationActivity::class.java)
+    BottomNavigation(BottomNavigationActivity::class.java),
+    Fragment(FragmentActivity::class.java)
 }
