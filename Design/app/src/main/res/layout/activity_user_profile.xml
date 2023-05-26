@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".UserProfileActivity">
+
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_10dp"
+        android:padding="@dimen/_20dp"
+        android:background="@color/transparent"
+        android:contentDescription="@string/btnBack_Description"
+        android:src="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_10dp"
+        android:background="@color/transparent"
+        android:text="@string/btnEdit"
+        android:textAlignment="viewEnd"
+        android:textAllCaps="false"
+        android:textColor="@color/user_profile_secondary_color"
+        app:layout_constraintBottom_toBottomOf="@+id/btnBack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnBack" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/userImageView"
+        app:shapeAppearanceOverlay="@style/roundImage"
+        android:layout_width="@dimen/profile_image_size"
+        android:layout_height="@dimen/profile_image_size"
+        android:contentDescription="@string/user_profile_image_description"
+        android:src="@drawable/user"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnBack" />
+
+    <TextView
+        android:id="@+id/tvCompanyRole"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="@string/userName"
+        android:textAlignment="center"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userImageView" />
+
+    <TextView
+        android:id="@+id/tvCompanyName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5dp"
+        android:drawablePadding="@dimen/_5dp"
+        android:fontFamily="@font/poppins"
+        android:text="@string/userRole"
+        android:textAlignment="center"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/user_profile_secondary_color"
+        app:drawableEndCompat="@drawable/ic_verified"
+        app:layout_constraintEnd_toEndOf="@+id/tvCompanyRole"
+        app:layout_constraintStart_toStartOf="@+id/tvCompanyRole"
+        app:layout_constraintTop_toBottomOf="@+id/tvCompanyRole" />
+
+    <include
+        android:id="@+id/appliedLayout"
+        layout="@layout/layout_user_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_30dp"
+        app:layout_constraintEnd_toStartOf="@+id/reviewedLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCompanyName" />
+
+    <include
+        android:id="@+id/reviewedLayout"
+        layout="@layout/layout_user_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/interviewLayout"
+        app:layout_constraintStart_toEndOf="@+id/appliedLayout"
+        app:layout_constraintTop_toTopOf="@+id/appliedLayout" />
+
+    <include
+        android:id="@+id/interviewLayout"
+        layout="@layout/layout_user_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/reviewedLayout"
+        app:layout_constraintTop_toTopOf="@+id/appliedLayout" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvUserDetails"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/_20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appliedLayout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
