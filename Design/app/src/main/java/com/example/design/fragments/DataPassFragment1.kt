@@ -19,7 +19,7 @@ class DataPassFragment1 : Fragment() {
     ): View? {
         binding = FragmentDataPass1Binding.inflate(inflater)
 
-        parentFragmentManager.setFragmentResultListener("Fragment2", this) { _, bundle: Bundle ->
+        parentFragmentManager.setFragmentResultListener("hostActivity", this) { _, bundle: Bundle ->
             val result = bundle.getString("Message")
             binding.etMessage.setText(result)
         }
@@ -28,7 +28,7 @@ class DataPassFragment1 : Fragment() {
 
             val bundle = Bundle()
             bundle.putString("Message",binding.etMessage.text.toString())
-            parentFragmentManager.setFragmentResult("Fragment1",bundle)
+            parentFragmentManager.setFragmentResult("fragment1",bundle)
             binding.etMessage.text.clear()
         }
 

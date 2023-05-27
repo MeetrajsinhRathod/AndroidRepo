@@ -12,6 +12,7 @@ import com.example.design.activity.FragmentActivity
 import com.example.design.activity.FrameLayoutActivity
 import com.example.design.activity.GridLayoutActivity
 import com.example.design.activity.ImageViewActivity
+import com.example.design.activity.IntentsActivity
 import com.example.design.activity.ProgressActivity
 import com.example.design.activity.RadioBtnActivity
 import com.example.design.activity.RecyclerViewActivity
@@ -43,5 +44,6 @@ enum class UIWidgetsEnum(val cls: Class<*>) {
     AppBarLayout(AppBarLayoutActivity::class.java),
     RecyclerView(RecyclerViewActivity::class.java),
     BottomNavigation(BottomNavigationActivity::class.java),
-    Fragment(FragmentActivity::class.java)
+    Fragment(FragmentActivity::class.java),
+    Intents(IntentsActivity::class.java)
 }
