@@ -87,10 +87,6 @@ class IntentsActivity : AppCompatActivity() {
             binding.videoView.setVideoURI(data?.data)
             binding.videoView.visibility = View.VISIBLE
         }
-        if (resultCode == Activity.RESULT_OK && requestCode == videoCaptureCode && data != null) {
-            binding.videoView.setVideoURI(data?.data)
-            binding.videoView.visibility = View.VISIBLE
-        }
         if (resultCode == Activity.RESULT_OK && requestCode == dataPassActivityCode) {
             binding.etName.setText(data?.getStringExtra("name"))
             binding.etAge.setText(data?.getStringExtra("age"))

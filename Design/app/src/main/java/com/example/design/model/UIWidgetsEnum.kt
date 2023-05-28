@@ -22,6 +22,7 @@ import com.example.design.activity.TabLayoutActivity
 import com.example.design.activity.TextViewActivity
 import com.example.design.activity.ToastActivity
 import com.example.design.activity.ToggleSwitchActivity
+import com.example.design.activity.WebViewActivity
 
 enum class UIWidgetsEnum(val cls: Class<*>) {
     TextView(TextViewActivity::class.java),
@@ -45,5 +46,6 @@ enum class UIWidgetsEnum(val cls: Class<*>) {
     RecyclerView(RecyclerViewActivity::class.java),
     BottomNavigation(BottomNavigationActivity::class.java),
     Fragment(FragmentActivity::class.java),
-    Intents(IntentsActivity::class.java)
+    Intents(IntentsActivity::class.java),
+    WebView(WebViewActivity::class.java)
 }
