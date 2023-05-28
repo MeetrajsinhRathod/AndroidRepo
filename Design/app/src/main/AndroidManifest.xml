@@ -12,6 +12,9 @@
         android:theme="@style/Theme.Design"
         tools:targetApi="31">
         <activity
+            android:name=".activity.DataPassActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.IntentsActivity"
             android:exported="false" />
         <activity
