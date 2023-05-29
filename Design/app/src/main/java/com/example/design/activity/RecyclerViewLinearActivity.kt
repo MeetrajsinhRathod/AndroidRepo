@@ -2,9 +2,11 @@ package com.example.design.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MotionEvent
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.design.R
 import com.example.design.adapters.CountryListAdapter
 import com.example.design.databinding.ActivityRecyclerViewLinearBinding

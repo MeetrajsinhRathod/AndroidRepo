@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/tabLayoutFragment1">
+
+    <fragment
+        android:id="@+id/tabLayoutFragment1"
+        android:name="com.example.design.fragments.TabLayoutFragment1"
+        android:label="fragment_tab_layout1"
+        tools:layout="@layout/fragment_tab_layout1" >
+        <action
+            android:id="@+id/action_tabLayoutFragment1_to_tabLayoutFragment2"
+            app:destination="@id/tabLayoutFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/tabLayoutFragment2"
+        android:name="com.example.design.fragments.TabLayoutFragment2"
+        android:label="fragment_tab_layout2"
+        tools:layout="@layout/fragment_tab_layout2" >
+        <action
+            android:id="@+id/action_tabLayoutFragment2_to_tabLayoutFragment3"
+            app:destination="@id/tabLayoutFragment3" />
+    </fragment>
+    <fragment
+        android:id="@+id/tabLayoutFragment3"
+        android:name="com.example.design.fragments.TabLayoutFragment3"
+        android:label="fragment_tab_layout3"
+        tools:layout="@layout/fragment_tab_layout3" >
+        <action
+            android:id="@+id/action_tabLayoutFragment3_to_tabLayoutFragment1"
+            app:destination="@id/tabLayoutFragment1" />
+    </fragment>
+</navigation>

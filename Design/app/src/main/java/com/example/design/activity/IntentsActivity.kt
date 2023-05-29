@@ -1,46 +1,69 @@
 package com.example.design.activity
 
 import android.app.Activity
+import android.app.AlarmManager
+import android.app.PendingIntent
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.View
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.example.design.databinding.ActivityIntentsBinding
+import com.example.design.helper.TimerReceiver
 
 class IntentsActivity : AppCompatActivity() {
 
-    private val imageCaptureCode = 1
-    private val imageSelectCode = 2
-    private val videoCaptureCode = 3
-    private val videoSelectCode = 4
-    private val dataPassActivityCode = 5
+    private val dataPassActivityCode = 0
+    private val timerRequestCode = 1
 
     private lateinit var binding: ActivityIntentsBinding
+
+    private val imageSelectResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        binding.ivPhoto.setImageURI(it.data?.data)
+        binding.ivPhoto.visibility = View.VISIBLE
+    }
+
+    private val imageCaptureResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        val imageBitmap = it.data?.extras?.get("data") as? Bitmap
+        binding.ivPhoto.setImageBitmap(imageBitmap)
+        binding.ivPhoto.visibility = View.VISIBLE
+    }
+
+    private val videoSelectResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        binding.videoView.setVideoURI(it.data?.data)
+        binding.videoView.visibility = View.VISIBLE
+        binding.videoView.start()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityIntentsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setUpView()
+    }
+
+    private fun setUpView() {
 
         binding.btnSelectPhoto.setOnClickListener {
             val intent = Intent(Intent.ACTION_GET_CONTENT).apply {
                 type = "image/*"
             }
-            startActivityForResult(intent, imageSelectCode)
+            imageSelectResult.launch(intent)
         }
 
         binding.btnCapturePhoto.setOnClickListener {
             val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-            startActivityForResult(intent, imageCaptureCode)
+            imageCaptureResult.launch(intent)
         }
 
         binding.btnSelectVideo.setOnClickListener {
             val intent = Intent(Intent.ACTION_GET_CONTENT).apply {
                 type = "video/*"
             }
-            startActivityForResult(intent, videoSelectCode)
+            videoSelectResult.launch(intent)
         }
 
         binding.btnCaptureVideo.setOnClickListener {
@@ -70,23 +93,24 @@ class IntentsActivity : AppCompatActivity() {
             intent.putExtra("age", binding.etAge.text.toString())
             startActivityForResult(intent,dataPassActivityCode)
         }
+
+        binding.btnStartTimer.setOnClickListener {
+            if (!binding.etTimer.text.isNullOrEmpty()) {
+                startTimer(binding.etTimer.text.toString().toInt())
+            }
+        }
+    }
+
+    private fun startTimer(duration: Int) {
+        val timerIntent = Intent(this, TimerReceiver::class.java)
+        timerIntent.putExtra("duration", duration)
+        val pendingIntent = PendingIntent.getBroadcast(applicationContext, timerRequestCode, timerIntent, PendingIntent.FLAG_IMMUTABLE)
+        val alarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
+        alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + (duration * 1000), pendingIntent)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == Activity.RESULT_OK && requestCode == imageSelectCode) {
-            binding.ivPhoto.setImageURI(data?.data)
-            binding.ivPhoto.visibility = View.VISIBLE
-        }
-        if (resultCode == Activity.RESULT_OK && requestCode == imageCaptureCode && data != null) {
-            val imageBitmap = data.extras?.get("data") as? Bitmap
-            binding.ivPhoto.setImageBitmap(imageBitmap)
-            binding.ivPhoto.visibility = View.VISIBLE
-        }
-        if (resultCode == Activity.RESULT_OK && requestCode == videoSelectCode) {
-            binding.videoView.setVideoURI(data?.data)
-            binding.videoView.visibility = View.VISIBLE
-        }
         if (resultCode == Activity.RESULT_OK && requestCode == dataPassActivityCode) {
             binding.etName.setText(data?.getStringExtra("name"))
             binding.etAge.setText(data?.getStringExtra("age"))

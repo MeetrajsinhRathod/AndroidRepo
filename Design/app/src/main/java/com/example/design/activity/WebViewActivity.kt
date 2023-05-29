@@ -18,17 +18,23 @@ class WebViewActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityWebViewBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setUpView()
+    }
 
-
+    private fun setUpView() {
+        binding.webView.settings.javaScriptEnabled = true
         binding.webView.webViewClient = WebViewClient()
-        binding.webView.loadUrl("https://google.com")
+
+        if(intent.data != null) {
+            val url = intent.data.toString()
+            binding.webView.loadUrl(url)
+        } else { binding.webView.loadUrl("https://google.com") }
 
         binding.btnSearch.setOnClickListener {
             if (!binding.etUrl.text.isNullOrEmpty()){
                 binding.webView.loadUrl(binding.etUrl.text.toString())
             }
         }
-
         binding.btnGoBack.setOnClickListener {
             binding.webView.goBack()
         }

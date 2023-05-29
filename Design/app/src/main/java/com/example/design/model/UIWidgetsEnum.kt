@@ -13,9 +13,11 @@ import com.example.design.activity.FrameLayoutActivity
 import com.example.design.activity.GridLayoutActivity
 import com.example.design.activity.ImageViewActivity
 import com.example.design.activity.IntentsActivity
+import com.example.design.activity.NavigationActivity
 import com.example.design.activity.ProgressActivity
 import com.example.design.activity.RadioBtnActivity
 import com.example.design.activity.RecyclerViewActivity
+import com.example.design.activity.SearchViewActivity
 import com.example.design.activity.SnackbarActivity
 import com.example.design.activity.SpinnerActivity
 import com.example.design.activity.TabLayoutActivity
@@ -47,5 +49,7 @@ enum class UIWidgetsEnum(val cls: Class<*>) {
     BottomNavigation(BottomNavigationActivity::class.java),
     Fragment(FragmentActivity::class.java),
     Intents(IntentsActivity::class.java),
-    WebView(WebViewActivity::class.java)
+    WebView(WebViewActivity::class.java),
+    SearchView(SearchViewActivity::class.java),
+    NavigationComponent(NavigationActivity::class.java)
 }

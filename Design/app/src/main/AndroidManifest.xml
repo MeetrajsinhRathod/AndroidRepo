@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-<uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,35 +14,33 @@
         android:theme="@style/Theme.Design"
         tools:targetApi="31">
         <activity
+            android:name=".activity.NavigationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.SearchViewActivity"
+            android:exported="false" />
+
+        <receiver android:name=".helper.TimerReceiver" />
+
+        <activity
             android:name=".activity.WebViewActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="http" />
+
+                <data android:scheme="https" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activity.DataPassActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.IntentsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.FragmentActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.BottomNavigationActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.TodoListActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.RecyclerViewStaggeredActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.RecyclerViewGridActivity"
-            android:exported="false" />
+        <activity android:name=".activity.DataPassActivity" />
+        <activity android:name=".activity.IntentsActivity" />
+        <activity android:name=".activity.FragmentActivity" />
+        <activity android:name=".activity.BottomNavigationActivity" />
+        <activity android:name=".activity.TodoListActivity" />
+        <activity android:name=".activity.RecyclerViewStaggeredActivity" />
+        <activity android:name=".activity.RecyclerViewGridActivity" />
         <activity android:name=".activity.RecyclerViewLinearActivity" />
         <activity android:name=".activity.RecyclerViewMultipleViewHolderActivity" />
         <activity android:name=".activity.RecyclerViewActivity" />
@@ -63,6 +63,7 @@
         <activity android:name=".activity.RadioBtnActivity" />
         <activity android:name=".activity.ButtonsActivity" />
         <activity android:name=".activity.EditTextActivity" />
+        <activity android:name=".activity.TextViewActivity" />
         <activity
             android:name=".activity.MainActivity"
             android:exported="true"
@@ -73,7 +74,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.TextViewActivity" />
     </application>
 
 </manifest>
