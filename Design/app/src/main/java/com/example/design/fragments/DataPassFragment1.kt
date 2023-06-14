@@ -23,7 +23,6 @@ class DataPassFragment1 : Fragment() {
             val result = bundle.getString("Message")
             binding.etMessage.setText(result)
         }
-
         binding.btnSubmit.setOnClickListener {
 
             val bundle = Bundle()

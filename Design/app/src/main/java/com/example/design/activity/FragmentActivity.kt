@@ -2,8 +2,10 @@ package com.example.design.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.ContactsContract.Data
 import com.example.design.databinding.ActivityFragmentBinding
 import com.example.design.fragments.BottomSheetFragment
+import com.example.design.fragments.DataPassFragment1
 import com.example.design.fragments.PopUpFragment
 import com.example.design.fragments.TabLayoutFragment1
 
@@ -23,7 +25,7 @@ class FragmentActivity : AppCompatActivity() {
 
         binding.btnAddFragment.setOnClickListener {
             supportFragmentManager.beginTransaction().apply {
-                replace(binding.fragmentHolder3.id, TabLayoutFragment1(),"1")
+                replace(binding.fragmentHolder3.id, DataPassFragment1(),"1")
                 //addToBackStack(null)
                 commit()
             }

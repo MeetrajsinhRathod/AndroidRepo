@@ -1,10 +1,12 @@
 package com.example.design.fragments
 
+import android.app.Dialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import com.example.design.R
 import com.example.design.databinding.FragmentDataPass2Binding
@@ -18,6 +20,7 @@ class PopUpFragment : DialogFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         binding = FragmentPopUpBinding.inflate(inflater, container, false)
 
         binding.btnDismiss.setOnClickListener {

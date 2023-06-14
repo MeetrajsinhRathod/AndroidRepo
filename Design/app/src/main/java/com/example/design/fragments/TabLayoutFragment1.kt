@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.NavDirections
 import androidx.navigation.Navigation
 import com.example.design.R
 import com.example.design.databinding.FragmentTabLayout1Binding
@@ -24,11 +25,18 @@ class TabLayoutFragment1 : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-            val navigationController = Navigation.findNavController(view)
+        val navigationController = Navigation.findNavController(view)
 
-            binding.btnGoToNextFragment.setOnClickListener {
-                navigationController.navigate(R.id.action_tabLayoutFragment1_to_tabLayoutFragment2)
-            }
+        binding.btnGoToNextFragment.setOnClickListener {
+            val action = TabLayoutFragment1Directions.actionTabLayoutFragment1ToTabLayoutFragment2(binding.etMessage.text.toString())
+            navigationController.navigate(action)
+        }
         super.onViewCreated(view, savedInstanceState)
+    }
+
+    override fun onResume() {
+        val message = arguments?.let { TabLayoutFragment1Args.fromBundle(it).message }
+        binding.etMessage.setText(message)
+        super.onResume()
     }
 }

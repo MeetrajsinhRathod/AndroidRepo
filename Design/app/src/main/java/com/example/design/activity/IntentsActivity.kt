@@ -104,7 +104,8 @@ class IntentsActivity : AppCompatActivity() {
     private fun startTimer(duration: Int) {
         val timerIntent = Intent(this, TimerReceiver::class.java)
         timerIntent.putExtra("duration", duration)
-        val pendingIntent = PendingIntent.getBroadcast(applicationContext, timerRequestCode, timerIntent, PendingIntent.FLAG_IMMUTABLE)
+        //val pendingIntent = PendingIntent.getActivity(this,timerRequestCode, timerIntent, PendingIntent.FLAG_IMMUTABLE)
+        val pendingIntent = PendingIntent.getBroadcast(this, timerRequestCode, timerIntent, PendingIntent.FLAG_IMMUTABLE)
         val alarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
         alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + (duration * 1000), pendingIntent)
     }
