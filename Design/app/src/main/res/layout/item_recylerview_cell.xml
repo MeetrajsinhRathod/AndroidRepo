@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="cardData"
+            type="com.example.design.model.CardData" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_10dp"
+        android:background="@drawable/bg_recyclerview_card">
+
+        <TextView
+            android:id="@+id/tvTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10dp"
+            android:fontFamily="@font/poppins_bold"
+            android:textSize="@dimen/_18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/btnDeleteCell"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/transparent"
+            android:contentDescription="@string/content_description_delete_cell"
+            android:src="@android:drawable/ic_notification_clear_all"
+            app:layout_constraintBottom_toBottomOf="@+id/tvTotal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvTotal" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etNumber1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10dp"
+            android:padding="@dimen/_5dp"
+            style="@style/RecyclerViewKtComponentsStyle"
+            android:hint="@string/et_hint_number_1"
+            android:inputType="number"
+            android:text="@{String.valueOf(cardData.multiplicationNumber1)}"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toStartOf="@+id/tvMultiply"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTotal"
+            app:layout_goneMarginTop="@dimen/_20dp" />
+
+        <TextView
+            android:id="@+id/tvMultiply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_extrabold"
+            android:text="@string/multiplication"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/etNumber1"
+            app:layout_constraintEnd_toStartOf="@+id/etNumber2"
+            app:layout_constraintStart_toEndOf="@+id/etNumber1"
+            app:layout_constraintTop_toTopOf="@id/etNumber1" />
+
+        <EditText
+            android:id="@+id/etNumber2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/_10dp"
+            android:padding="@dimen/_5dp"
+            style="@style/RecyclerViewKtComponentsStyle"
+            android:hint="@string/et_hint_number_2"
+            android:inputType="number"
+            android:text="@{String.valueOf(cardData.multiplicationNumber2)}"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="@id/etNumber1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvMultiply"
+            app:layout_constraintTop_toTopOf="@id/etNumber1" />
+
+        <TextView
+            android:id="@+id/tvAddition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10dp"
+            android:fontFamily="@font/poppins_extrabold"
+            android:text="@string/addition"
+            android:textSize="@dimen/_20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etNumber1" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvSpinnerNumbers"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10dp"
+            android:background="@color/transparent"
+            android:spinnerMode="dialog"
+            app:layout_constraintBottom_toTopOf="@id/btnAddImages"
+            app:layout_constraintEnd_toStartOf="@id/btnAddNumbers"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAddition" />
+
+        <Button
+            android:id="@+id/btnAddNumbers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10dp"
+            style="@style/RecyclerViewKtButtonStyle"
+            android:text="@string/btn_add_numbers"
+            app:icon="@android:drawable/ic_input_add"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/rvSpinnerNumbers"
+            app:layout_constraintTop_toBottomOf="@+id/tvAddition" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="rvSpinnerNumbers, btnAddNumbers" />
+
+        <Button
+            android:id="@+id/btnAddImages"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/RecyclerViewKtButtonStyle"
+            android:text="@string/btn_select_images"
+            app:icon="@drawable/ic_image"
+            app:layout_constraintBottom_toTopOf="@id/rvImages"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/barrier" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvImages"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnAddImages" />
+
+        <Button
+            android:id="@+id/btnAddMoreImages"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10dp"
+            style="@style/RecyclerViewKtButtonStyle"
+            android:text="@string/btn_add_more_images"
+            app:icon="@drawable/ic_add_image"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/fabAddCard"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rvImages"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabAddCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10dp"
+            style="@style/RecyclerViewKtButtonStyle"
+            android:contentDescription="@string/content_description_add_cell"
+            android:src="@android:drawable/ic_input_add"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rvImages"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

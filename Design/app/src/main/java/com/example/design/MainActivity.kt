@@ -3,6 +3,7 @@ package com.example.design
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.design.activity.RecyclerViewKtActivity
 import com.example.design.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -28,6 +29,10 @@ class MainActivity : AppCompatActivity() {
         binding.btnMedicinePage.setOnClickListener {
             val medicinePage = Intent(this, CoughMedicineActivity::class.java)
             startActivity(medicinePage)
+        }
+        binding.btnRecyclerViewKT.setOnClickListener {
+            val recyclerViewKTScreenIntent = Intent(this, RecyclerViewKtActivity::class.java)
+            startActivity(recyclerViewKTScreenIntent)
         }
     }
 }

@@ -17,4 +17,7 @@
     <color name="medicine_card_bg">#F6F5FA</color>
     <color name="bg_cv">#03A9F4</color>
     <color name="medicine_secondary">#E1E2E9</color>
+    <color name="recyclerview_kt_screen_primary_color">#FF7A7A</color>
+    <color name="recyclerview_component_bg_color">#20FF0000</color>
+    <color name="recyclerview_component_border_color">#A60000</color>
 </resources>
