@@ -55,5 +55,36 @@ Section 1.10.33 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
 "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains."</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="data_from_api">Data from Api</string>
+    <string name="retrofit">RetroFit</string>
+    <string name="manual">Manual</string>
+    <string name="okhttp3">OkHttp3</string>
+    <string name="sign_in_using_post">Sign in using post</string>
+    <string name="email">Email</string>
+    <string name="enter_email">Enter email</string>
+    <string name="login_email_hint">Use: eve.holt@reqres.in</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="password">Password</string>
+    <string name="dummy_password">cityslicka</string>
+    <string name="dummy_email">eve.holt@reqres.in</string>
+    <string name="login_password_hint">Use: cityslicka</string>
+    <string name="sign_in">Sign In</string>
+    <string name="login_response">Login Response: %s</string>
+    <string name="get_request">%s Get request</string>
+    <string name="post_request">%s Post Request</string>
+    <string name="put_request">%s Put Request</string>
+    <string name="patch_request">%s Patch Request</string>
+    <string name="delete_request">%s Delete Request</string>
+    <string name="update_user_data">Update User data</string>
+    <string name="update_status">Update status:</string>
+    <string name="user_id">User Id</string>
+    <string name="enter_user_id">Enter user id</string>
+    <string name="enter_username">Enter username</string>
+    <string name="job">Job</string>
+    <string name="enter_job">Enter job</string>
+    <string name="update">Update</string>
+    <string name="delete_user">Delete User</string>
+    <string name="delete">Delete</string>
+    <string name="delete_status">Delete Status:</string>
 
 </resources>

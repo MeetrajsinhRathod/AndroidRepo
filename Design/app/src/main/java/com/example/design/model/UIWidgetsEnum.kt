@@ -24,6 +24,7 @@ import com.example.design.activity.TabLayoutActivity
 import com.example.design.activity.TextViewActivity
 import com.example.design.activity.ToastActivity
 import com.example.design.activity.ToggleSwitchActivity
+import com.example.webService.activity.WebServicesActivity
 import com.example.design.activity.WebViewActivity
 
 enum class UIWidgetsEnum(val cls: Class<*>) {
@@ -51,5 +52,6 @@ enum class UIWidgetsEnum(val cls: Class<*>) {
     Intents(IntentsActivity::class.java),
     WebView(WebViewActivity::class.java),
     SearchView(SearchViewActivity::class.java),
-    NavigationComponent(NavigationActivity::class.java)
+    NavigationComponent(NavigationActivity::class.java),
+    WebServices(WebServicesActivity::class.java)
 }

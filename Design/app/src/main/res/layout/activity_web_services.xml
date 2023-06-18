@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="webServiceType"
+            type="com.example.webService.api.WebServiceType" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.webService.activity.WebServicesActivity">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/WebServiceTabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/design_default_color_primary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:tabTextColor="@color/white"
+            app:tabIndicatorColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/retrofit" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/manual" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/okhttp3" />
+        </com.google.android.material.tabs.TabLayout>
+
+        <Button
+            android:id="@+id/btnGetRequest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="@{String.format(@string/get_request, webServiceType)}"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/WebServiceTabLayout" />
+
+        <Button
+            android:id="@+id/btnPostRequest"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{String.format(@string/post_request, webServiceType)}"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="@id/btnGetRequest"
+            app:layout_constraintStart_toStartOf="@id/btnGetRequest"
+            app:layout_constraintTop_toBottomOf="@id/btnGetRequest" />
+
+        <Button
+            android:id="@+id/btnPutRequest"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{String.format(@string/put_request, webServiceType)}"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="@id/btnGetRequest"
+            app:layout_constraintStart_toStartOf="@id/btnGetRequest"
+            app:layout_constraintTop_toBottomOf="@id/btnPostRequest" />
+
+        <Button
+            android:id="@+id/btnPatchRequest"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{String.format(@string/patch_request, webServiceType)}"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="@id/btnGetRequest"
+            app:layout_constraintStart_toStartOf="@id/btnGetRequest"
+            app:layout_constraintTop_toBottomOf="@id/btnPutRequest" />
+
+        <Button
+            android:id="@+id/btnDeleteRequest"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{String.format(@string/delete_request, webServiceType)}"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="@id/btnGetRequest"
+            app:layout_constraintStart_toStartOf="@id/btnGetRequest"
+            app:layout_constraintTop_toBottomOf="@id/btnPatchRequest" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
