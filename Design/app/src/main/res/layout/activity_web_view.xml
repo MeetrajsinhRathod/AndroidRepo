@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.WebViewActivity">
+
+    <ImageButton
+        android:id="@+id/btnSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="10dp"
+        android:background="@color/transparent"
+        android:src="@android:drawable/ic_menu_search"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/etUrl"
+        app:layout_constraintBottom_toBottomOf="@id/etUrl"
+        app:tint="@color/black" />
+
+    <EditText
+        android:id="@+id/etUrl"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/btnSearch"
+        app:layout_constraintStart_toEndOf="@id/btnSearch"
+        app:layout_constraintEnd_toStartOf="@id/btnGoBack"
+        android:hint="Enter url"/>
+
+    <ImageButton
+        android:id="@+id/btnGoBack"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:src="@drawable/ic_arrow_back"
+        android:background="@color/transparent"
+        app:tint="@color/black"
+        app:layout_constraintStart_toEndOf="@id/etUrl"
+        app:layout_constraintTop_toTopOf="@id/etUrl"
+        app:layout_constraintEnd_toStartOf="@id/btnGoForward"
+        app:layout_constraintBottom_toBottomOf="@id/etUrl"/>
+
+    <ImageButton
+        android:id="@+id/btnGoForward"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:src="@drawable/ic_arrow_forward"
+        android:background="@color/transparent"
+        app:tint="@color/black"
+        app:layout_constraintStart_toEndOf="@id/btnGoBack"
+        app:layout_constraintEnd_toStartOf="@id/btnRefresh"
+        app:layout_constraintTop_toTopOf="@id/etUrl"
+        app:layout_constraintBottom_toBottomOf="@id/etUrl"/>
+
+    <ImageButton
+        android:id="@+id/btnRefresh"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:src="@drawable/ic_refresh"
+        android:layout_marginEnd="10dp"
+        android:background="@color/transparent"
+        app:tint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnGoForward"
+        app:layout_constraintTop_toTopOf="@id/etUrl"
+        app:layout_constraintBottom_toBottomOf="@id/etUrl"/>
+
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etUrl"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

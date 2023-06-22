@@ -18,4 +18,8 @@
     <dimen name="_18sp">18sp</dimen>
     <dimen name="_120dp">120dp</dimen>
     <dimen name="_140dp">140dp</dimen>
+    <dimen name="margin10">10dp</dimen>
+    <dimen name="guideLine20">20dp</dimen>
+    <dimen name="overFlowTextWidth170">170dp</dimen>
+    <dimen name="textViewHieght48">48dp</dimen>
 </resources>

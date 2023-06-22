@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.ToggleSwitchActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/guideLine20" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="@dimen/guideLine20" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/guideLine20" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin10"
+        android:drawableTop="@drawable/drawable_custom_toggle"
+        android:drawableTint="#2196F3"
+        android:text="ToggleButton"
+        android:textOn="Play"
+        android:textOff="Pause"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/materialButtonToggleGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/toggleButton">
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:id="@+id/leftAlign"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="left"/>
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:id="@+id/centerAlign"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="center"/>
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:id="@+id/rightAlign"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="right"/>
+
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+    <TextView
+        android:id="@+id/textToAlign"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Some text"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/materialButtonToggleGroup"
+        app:layout_constraintStart_toStartOf="@+id/materialButtonToggleGroup"
+        app:layout_constraintTop_toBottomOf="@+id/materialButtonToggleGroup" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/nightModeSwitch"
+        android:layout_width="222dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="20dp"
+        android:padding="@dimen/margin10"
+        android:text="Night Mode"
+        android:thumb="@drawable/drawable_switch_thumb"
+        app:layout_constraintEnd_toEndOf="@+id/textToAlign"
+        app:layout_constraintStart_toStartOf="@+id/textToAlign"
+        app:layout_constraintTop_toBottomOf="@+id/switchMaterial"
+        app:showText="true"
+        app:track="@drawable/drawable_switch_track" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/switchMaterial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="switch"
+        app:switchPadding="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/textToAlign"
+        app:layout_constraintStart_toStartOf="@+id/textToAlign"
+        app:layout_constraintTop_toBottomOf="@+id/textToAlign" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switchMaterial2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="switch"
+        app:switchPadding="10dp"
+        android:thumb="@drawable/drawable_custom_switch_ic"
+
+        app:layout_constraintEnd_toEndOf="@+id/textToAlign"
+        app:layout_constraintStart_toStartOf="@+id/textToAlign"
+        app:layout_constraintTop_toBottomOf="@+id/nightModeSwitch" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
