@@ -22,4 +22,16 @@
     <dimen name="guideLine20">20dp</dimen>
     <dimen name="overFlowTextWidth170">170dp</dimen>
     <dimen name="textViewHieght48">48dp</dimen>
+    <dimen name="_90dp">90dp</dimen>
+    <dimen name="_35dp">35dp</dimen>
+    <dimen name="_18dp">18dp</dimen>
+    <dimen name="text_regular">14sp</dimen>
+    <dimen name="text_title">26sp</dimen>
+    <dimen name="_24dp">24dp</dimen>
+    <dimen name="_8dp">8dp</dimen>
+    <dimen name="stroke_width">1dp</dimen>
+    <dimen name="_45dp">45dp</dimen>
+    <dimen name="_23dp">23dp</dimen>
+    <dimen name="_62dp">62dp</dimen>
+    <dimen name="_32dp">32dp</dimen>
 </resources>
