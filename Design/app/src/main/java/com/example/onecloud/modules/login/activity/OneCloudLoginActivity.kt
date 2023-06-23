@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.design.R
 import com.example.design.databinding.ActivityOneCloudLoginBinding
 import com.example.onecloud.base.BaseActivity
+import com.example.onecloud.modules.dashboard.activity.DashboardActivity
 import com.example.onecloud.modules.login.model.OneCloudUserLoginRequest
 import com.example.onecloud.modules.login.model.OneCloudUserLoginResponse
 import com.example.onecloud.modules.login.viewModel.LoginViewModel
@@ -48,7 +49,10 @@ class OneCloudLoginActivity : BaseActivity<ActivityOneCloudLoginBinding, LoginVi
 
     private fun setResponseObserver() {
         viewModel.loginResponse.observe(this) {
-            if (it != null) { saveUserData(it) } else { showError("LogIn Failed Try again") }
+            if (it != null) {
+                saveUserData(it)
+                launchActivity<DashboardActivity>()
+            } else { showError("LogIn Failed Try again") }
             binding.btnLogin.revertAnimation()
         }
     }

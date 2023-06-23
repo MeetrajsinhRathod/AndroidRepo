@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dashboard_navigation"
+    app:startDestination="@+id/chatFragment">
+
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.example.onecloud.modules.dashboard.fragments.ChatFragment"
+        android:label="Chat"
+        tools:layout="@layout/fragment_chat" />
+
+    <fragment
+        android:id="@+id/upcomingMeetings"
+        android:name="com.example.onecloud.modules.dashboard.fragments.UpcomingMeetingsFragment"
+        android:label="Upcoming Meetings"
+        tools:layout="@layout/fragment_upcoming_meetings" />
+
+    <fragment
+        android:id="@+id/callFragment"
+        android:name="com.example.onecloud.modules.dashboard.fragments.CallFragment"
+        android:label="Call"
+        tools:layout="@layout/fragment_call" />
+
+    <fragment
+        android:id="@+id/faxFragment"
+        android:name="com.example.onecloud.modules.dashboard.fragments.FaxFragment"
+        android:label="Fax"
+        tools:layout="@layout/fragment_fax" />
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.onecloud.modules.dashboard.fragments.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" />
+</navigation>
