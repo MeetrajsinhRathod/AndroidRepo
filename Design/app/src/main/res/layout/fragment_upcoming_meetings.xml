@@ -44,17 +44,50 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/upcomingMeetingsToolbar" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvUpcomingMeetings"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:paddingTop="@dimen/_16dp"
-        android:background="@color/onecloud_background_color"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/vwDivider" />
+        app:layout_constraintTop_toBottomOf="@id/vwDivider">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvUpcomingMeetings"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="@dimen/_16dp"
+            android:background="@color/onecloud_background_color"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmerLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:backgroundTint="@color/onecloud_background_color"
+        app:layout_constraintBottom_toBottomOf="@+id/swipeRefreshLayout"
+        app:layout_constraintEnd_toEndOf="@+id/swipeRefreshLayout"
+        app:layout_constraintStart_toStartOf="@+id/swipeRefreshLayout"
+        app:layout_constraintTop_toBottomOf="@+id/upcomingMeetingsToolbar"
+        app:shimmer_repeat_mode="restart"
+        app:shimmer_shape="radial">
+
+        <LinearLayout
+            android:backgroundTint="@color/onecloud_background_color"
+            android:layout_marginTop="@dimen/_50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <include layout="@layout/item_shimmer_placeholder" />
+            <include layout="@layout/item_shimmer_placeholder" />
+            <include layout="@layout/item_shimmer_placeholder" />
+            <include layout="@layout/item_shimmer_placeholder" />
+            <include layout="@layout/item_shimmer_placeholder" />
+            <include layout="@layout/item_shimmer_placeholder" />
+        </LinearLayout>
+    </com.facebook.shimmer.ShimmerFrameLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnAddMeeting"
