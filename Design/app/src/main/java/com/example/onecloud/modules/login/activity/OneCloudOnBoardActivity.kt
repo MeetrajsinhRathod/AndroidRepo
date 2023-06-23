@@ -1,18 +1,29 @@
 package com.example.onecloud.modules.login.activity
 
-import android.content.Intent
+import androidx.lifecycle.ViewModelProvider
+import com.example.design.R
 import com.example.design.databinding.ActivityOneCloudOnboardBinding
 import com.example.onecloud.base.BaseActivity
-import com.example.onecloud.base.BaseViewModel
+import com.example.onecloud.modules.login.viewModel.OnboardingViewModel
 
-class OneCloudOnBoardActivity : BaseActivity<ActivityOneCloudOnboardBinding, BaseViewModel>() {
+class OneCloudOnBoardActivity : BaseActivity<ActivityOneCloudOnboardBinding, OnboardingViewModel>() {
 
-    override fun getViewBinding(): ActivityOneCloudOnboardBinding = ActivityOneCloudOnboardBinding.inflate(layoutInflater)
+    override fun setViewModel(): OnboardingViewModel = ViewModelProvider(this)[OnboardingViewModel::class.java]
+    override fun getResId(): Int = R.layout.activity_one_cloud_onboard
 
     override fun setUpView() {
-        binding.btnLogin.setOnClickListener {
-            val intent = Intent(this,OneCloudLoginActivity::class.java)
-            startActivity(intent)
+        observeNavigation()
+    }
+
+    private fun observeNavigation() {
+        viewModel.navigateTo.observe(this) {
+            if (it == OnboardingViewModel.NavigationEvent.navigateToLogin) {
+                openLoginScreen()
+            }
         }
+    }
+
+    private fun openLoginScreen() {
+        launchActivity<OneCloudLoginActivity>()
     }
 }

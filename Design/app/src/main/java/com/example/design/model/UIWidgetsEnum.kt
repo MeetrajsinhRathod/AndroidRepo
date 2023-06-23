@@ -29,6 +29,7 @@ import com.example.design.activity.ToastActivity
 import com.example.design.activity.ToggleSwitchActivity
 import com.example.webService.activity.WebServicesActivity
 import com.example.design.activity.WebViewActivity
+import com.example.onecloud.modules.login.activity.OneCloudOnBoardActivity
 
 enum class UIWidgetsEnum(val cls: Class<*>) {
     TextView(TextViewActivity::class.java),
@@ -60,5 +61,6 @@ enum class UIWidgetsEnum(val cls: Class<*>) {
     OneCloudAccountSecurity(com.example.design.activity.OneCloudAccountSecurity::class.java),
     UserProfile(UserProfileActivity::class.java),
     RecyclerViewKT(RecyclerViewKtActivity::class.java),
-    WebServices(WebServicesActivity::class.java)
+    WebServices(WebServicesActivity::class.java),
+    OneCloudLogin(OneCloudOnBoardActivity::class.java)
 }
