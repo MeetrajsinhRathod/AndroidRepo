@@ -8,13 +8,13 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.design.R
 import com.example.design.databinding.FragmentSetStatusBottomSheetBinding
 import com.example.design.fragments.BottomSheetFragment
+import com.example.onecloud.Utills.SharedPrefHelper
 import com.example.onecloud.modules.dashboard.activity.DashboardActivity
 import com.example.onecloud.modules.userProfile.model.StatusData
 import com.example.onecloud.modules.userProfile.viewModel.SetStatusMessageViewModel
 
 class SetStatusBottomSheetFragment(
-    private val userId: String,
-    private val token: String,
+    private val statusMessage: String,
     private val responseCallback: (StatusData?) -> Unit
 ) : BottomSheetFragment() {
 
@@ -33,6 +33,7 @@ class SetStatusBottomSheetFragment(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.etDescription.setText(statusMessage)
         binding.btnCloseDialog.setOnClickListener { dismiss() }
         binding.btnSaveStatus.setOnClickListener { setStatusMessage() }
         observeResponse()
@@ -52,8 +53,8 @@ class SetStatusBottomSheetFragment(
     private fun setStatusMessage() {
         if (binding.etDescription.text.isNotEmpty()) {
             viewModel.setStatusInfo(
-                userId,
-                token,
+                context?.let { SharedPrefHelper.getId(it) } ?: "",
+                context?.let { SharedPrefHelper.getToken(it) } ?: "",
                 StatusData(binding.etDescription.text.toString())
             )
         }

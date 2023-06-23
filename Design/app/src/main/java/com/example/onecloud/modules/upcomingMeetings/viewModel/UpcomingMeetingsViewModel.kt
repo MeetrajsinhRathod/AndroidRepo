@@ -23,9 +23,9 @@ class UpcomingMeetingsViewModel: BaseViewModel() {
     var errorResponse = MutableLiveData<BaseErrorResponse>()
     var totalPage = MutableLiveData(1)
 
-    fun getUpcomingMeetings(page: Int, limit: Int, token: String) {
+    fun getUpcomingMeetings(page: Int, limit: Int,) {
         viewModelScope.launch(Dispatchers.IO) {
-            val response = RetrofitObject.apiService.getUpcomingMeetings(page, 5)
+            val response = RetrofitObject.apiService.getUpcomingMeetings(page, limit)
             if (response.code() == 200) {
                 response.body()?.data?.results?.let { generateDateMeetingsPair(it) }
                 _meetingResponse.postValue(meetingList)

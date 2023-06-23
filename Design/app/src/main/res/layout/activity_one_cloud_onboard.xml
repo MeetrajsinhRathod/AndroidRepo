@@ -37,6 +37,21 @@
             app:layout_constraintWidth_percent="0.6"
             app:srcCompat="@drawable/bg_ellipse_blue" />
 
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/_10dp"
+            android:layout_marginTop="@dimen/_10dp"
+            android:onClick="@{() -> viewModel.goBack()}"
+            android:backgroundTint="@color/transparent"
+            android:contentDescription="@string/go_back"
+            android:src="@drawable/ic_arrow_back"
+            app:layout_constraintBottom_toBottomOf="@+id/btnSupport"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/white" />
+
         <Button
             android:id="@+id/btnSupport"
             android:layout_width="wrap_content"

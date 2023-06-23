@@ -21,15 +21,9 @@ class UpcomingMeetingsFragment : Fragment(R.layout.fragment_upcoming_meetings) {
     private lateinit var binding: FragmentUpcomingMeetingsBinding
     private lateinit var viewModel: UpcomingMeetingsViewModel
     private lateinit var meetingsAdapter: MeetingsAdapter
-    private lateinit var userToken: String
     private var currentPage = 1
     private var totalPage = 1
     private var limit = 5
-    private val sharedPref by lazy {
-        activity?.getSharedPreferences(
-            "application", Context.MODE_PRIVATE
-        )
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -48,8 +42,7 @@ class UpcomingMeetingsFragment : Fragment(R.layout.fragment_upcoming_meetings) {
         binding.swipeRefreshLayout.setOnRefreshListener { reloadData() }
         binding.shimmerLayout.startShimmer()
         viewModel = ViewModelProvider(this)[UpcomingMeetingsViewModel::class.java]
-        userToken = "Bearer ${sharedPref?.getString("userToken", "")}"
-        viewModel.getUpcomingMeetings(currentPage,limit, userToken)
+        viewModel.getUpcomingMeetings(currentPage,limit)
         observeMeetingResponse()
         setUpPagination()
     }
@@ -61,7 +54,7 @@ class UpcomingMeetingsFragment : Fragment(R.layout.fragment_upcoming_meetings) {
         meetingsAdapter.clearList()
         binding.shimmerLayout.visibility = View.VISIBLE
         binding.shimmerLayout.startShimmer()
-        viewModel.getUpcomingMeetings(currentPage,limit, userToken)
+        viewModel.getUpcomingMeetings(currentPage,limit)
     }
 
     private fun setUpPagination() {
@@ -74,7 +67,7 @@ class UpcomingMeetingsFragment : Fragment(R.layout.fragment_upcoming_meetings) {
                 if (!meetingsAdapter.isLoading && lastVisibleItem >= totalPage + 1 && currentPage < totalPage) {
                     meetingsAdapter.showProgress()
                     currentPage += 1
-                    viewModel.getUpcomingMeetings(currentPage, limit, userToken)
+                    viewModel.getUpcomingMeetings(currentPage, limit)
                 }
             }
         })
