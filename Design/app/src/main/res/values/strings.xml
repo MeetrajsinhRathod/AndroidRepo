@@ -206,5 +206,9 @@ Section 1.10.33 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
     <string name="copy_link">Copy Link</string>
     <string name="edit">Edit</string>
     <string name="cancel">Cancel</string>
+    <string name="cancel_meeting">Cancel Meeting?</string>
+    <string name="description">Description</string>
+    <string name="add_cancellation_note_optional">Add cancellation note (Optional)</string>
+    <string name="close">Close</string>
 
 </resources>

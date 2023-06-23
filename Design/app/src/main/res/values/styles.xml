@@ -13,4 +13,8 @@
     <style name="BottomNavTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/oneCloudPrimaryColor</item>
     </style>
+
+    <style name="RoundedBottomSheet" parent="Theme.AppCompat.DayNight.Dialog">
+        <item name="android:windowBackground">@color/oneCloud_popup_window_background</item>
+    </style>
 </resources>

@@ -39,4 +39,6 @@
     <dimen name="text_small">11sp</dimen>
     <dimen name="_7dp">7dp</dimen>
     <dimen name="_12dp">12dp</dimen>
+    <dimen name="text_bold">20sp</dimen>
+    <dimen name="_70dp">70dp</dimen>
 </resources>

@@ -10,7 +10,7 @@ import com.example.design.R
 import com.example.design.databinding.FragmentBottomSheetBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-class BottomSheetFragment : BottomSheetDialogFragment() {
+open class BottomSheetFragment : BottomSheetDialogFragment() {
     private lateinit var binding: FragmentBottomSheetBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
