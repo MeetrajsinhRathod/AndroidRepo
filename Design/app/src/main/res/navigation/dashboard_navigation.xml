@@ -31,7 +31,7 @@
 
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.onecloud.modules.dashboard.fragments.ProfileFragment"
+        android:name="com.example.onecloud.modules.userProfile.fragments.UserProfileFragment"
         android:label="Profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_user_profile" />
 </navigation>

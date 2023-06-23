@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.setFragmentResult
 import androidx.lifecycle.ViewModelProvider
 import com.example.design.R
 import com.example.design.databinding.FragmentCancelMeetingBottomSheetBinding
@@ -44,7 +43,7 @@ class CancelMeetingBottomSheet(
         viewModel = ViewModelProvider(this)[CancelMeetingViewModel::class.java]
         userToken = "Bearer ${sharedPref?.getString("userToken", "")}"
         binding.btnCancelMeeting.setOnClickListener {
-            viewModel.cancelMeeting(meetingId, userToken, binding.etDescription.text.toString())
+            viewModel.cancelMeeting(meetingId, binding.etDescription.text.toString())
         }
         observeCancelMeetingResponse()
     }

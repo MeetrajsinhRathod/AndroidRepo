@@ -51,7 +51,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/vw_toolbar_divider" />
-
+    
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/img_vw_avatar"
         android:layout_width="0dp"
@@ -64,7 +64,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/vw_toolbar_divider"
-        app:layout_constraintWidth_percent="0.3" />
+        app:layout_constraintWidth_percent="0.3"/>
 
     <ImageButton
         android:id="@+id/img_btn_edit_avatar"

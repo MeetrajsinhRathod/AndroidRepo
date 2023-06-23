@@ -1,14 +1,13 @@
 package com.example.onecloud.modules.login.viewModel
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.example.onecloud.api.RetrofitObject
 import com.example.onecloud.base.BaseViewModel
 import com.example.onecloud.modules.login.model.OneCloudUserLoginRequest
 import com.example.onecloud.modules.login.model.OneCloudUserLoginResponse
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 class LoginViewModel: BaseViewModel() {
@@ -22,13 +21,13 @@ class LoginViewModel: BaseViewModel() {
         object NavigateToDashboard: NavigationEvent()
     }
 
-    private val _navigateTo = MutableLiveData<LoginViewModel.NavigationEvent>()
-    val navigateTo: LiveData<LoginViewModel.NavigationEvent>
+    private val _navigateTo = MutableLiveData<NavigationEvent>()
+    val navigateTo: LiveData<NavigationEvent>
         get() = _navigateTo
 
     fun logInUser(loginRequest: OneCloudUserLoginRequest) {
-        GlobalScope.launch(Dispatchers.IO) {
-            val response = RetrofitObject.oneCloudApi.logUserIn(loginRequest)
+        viewModelScope.launch(Dispatchers.IO) {
+            val response = apiService.logUserIn(loginRequest)
             if (response.code() == 200) {
                 loginResponse.postValue(response.body())
             } else { loginResponse.postValue(null) }

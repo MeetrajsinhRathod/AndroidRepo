@@ -2,6 +2,7 @@ package com.example.webService.viewModel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.webService.api.HttpURLConnectionBase
 import com.example.webService.api.ResponseType
 import com.example.webService.api.HttpRequestEnum
@@ -46,7 +47,7 @@ class GetUserDataViewModel: ViewModel() {
     }
 
     fun callGetUserApiUsingRetrofit() {
-        GlobalScope.launch(Dispatchers.IO) {
+        viewModelScope.launch(Dispatchers.IO) {
             val response = RetrofitInstance.reqresApi.getUserData()
             if (response.isSuccessful) {
                 liveDataList.postValue(response.body()?.data)

@@ -19,17 +19,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvCancelMeeting"
+        android:id="@+id/tv_set_status_msg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_20dp"
+        android:layout_marginTop="@dimen/_20dp"
         android:text="@string/set_status_message"
         android:textColor="@color/black"
-        android:layout_marginTop="@dimen/_20dp"
-        android:layout_marginStart="@dimen/_20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/view_bottom_sheet_anchor"
+        android:textSize="@dimen/text_regular"
         android:textStyle="bold"
-        android:textSize="@dimen/text_regular"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_bottom_sheet_anchor" />
 
     <EditText
         android:id="@+id/etDescription"
@@ -45,11 +45,11 @@
         android:textColorHint="@color/gray_600"
         android:textSize="@dimen/text_regular"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/tvCancelMeeting"
-        app:layout_constraintTop_toBottomOf="@+id/tvCancelMeeting" />
+        app:layout_constraintStart_toStartOf="@+id/tv_set_status_msg"
+        app:layout_constraintTop_toBottomOf="@+id/tv_set_status_msg" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnCancelMeeting"
+        android:id="@+id/btnSaveStatus"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_10dp"
@@ -75,6 +75,6 @@
         app:cornerRadius="@dimen/_8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnCancelMeeting"
+        app:layout_constraintTop_toBottomOf="@id/btnSaveStatus"
         app:layout_constraintBottom_toBottomOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
