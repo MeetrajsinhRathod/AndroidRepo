@@ -26,6 +26,9 @@
             android:name=".activity.RecyclerViewKtActivity"
             android:theme="@style/RecyclerViewKtTheme" />
         <activity
+            android:name="com.example.onecloud.modules.dashboard.activity.DashboardActivity"
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
+        <activity
             android:name="com.example.onecloud.modules.login.activity.OneCloudLoginActivity"
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
         <activity

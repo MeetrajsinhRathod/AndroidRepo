@@ -188,5 +188,10 @@ Section 1.10.33 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
     <string name="sign_in_with_microsoft">Sign in with microsoft</string>
     <string name="test_email">1037@devtest</string>
     <string name="test_password">Telware1234</string>
+    <string name="chat">Chat</string>
+    <string name="meeting">Meeting</string>
+    <string name="call">Call</string>
+    <string name="fax">Fax</string>
+    <string name="profile">Profile</string>
 
 </resources>
