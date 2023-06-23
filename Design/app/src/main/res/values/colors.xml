@@ -9,7 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="separator">#B6B6B6</color>
     <color name="oneCloudThemeColor">#38A6DE</color>
-    <color name="transparent">#00FFFFFF</color>
     <color name="user_profile_secondary_color">#AFB0B6</color>
     <color name="dark_green">#0E9D57</color>
     <color name="dark_grey">#121421</color>
@@ -19,10 +18,12 @@
     <color name="recyclerview_kt_screen_primary_color">#FF7A7A</color>
     <color name="recyclerview_component_bg_color">#20FF0000</color>
     <color name="recyclerview_component_border_color">#A60000</color>
+    <color name="transparent">#00FFFFFF</color>
     <color name="light_blue_400">#A8E4FF</color>
     <color name="light_blue_600">#FF039BE5</color>
     <color name="gray_400">#FFBDBDBD</color>
     <color name="gray_600">#FF757575</color>
     <color name="dark_blue">#18508D</color>
     <color name="oneCloudPrimaryColor">#38A6DE</color>
+    <color name="onecloud_background_color">#F7FAFD</color>
 </resources>

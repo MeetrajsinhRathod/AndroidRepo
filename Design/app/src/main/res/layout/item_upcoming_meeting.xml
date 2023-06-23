@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/_16dp"
+    android:layout_marginEnd="@dimen/_16dp"
+    android:layout_marginBottom="@dimen/_16dp"
+    android:backgroundTint="@color/white"
+    android:background="@drawable/bg_rounded_corners"
+    android:padding="@dimen/_16dp">
+
+    <TextView
+        android:id="@+id/tvMeetingTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/meeting_description"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_regular"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/tvMeetingDate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvMeetingDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_11dp"
+        android:drawablePadding="@dimen/_5dp"
+        android:gravity="center_vertical"
+        android:text="@string/meeting_date"
+        android:textColor="@color/gray_600"
+        android:textSize="@dimen/text_small"
+        app:drawableStartCompat="@drawable/ic_calendar"
+        app:layout_constraintBottom_toTopOf="@id/ivOrganizerAvatar"
+        app:layout_constraintEnd_toStartOf="@+id/tvMeetingDuration"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@id/tvMeetingTitle"
+        app:layout_constraintTop_toBottomOf="@id/tvMeetingTitle" />
+
+    <TextView
+        android:id="@+id/tvMeetingDuration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_16dp"
+        android:drawablePadding="@dimen/_5dp"
+        android:gravity="center_vertical"
+        android:text="@string/meeting_duration"
+        android:textColor="@color/gray_600"
+        android:textSize="@dimen/text_small"
+        app:drawableStartCompat="@drawable/ic_clock"
+        app:layout_constraintBottom_toBottomOf="@+id/tvMeetingDate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvMeetingDate"
+        app:layout_constraintTop_toTopOf="@+id/tvMeetingDate" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ivOrganizerAvatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_11dp"
+        android:src="@drawable/ic_avatar"
+        app:layout_constraintEnd_toStartOf="@id/tvOrgenizerName"
+        app:layout_constraintStart_toStartOf="@id/tvMeetingDate"
+        app:layout_constraintTop_toBottomOf="@+id/tvMeetingDate" />
+
+    <TextView
+        android:id="@+id/tvOrgenizerName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_5dp"
+        android:drawablePadding="@dimen/_7dp"
+        android:gravity="center_vertical"
+        android:text="@string/guest"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_small"
+        android:ellipsize="end"
+        app:layout_constraintEnd_toStartOf="@id/btnGoogle"
+        app:layout_constraintBottom_toBottomOf="@+id/ivOrganizerAvatar"
+        app:layout_constraintStart_toEndOf="@+id/ivOrganizerAvatar"
+        app:layout_constraintTop_toTopOf="@+id/ivOrganizerAvatar" />
+
+    <ImageButton
+        android:id="@+id/btnGoogle"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:padding="@dimen/_12dp"
+        android:src="@drawable/google"
+        app:layout_constraintBottom_toBottomOf="@+id/btnMoreOptions"
+        app:layout_constraintEnd_toStartOf="@+id/btnMoreOptions"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@+id/tvOrgenizerName"
+        app:layout_constraintTop_toTopOf="@+id/btnMoreOptions"
+        android:contentDescription="@string/search_on_google" />
+
+    <ImageButton
+        android:id="@+id/btnMoreOptions"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:padding="@dimen/_12dp"
+        android:src="@drawable/ic_menu"
+        app:layout_constraintBottom_toBottomOf="@+id/btnJoinMeeting"
+        app:layout_constraintEnd_toStartOf="@+id/btnJoinMeeting"
+        app:layout_constraintStart_toEndOf="@+id/btnGoogle"
+        app:layout_constraintTop_toTopOf="@+id/btnJoinMeeting"
+        android:contentDescription="@string/more_options" />
+
+    <Button
+        android:id="@+id/btnJoinMeeting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_12dp"
+        android:text="@string/join"
+        android:textAllCaps="false"
+        android:backgroundTint="@color/oneCloudPrimaryColor"
+        app:layout_constraintBottom_toBottomOf="@+id/tvOrgenizerName"
+        app:layout_constraintEnd_toEndOf="@+id/tvMeetingTitle"
+        app:layout_constraintStart_toEndOf="@+id/btnMoreOptions"
+        app:layout_constraintTop_toTopOf="@+id/tvOrgenizerName" />
+</androidx.constraintlayout.widget.ConstraintLayout>
