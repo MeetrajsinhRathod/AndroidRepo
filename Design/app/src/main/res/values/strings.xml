@@ -193,5 +193,18 @@ Section 1.10.33 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
     <string name="call">Call</string>
     <string name="fax">Fax</string>
     <string name="profile">Profile</string>
+    <string name="more_options">more options</string>
+    <string name="upcoming_meetings">Upcoming meetings</string>
+    <string name="add_meetings">add meetings</string>
+    <string name="meeting_description">Convergent and divergent plate margins random code calculation training</string>
+    <string name="meeting_duration">7:31:53</string>
+    <string name="guest">Guest</string>
+    <string name="meeting_date">Today, 8:20 am</string>
+    <string name="join">Join</string>
+    <string name="dummy_date">Today, Thursday, 12 January</string>
+    <string name="search_on_google">Search on google</string>
+    <string name="copy_link">Copy Link</string>
+    <string name="edit">Edit</string>
+    <string name="cancel">Cancel</string>
 
 </resources>

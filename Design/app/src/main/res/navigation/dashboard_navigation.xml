@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/upcomingMeetings"
-        android:name="com.example.onecloud.modules.dashboard.fragments.UpcomingMeetingsFragment"
+        android:name="com.example.onecloud.modules.upcomingMeetings.fragments.UpcomingMeetingsFragment"
         android:label="Upcoming Meetings"
         tools:layout="@layout/fragment_upcoming_meetings" />
 

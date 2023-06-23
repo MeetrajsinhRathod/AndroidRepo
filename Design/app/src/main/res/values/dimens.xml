@@ -3,7 +3,6 @@
     <dimen name="_1dp">1dp</dimen>
     <dimen name="_0dp">0dp</dimen>
     <dimen name="_60dp">60dp</dimen>
-    <dimen name="_5dp">5dp</dimen>
     <dimen name="profile_image_size">104dp</dimen>
     <dimen name="_40dp">40dp</dimen>
     <dimen name="_100dp">100dp</dimen>
@@ -34,4 +33,10 @@
     <dimen name="_62dp">62dp</dimen>
     <dimen name="_32dp">32dp</dimen>
     <dimen name="_48dp">48dp</dimen>
+    <dimen name="_16dp">16dp</dimen>
+    <dimen name="_11dp">11dp</dimen>
+    <dimen name="_5dp">5dp</dimen>
+    <dimen name="text_small">11sp</dimen>
+    <dimen name="_7dp">7dp</dimen>
+    <dimen name="_12dp">12dp</dimen>
 </resources>
