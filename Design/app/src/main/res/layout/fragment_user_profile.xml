@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_toolbar_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_24dp"
+        android:text="@string/profile"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/img_btn_setting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_16dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_setting"
+        app:layout_constraintBottom_toBottomOf="@id/tv_toolbar_heading"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_toolbar_heading"
+        app:tint="@color/gray_400"
+        android:contentDescription="@string/settings"/>
+
+    <View
+        android:id="@+id/vw_toolbar_divider"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1dp"
+        android:layout_marginTop="@dimen/_24dp"
+        android:background="@color/gray_400"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_toolbar_heading" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/onecloud_background_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vw_toolbar_divider" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/img_vw_avatar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_avatar"
+        app:shapeAppearanceOverlay="@style/circleImageView"
+        android:scaleType="centerCrop"
+        app:layout_constraintDimensionRatio="w, 1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vw_toolbar_divider"
+        app:layout_constraintWidth_percent="0.3" />
+
+    <ImageButton
+        android:id="@+id/img_btn_edit_avatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_round_blue_white_outlined"
+        android:padding="@dimen/_10dp"
+        android:src="@drawable/ic_edit"
+        app:layout_constraintBottom_toBottomOf="@+id/img_vw_avatar"
+        app:layout_constraintEnd_toEndOf="@+id/img_vw_avatar"
+        android:contentDescription="@string/edit_profile_image"/>
+
+    <TextView
+        android:id="@+id/tv_user_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_24dp"
+        android:layout_marginTop="@dimen/_16dp"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="@dimen/text_bold"
+        app:layout_constraintBottom_toTopOf="@+id/tv_user_email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img_vw_avatar"
+        tools:text="Username"/>
+
+    <TextView
+        android:id="@+id/tv_user_email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_24dp"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_regular"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_user_name"
+        tools:text="Email" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_status_with_meeting_id"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_16dp"
+        android:layout_marginTop="@dimen/_16dp"
+        android:background="@drawable/bg_round_white_grey_outlined"
+        android:paddingHorizontal="@dimen/_14dp"
+        android:paddingBottom="@dimen/_10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_user_email">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_set_status_msg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginBottom="@dimen/_10dp"
+            app:layout_constraintBottom_toTopOf="@id/vw_status_message_divider">
+
+            <ImageView
+                android:id="@+id/img_vw_status_msg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_edit_round"
+                app:layout_constraintBottom_toTopOf="@id/tv_status"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_set_status_msg"
+                android:importantForAccessibility="no" />
+
+            <TextView
+                android:id="@+id/tv_set_status_msg"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10dp"
+                android:layout_marginTop="@dimen/_10dp"
+                android:text="@string/set_status_message"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_regular"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/imageView3"
+                app:layout_constraintStart_toEndOf="@+id/img_vw_status_msg"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_status"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{ProfileViewModel.statusSuccessResponse.status}"
+                android:textSize="@dimen/text_small"
+                android:maxLines="1"
+                app:layout_constraintStart_toStartOf="@+id/tv_set_status_msg"
+                app:layout_constraintEnd_toEndOf="@id/tv_set_status_msg"
+                app:layout_constraintTop_toBottomOf="@id/tv_set_status_msg" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_forward"
+                android:backgroundTint="@color/black"
+                app:layout_constraintBottom_toTopOf="@id/tv_status"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_set_status_msg"
+                android:importantForAccessibility="no" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/vw_status_message_divider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1dp"
+            android:background="@color/gray_400"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/layout_meeting_id"
+            app:layout_constraintTop_toBottomOf="@id/layout_set_status_msg" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_meeting_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vw_status_message_divider">
+
+            <ImageView
+                android:id="@+id/img_vw_meeting_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_user_tag"
+                app:layout_constraintBottom_toTopOf="@id/tv_generate"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_meeting_id"
+                android:importantForAccessibility="no" />
+
+            <TextView
+                android:id="@+id/tv_meeting_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10dp"
+                android:layout_marginTop="@dimen/_10dp"
+                android:text="@string/meeting_id"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_regular"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/img_vw_meeting_id"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_generate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/generate_automatically"
+                android:textSize="@dimen/text_small"
+                app:layout_constraintStart_toStartOf="@+id/tv_meeting_id"
+                app:layout_constraintTop_toBottomOf="@id/tv_meeting_id" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_forward"
+                app:layout_constraintBottom_toTopOf="@id/tv_generate"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_meeting_id" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_personal_info_and_help"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_16dp"
+        android:layout_marginTop="@dimen/_16dp"
+        android:background="@drawable/bg_round_white_grey_outlined"
+        android:paddingHorizontal="@dimen/_14dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layout_status_with_meeting_id">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_personal_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:drawableStart="@drawable/ic_personal_icard"
+            android:drawableEnd="@drawable/ic_forward"
+            android:drawablePadding="@dimen/_10dp"
+            android:text="@string/personal_info"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
+            android:textSize="@dimen/text_regular"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/vw_personal_info_divider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1dp"
+            android:background="@color/gray_400"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_personal_info" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_help"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:drawableStart="@drawable/ic_help"
+            android:drawableEnd="@drawable/ic_forward"
+            android:drawablePadding="@dimen/_10dp"
+            android:text="@string/help"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
+            android:textSize="@dimen/text_regular"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vw_personal_info_divider" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_logout"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_16dp"
+        android:background="@drawable/bg_round_white_grey_outlined"
+        android:drawableStart="@drawable/ic_logout"
+        android:drawablePadding="@dimen/_10dp"
+        android:paddingHorizontal="@dimen/_14dp"
+        android:text="@string/log_out"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textSize="@dimen/text_regular"
+        android:textColor="@android:color/holo_red_light"
+        app:layout_constraintEnd_toEndOf="@id/layout_personal_info_and_help"
+        app:layout_constraintStart_toStartOf="@id/layout_personal_info_and_help"
+        app:layout_constraintTop_toBottomOf="@id/layout_personal_info_and_help" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_profile_component"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:constraint_referenced_ids="tv_user_email,img_btn_edit_avatar,view,tv_user_name,
+        layout_status_with_meeting_id,layout_personal_info_and_help,btn_logout,img_vw_avatar" />
+</androidx.constraintlayout.widget.ConstraintLayout>
