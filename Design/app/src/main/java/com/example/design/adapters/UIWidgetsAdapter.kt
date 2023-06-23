@@ -2,6 +2,7 @@ package com.example.design.adapters
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,14 +13,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.AppClass
 import com.example.design.R
 import com.example.design.model.UIWidgetsEnum
+import com.example.onecloud.Utills.SharedPrefHelper
 import com.example.onecloud.modules.dashboard.activity.DashboardActivity
 
 class UIWidgetsAdapter(private val widgetsArray: Array<UIWidgetsEnum>): RecyclerView.Adapter<UIWidgetsAdapter.ViewHolder>() {
 
     private lateinit var context: Context
-    private val isUserLoggedIn = AppClass.instance.getSharedPreferences("application",
-        AppCompatActivity.MODE_PRIVATE
-    ).getBoolean("isUserLoggedIn", false)
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val btnActivity: Button = itemView.findViewById(R.id.btnActivity)
@@ -38,7 +37,7 @@ class UIWidgetsAdapter(private val widgetsArray: Array<UIWidgetsEnum>): Recycler
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.btnActivity.text = widgetsArray[position].name
         holder.btnActivity.setOnClickListener {
-            var activityIntent = if (holder.btnActivity.text == UIWidgetsEnum.OneCloudLogin.name && isUserLoggedIn) {
+            val activityIntent = if (holder.btnActivity.text == UIWidgetsEnum.OneCloudLogin.name && SharedPrefHelper.isLoggedIn(context)) {
                 Intent(context, DashboardActivity::class.java)
             } else {
                 Intent(context, widgetsArray[position].cls)

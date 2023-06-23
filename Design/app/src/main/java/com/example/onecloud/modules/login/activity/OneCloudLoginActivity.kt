@@ -4,6 +4,7 @@ import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.ViewModelProvider
 import com.example.design.R
 import com.example.design.databinding.ActivityOneCloudLoginBinding
+import com.example.onecloud.Utills.SharedPrefHelper
 import com.example.onecloud.base.BaseActivity
 import com.example.onecloud.modules.dashboard.activity.DashboardActivity
 import com.example.onecloud.modules.login.model.OneCloudUserLoginRequest
@@ -39,6 +40,7 @@ class OneCloudLoginActivity : BaseActivity<ActivityOneCloudLoginBinding, LoginVi
     }
 
     private fun callLoginApi() {
+        toggleTextField(false)
         binding.btnLogin.startAnimation()
         if (!binding.etEmail.text.isNullOrEmpty() && !binding.etPassword.text.isNullOrEmpty()) {
             val loginRequest = OneCloudUserLoginRequest(
@@ -52,6 +54,7 @@ class OneCloudLoginActivity : BaseActivity<ActivityOneCloudLoginBinding, LoginVi
     private fun setResponseObserver() {
         viewModel.loginResponse.observe(this) {
             saveUserData(it)
+            toggleTextField(true)
             launchActivity<DashboardActivity>()
             finish()
             binding.btnLogin.revertAnimation()
@@ -59,6 +62,7 @@ class OneCloudLoginActivity : BaseActivity<ActivityOneCloudLoginBinding, LoginVi
     }
 
     private fun setErrorResponseObserver() {
+        toggleTextField(true)
         viewModel.errorResponse.observe(this) {
             showError(it.message ?: "Error Occurred. Please Try Again")
             binding.btnLogin.revertAnimation()
@@ -66,13 +70,8 @@ class OneCloudLoginActivity : BaseActivity<ActivityOneCloudLoginBinding, LoginVi
     }
 
     private fun saveUserData(oneCloudUserLoginResponse: OneCloudUserLoginResponse) {
-        val sharedPreferences = this.getSharedPreferences("application", MODE_PRIVATE)
-        sharedPreferences.edit().apply {
-            putString("userToken", oneCloudUserLoginResponse.data[0].token)
-            putString("userId", oneCloudUserLoginResponse.data[0].user)
-            putBoolean("isUserLoggedIn", true)
-            apply()
-        }
+        SharedPrefHelper.updateLoginStatus(this, true)
+        SharedPrefHelper.saveTokenAndId(this, oneCloudUserLoginResponse.data[0].token, oneCloudUserLoginResponse.data[0].user)
     }
 
     private fun setHelperTextForTextInputLayout(
@@ -83,6 +82,16 @@ class OneCloudLoginActivity : BaseActivity<ActivityOneCloudLoginBinding, LoginVi
             textInputLayout.helperText = "This field is required"
         } else {
             textInputLayout.helperText = null
+        }
+    }
+
+    private fun toggleTextField(userInteractionEnabled: Boolean) {
+        if(userInteractionEnabled) {
+            binding.etEmail.isEnabled = true
+            binding.etPassword.isEnabled = true
+        } else {
+            binding.etEmail.isEnabled = false
+            binding.etPassword.isEnabled = false
         }
     }
 }

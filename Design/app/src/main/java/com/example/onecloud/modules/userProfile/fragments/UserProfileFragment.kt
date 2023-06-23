@@ -12,6 +12,7 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import com.example.design.R
 import com.example.design.databinding.FragmentUserProfileBinding
+import com.example.onecloud.Utills.SharedPrefHelper
 import com.example.onecloud.modules.dashboard.activity.DashboardActivity
 import com.example.onecloud.modules.login.activity.OneCloudOnBoardActivity
 import com.example.onecloud.modules.userProfile.model.ProfileData
@@ -26,15 +27,8 @@ import kotlinx.coroutines.launch
 class UserProfileFragment : Fragment() {
 
     private lateinit var binding: FragmentUserProfileBinding
-    private lateinit var userToken: String
-    private lateinit var userId: String
     private val viewModel by lazy {
         ViewModelProvider(this)[UserProfileViewModel::class.java]
-    }
-    private val sharedPref by lazy {
-        activity?.getSharedPreferences(
-            "application", Context.MODE_PRIVATE
-        )
     }
 
     override fun onCreateView(
@@ -50,8 +44,6 @@ class UserProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         configLogOutBtn()
         binding.layoutSetStatusMsg.setOnClickListener { presentStatusMessageSheet() }
-        userToken = "${sharedPref?.getString("userToken", "")}"
-        userId = "${sharedPref?.getString("userId", "")}"
         binding.groupProfileComponent.visibility = View.GONE
         binding.progressBarProfile.visibility = View.VISIBLE
         getProfileAndStatusData()
@@ -60,7 +52,7 @@ class UserProfileFragment : Fragment() {
 
     private fun configLogOutBtn() {
         binding.btnLogout.setOnClickListener {
-            sharedPref?.edit()?.putBoolean("isUserLoggedIn", false)?.apply()
+            context?.let { it1 -> SharedPrefHelper.updateLoginStatus(it1, false) }
             (activity as DashboardActivity).apply {
                 finish()
                 launchActivity<OneCloudOnBoardActivity>()
@@ -71,7 +63,7 @@ class UserProfileFragment : Fragment() {
     private fun getProfileAndStatusData() {
         CoroutineScope(Dispatchers.IO).launch {
             val profileDataTask = async { viewModel.getProfileInfo() }
-            val statusDataTask = async { viewModel.getStatusInfo(userId) }
+            val statusDataTask = async { viewModel.getStatusInfo(SharedPrefHelper.getId(requireContext())) }
             profileDataTask.await()
             statusDataTask.await()
         }
@@ -113,7 +105,7 @@ class UserProfileFragment : Fragment() {
     }
 
     private fun presentStatusMessageSheet() {
-        val setStatusBottomSheetFragment = SetStatusBottomSheetFragment(userId, userToken, this::statusResponse)
+        val setStatusBottomSheetFragment = SetStatusBottomSheetFragment(binding.tvStatus.text.toString(),this::statusResponse)
         setStatusBottomSheetFragment.show(parentFragmentManager, "Status Bottom Sheet")
     }
 
