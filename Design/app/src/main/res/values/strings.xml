@@ -165,5 +165,23 @@ Section 1.10.33 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
     <string name="delete_user">Delete User</string>
     <string name="delete">Delete</string>
     <string name="delete_status">Delete Status:</string>
+    <string name="support">Support</string>
+    <string name="terms_and_conditions">
+        <u><![CDATA[Terms & Conditions | Privacy Policy]]></u>
+    </string>
+    <string name="start_new_meeting">Start New Meeting</string>
+    <string name="join_meeting">Join Meeting</string>
+    <string name="schedule_meeting">Schedule Meeting</string>
+    <string name="already_have_an_account">Already have a OneCloud Meet account?</string>
+    <string name="log_in">Log in</string>
+    <string name="welcome_to_onecloud_meet">Welcome to OneCloud Meet</string>
+    <string name="anytime_anywhere_video_conferencing">Anytime, anywhere video conferencing.</string>
+    <string name="welcome_to_onecloud_sign_in">Welcome to OneCloud \n Sign in to get started</string>
+    <string name="go_back">Go Back</string>
+    <string name="email_placeholder">Enter Your Email/Username</string>
+    <string name="password_placeholder">Enter Password</string>
+    <string name="remember_me">Remember Me</string>
+    <string name="forget_password">Forget Password?</string>
+    <string name="or">or</string>
 
 </resources>

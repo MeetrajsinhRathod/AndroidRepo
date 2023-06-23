@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_blue"
+    tools:context="com.example.onecloud.modules.login.activity.OneCloudOnBoardActivity">
+
+    <ImageView
+        android:id="@+id/ivEllipseBackground"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:importantForAccessibility="no"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.3"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintWidth_percent="0.6"
+        app:srcCompat="@drawable/bg_ellipse_blue" />
+
+    <Button
+        android:id="@+id/btnSupport"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10dp"
+        android:layout_marginEnd="@dimen/_10dp"
+        android:background="@color/transparent"
+        android:text="@string/support"
+        android:textAllCaps="false"
+        app:icon="@drawable/ic_support"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_90dp"
+        android:importantForAccessibility="no"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnSupport"
+        app:srcCompat="@drawable/ic_onecloud" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_35dp"
+        android:text="@string/welcome_to_onecloud_meet"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_title"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivLogo" />
+
+    <TextView
+        android:id="@+id/tvSubTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_18dp"
+        android:text="@string/anytime_anywhere_video_conferencing"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnStartNewMeeting"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_24dp"
+        android:layout_marginTop="@dimen/_50dp"
+        android:backgroundTint="@color/dark_blue"
+        android:padding="@dimen/_15dp"
+        app:cornerRadius="@dimen/_8dp"
+        android:text="@string/start_new_meeting"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvSubTitle"
+        app:strokeColor="@color/white"
+        app:strokeWidth="@dimen/stroke_width" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnJoinMeeting"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10dp"
+        android:padding="@dimen/_15dp"
+        app:cornerRadius="@dimen/_8dp"
+        android:backgroundTint="@color/oneCloudPrimaryColor"
+        android:textAllCaps="false"
+        android:text="@string/join_meeting"
+        app:icon="@drawable/ic_profile_add"
+        app:iconGravity="textStart"
+        app:layout_constraintEnd_toEndOf="@id/btnStartNewMeeting"
+        app:layout_constraintStart_toStartOf="@id/btnStartNewMeeting"
+        app:layout_constraintTop_toBottomOf="@id/btnStartNewMeeting" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnScheduleMeeting"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10dp"
+        android:padding="@dimen/_15dp"
+        app:cornerRadius="@dimen/_8dp"
+        android:backgroundTint="@color/oneCloudPrimaryColor"
+        android:textAllCaps="false"
+        android:text="@string/schedule_meeting"
+        app:icon="@drawable/ic_calender"
+        app:iconGravity="textStart"
+        app:layout_constraintEnd_toEndOf="@id/btnStartNewMeeting"
+        app:layout_constraintStart_toStartOf="@id/btnStartNewMeeting"
+        app:layout_constraintTop_toBottomOf="@id/btnJoinMeeting" />
+
+    <TextView
+        android:id="@+id/tvAlreadyHaveAnAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_45dp"
+        android:text="@string/already_have_an_account"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnScheduleMeeting" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:text="@string/log_in"
+        android:textAllCaps="false"
+        android:textColor="@color/light_blue_400"
+        app:icon="@drawable/ic_arrow_right"
+        app:iconGravity="textEnd"
+        app:iconTint="@color/light_blue_400"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvAlreadyHaveAnAccount"/>
+
+    <TextView
+        android:id="@+id/btnPrivacyPolicy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_20dp"
+        android:text="@string/terms_and_conditions"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+</androidx.constraintlayout.widget.ConstraintLayout>
