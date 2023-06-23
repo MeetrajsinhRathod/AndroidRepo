@@ -2,8 +2,10 @@ package com.example.webService.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MotionEvent
 import androidx.lifecycle.ViewModelProvider
 import com.example.design.databinding.ActivityDeleteRequestBinding
+import com.example.design.helper.hideKeyboardOnTouchOutside
 import com.example.webService.api.WebServiceType
 import com.example.webService.viewModel.DeleteRequestViewModel
 
@@ -25,6 +27,14 @@ class DeleteRequestActivity : AppCompatActivity() {
                 callDeleteUserApi()
             }
         }
+    }
+
+    //override dispatchTouchEvent function to hide keyboard on touch outside of editText
+    override fun dispatchTouchEvent(event: MotionEvent): Boolean {
+        if (event.action == MotionEvent.ACTION_DOWN) {
+            this.hideKeyboardOnTouchOutside()
+        }
+        return super.dispatchTouchEvent(event)
     }
 
     private fun setResponseObserver() {

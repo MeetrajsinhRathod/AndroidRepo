@@ -4,15 +4,18 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.onecloud.api.RetrofitObject
+import com.example.onecloud.base.BaseErrorResponse
 import com.example.onecloud.base.BaseViewModel
 import com.example.onecloud.modules.login.model.OneCloudUserLoginRequest
 import com.example.onecloud.modules.login.model.OneCloudUserLoginResponse
+import com.google.gson.Gson
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class LoginViewModel: BaseViewModel() {
 
-    var loginResponse = MutableLiveData<OneCloudUserLoginResponse?>()
+    var loginResponse = MutableLiveData<OneCloudUserLoginResponse>()
+    var errorResponse = MutableLiveData<BaseErrorResponse>()
 
     sealed class NavigationEvent {
 
@@ -30,7 +33,10 @@ class LoginViewModel: BaseViewModel() {
             val response = apiService.logUserIn(loginRequest)
             if (response.code() == 200) {
                 loginResponse.postValue(response.body())
-            } else { loginResponse.postValue(null) }
+            } else {
+                val error = Gson().fromJson(response.errorBody()?.string(), BaseErrorResponse::class.java)
+                errorResponse.postValue(error)
+            }
         }
     }
 

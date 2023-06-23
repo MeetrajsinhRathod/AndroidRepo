@@ -220,5 +220,6 @@ Section 1.10.33 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
     <string name="edit_profile_image">Edit profile image</string>
     <string name="enter_your_message_here">Enter your message here</string>
     <string name="save">Save</string>
+    <string name="user_email_address">meetrajsinh@simformsolution.com</string>
 
 </resources>

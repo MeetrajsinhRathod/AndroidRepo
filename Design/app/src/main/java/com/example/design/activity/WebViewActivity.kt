@@ -3,11 +3,13 @@ package com.example.design.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MotionEvent
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import com.example.design.R
 import com.example.design.databinding.ActivityWebViewBinding
+import com.example.design.helper.hideKeyboardOnTouchOutside
 import java.net.URL
 
 class WebViewActivity : AppCompatActivity() {
@@ -19,6 +21,14 @@ class WebViewActivity : AppCompatActivity() {
         binding = ActivityWebViewBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setUpView()
+    }
+
+    //override dispatchTouchEvent function to hide keyboard on touch outside of editText
+    override fun dispatchTouchEvent(event: MotionEvent): Boolean {
+        if (event.action == MotionEvent.ACTION_DOWN) {
+            this.hideKeyboardOnTouchOutside()
+        }
+        return super.dispatchTouchEvent(event)
     }
 
     private fun setUpView() {

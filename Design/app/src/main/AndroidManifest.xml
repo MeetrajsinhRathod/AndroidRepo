@@ -13,37 +13,39 @@
         android:name="com.example.AppClass"
         android:supportsRtl="true"
         android:theme="@style/Theme.Design"
-        tools:targetApi="31">
+        tools:targetApi="31"
+        tools:ignore="LockedOrientationActivity" >
         <activity
             android:name=".activity.CoughMedicineActivity"
-            android:theme="@style/CoughMedicineTheme"/>
+            android:theme="@style/CoughMedicineTheme"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activity.UserProfileActivity"
-            android:theme="@style/UserProfileTheme" />
+            android:theme="@style/UserProfileTheme"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activity.OneCloudAccountSecurity"
-            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
+            android:theme="@style/OneCloudTheme"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activity.RecyclerViewKtActivity"
-            android:theme="@style/RecyclerViewKtTheme" />
+            android:theme="@style/RecyclerViewKtTheme"
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.example.onecloud.modules.dashboard.activity.DashboardActivity"
-            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
+            android:theme="@style/OneCloudTheme"
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.example.onecloud.modules.login.activity.OneCloudLoginActivity"
-            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
+            android:theme="@style/OneCloudTheme"
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.example.onecloud.modules.login.activity.OneCloudOnBoardActivity"
-            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
-        <activity
-            android:name="com.example.webService.activity.DeleteRequestActivity"
-            android:exported="false" />
-        <activity
-            android:name="com.example.webService.activity.UpdateRequestActivity"
-            android:exported="false" />
-        <activity
-            android:name="com.example.webService.activity.PostRequestActivity"
-            android:exported="false" />
+            android:theme="@style/OneCloudTheme"
+            android:screenOrientation="portrait" />
+        <activity android:name="com.example.webService.activity.DeleteRequestActivity"/>
+        <activity android:name="com.example.webService.activity.UpdateRequestActivity"/>
+        <activity android:name="com.example.webService.activity.PostRequestActivity"/>
         <activity
             android:name="com.example.webService.activity.GetRequestActivity"
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
@@ -55,10 +57,8 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-
                 <data android:scheme="https" />
             </intent-filter>
         </activity>
@@ -80,7 +80,6 @@
         <activity android:name=".activity.SnackbarActivity" />
         <activity android:name=".activity.FloatingActionButtonActivity" />
         <activity android:name=".activity.FrameLayoutActivity" />
-        <activity android:name=".activity.DataBindingActivity" />
         <activity android:name=".activity.DatePickerActivity" />
         <activity android:name=".activity.SpinnerActivity" />
         <activity android:name=".activity.ChipsActivity" />
@@ -98,7 +97,6 @@
             android:theme="@style/HomeScreenStyle">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

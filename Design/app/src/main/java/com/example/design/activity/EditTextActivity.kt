@@ -3,7 +3,9 @@ package com.example.design.activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
+import android.view.MotionEvent
 import com.example.design.databinding.ActivityEditTextBinding
+import com.example.design.helper.hideKeyboardOnTouchOutside
 
 class EditTextActivity : AppCompatActivity() {
     private lateinit var binding: ActivityEditTextBinding
@@ -12,6 +14,14 @@ class EditTextActivity : AppCompatActivity() {
         binding = ActivityEditTextBinding.inflate(layoutInflater)
         setContentView(binding.root)
         validateEmailPassword()
+    }
+
+    //override dispatchTouchEvent function to hide keyboard on touch outside of editText
+    override fun dispatchTouchEvent(event: MotionEvent): Boolean {
+        if (event.action == MotionEvent.ACTION_DOWN) {
+            this.hideKeyboardOnTouchOutside()
+        }
+        return super.dispatchTouchEvent(event)
     }
 
     private fun validateEmailPassword() {

@@ -3,12 +3,14 @@ package com.example.design.activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
+import android.view.MotionEvent
 import android.view.View
 import android.widget.EditText
 import androidx.transition.AutoTransition
 import androidx.transition.TransitionManager
 import com.example.design.R
 import com.example.design.databinding.ActivityOneCloudAccountSecurityBinding
+import com.example.design.helper.hideKeyboardOnTouchOutside
 import com.google.android.material.textfield.TextInputLayout
 
 class OneCloudAccountSecurity : AppCompatActivity() {
@@ -21,6 +23,14 @@ class OneCloudAccountSecurity : AppCompatActivity() {
         binding = ActivityOneCloudAccountSecurityBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setUpView()
+    }
+
+    //override dispatchTouchEvent function to hide keyboard on touch outside of editText
+    override fun dispatchTouchEvent(event: MotionEvent): Boolean {
+        if (event.action == MotionEvent.ACTION_DOWN) {
+            this.hideKeyboardOnTouchOutside()
+        }
+        return super.dispatchTouchEvent(event)
     }
 
     private fun animate() {

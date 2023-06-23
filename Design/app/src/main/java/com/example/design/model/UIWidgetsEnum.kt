@@ -6,7 +6,6 @@ import com.example.design.activity.AppBarLayoutActivity
 import com.example.design.activity.BottomNavigationActivity
 import com.example.design.activity.ButtonsActivity
 import com.example.design.activity.ChipsActivity
-import com.example.design.activity.DataBindingActivity
 import com.example.design.activity.DatePickerActivity
 import com.example.design.activity.EditTextActivity
 import com.example.design.activity.FloatingActionButtonActivity
@@ -45,7 +44,6 @@ enum class UIWidgetsEnum(val cls: Class<*>) {
     DatePicker(DatePickerActivity::class.java),
     FloatingActionButton(FloatingActionButtonActivity::class.java),
     SnackBar(SnackbarActivity::class.java),
-    DataBinding(DataBindingActivity::class.java),
     FrameLayout(FrameLayoutActivity::class.java),
     TabLayout(TabLayoutActivity::class.java),
     GridLayout(GridLayoutActivity::class.java),

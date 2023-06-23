@@ -1,16 +1,10 @@
 package com.example.design.activity
 
-import android.graphics.drawable.Drawable
-import android.graphics.drawable.Icon
-import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
-import com.example.design.databinding.ActivityDataBindingBinding
 import com.example.design.databinding.ActivityFloatingActionButtonBinding
-import com.example.design.databinding.ActivityMainBinding
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class FloatingActionButtonActivity : AppCompatActivity() {
 

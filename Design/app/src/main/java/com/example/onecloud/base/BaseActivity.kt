@@ -1,18 +1,17 @@
 package com.example.onecloud.base
 
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
-import android.view.View
+import android.view.Gravity
+import android.view.MotionEvent
+import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import com.example.design.BR
 import com.example.design.R
-import com.example.onecloud.modules.login.activity.OneCloudLoginActivity
-import com.example.webService.viewModel.DeleteRequestViewModel
+import com.example.design.helper.hideKeyboardOnTouchOutside
 import com.google.android.material.snackbar.Snackbar
-import java.lang.reflect.ParameterizedType
 
 abstract class BaseActivity<Binding: ViewDataBinding, ViewModel:  BaseViewModel>(): AppCompatActivity() {
 
@@ -28,7 +27,6 @@ abstract class BaseActivity<Binding: ViewDataBinding, ViewModel:  BaseViewModel>
             }
         }
         with(binding) {
-            setContentView(this.root)
             lifecycleOwner = this@BaseActivity
             setVariable(BR.viewModel, viewModel)
         }
@@ -42,12 +40,20 @@ abstract class BaseActivity<Binding: ViewDataBinding, ViewModel:  BaseViewModel>
     open fun setUpView() { }
 
     open fun showError(error: String) {
-        Snackbar.make(
-            this,
-            binding.root,
-            error,
-            Snackbar.LENGTH_SHORT,
-        ).setBackgroundTint(Color.RED).show()
+        val snack = Snackbar.make(this, binding.root, error, Snackbar.LENGTH_LONG)
+        val view = snack.view
+        val params = view.layoutParams as? FrameLayout.LayoutParams
+        params?.gravity = Gravity.TOP
+        view.layoutParams = params
+        snack.setBackgroundTint(this.getColor(R.color.error_red)).show()
+    }
+
+    //override dispatchTouchEvent function to hide keyboard on touch outside of editText
+    override fun dispatchTouchEvent(event: MotionEvent): Boolean {
+        if (event.action == MotionEvent.ACTION_DOWN) {
+            this.hideKeyboardOnTouchOutside()
+        }
+        return super.dispatchTouchEvent(event)
     }
 
     inline fun <reified T: AppCompatActivity> launchActivity() {

@@ -18,30 +18,30 @@ import retrofit2.http.Query
 
 interface OneCloudApiInterface {
 
-    @POST("v1/auth/email-login/")
+    @POST(URLFactory.loginPath)
     suspend fun logUserIn(@Body loginRequest: OneCloudUserLoginRequest): Response<OneCloudUserLoginResponse>
 
-    @GET("v1/meeting/schedule/upcoming_meetings/")
+    @GET(URLFactory.upcomingMeetingsPath)
     suspend fun getUpcomingMeetings(
         @Query("page") page: Int,
         @Query("limit") limit: Int
     ): Response<UpcomingMeetingsResponse>
 
-    @POST("v1/meeting/schedule/{id}/cancel_schedule_meeting/")
+    @POST(URLFactory.cancelMeetingPath)
     suspend fun cancelScheduleMeeting(
         @Path("id") id: Int,
         @Body cancelMeetingRequest: CancelMeetingRequest
     ): Response<CancelMeetingResponse>
 
-    @GET("v1/auth/profile-information/")
+    @GET(URLFactory.getProfilePath)
     suspend fun getProfileInfo(): Response<UserProfileResponse>
 
-    @GET("v1/auth/user-status/{userId}/")
+    @GET(URLFactory.getStatusPath)
     suspend fun getStatusInfo(
         @Path("userId") userId: String
     ): Response<StatusResponse>
 
-    @PATCH("v1/auth/user-status/{userId}/")
+    @PATCH(URLFactory.setStatusPath)
     suspend fun setStatus(
         @Path("userId") userId: String,
         @Body statusData: StatusData
