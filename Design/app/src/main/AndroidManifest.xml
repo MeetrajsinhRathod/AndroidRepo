@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,26 +14,87 @@
         android:theme="@style/Theme.Design"
         tools:targetApi="31">
         <activity
-            android:name=".CoughMedicineActivity"
+            android:name=".activity.CoughMedicineActivity"
             android:theme="@style/CoughMedicineTheme"/>
         <activity
-            android:name=".UserProfileActivity"
+            android:name=".activity.UserProfileActivity"
             android:theme="@style/UserProfileTheme" />
         <activity
-            android:name=".OneCloudAccountSecurity"
+            android:name=".activity.OneCloudAccountSecurity"
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
         <activity
             android:name=".activity.RecyclerViewKtActivity"
             android:theme="@style/RecyclerViewKtTheme" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.webService.activity.DeleteRequestActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.webService.activity.UpdateRequestActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.webService.activity.PostRequestActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.webService.activity.GetRequestActivity"
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
+        <activity android:name="com.example.webService.activity.WebServicesActivity" />
+        <activity android:name=".activity.NavigationActivity" />
+        <activity android:name=".activity.SearchViewActivity" />
+        <activity
+            android:name=".activity.WebViewActivity"
             android:exported="true">
             <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="https" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.DataPassActivity" />
+        <activity android:name=".activity.IntentsActivity" />
+        <activity android:name=".activity.FragmentActivity" />
+        <activity android:name=".activity.BottomNavigationActivity" />
+        <activity android:name=".activity.TodoListActivity" />
+        <activity android:name=".activity.RecyclerViewStaggeredActivity" />
+        <activity android:name=".activity.RecyclerViewGridActivity" />
+        <activity android:name=".activity.RecyclerViewLinearActivity" />
+        <activity android:name=".activity.RecyclerViewMultipleViewHolderActivity" />
+        <activity android:name=".activity.RecyclerViewActivity" />
+        <activity
+            android:name=".activity.AppBarLayoutActivity"
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
+        <activity android:name=".activity.GridLayoutActivity" />
+        <activity android:name=".activity.TabLayoutActivity" />
+        <activity android:name=".activity.SnackbarActivity" />
+        <activity android:name=".activity.FloatingActionButtonActivity" />
+        <activity android:name=".activity.FrameLayoutActivity" />
+        <activity android:name=".activity.DataBindingActivity" />
+        <activity android:name=".activity.DatePickerActivity" />
+        <activity android:name=".activity.SpinnerActivity" />
+        <activity android:name=".activity.ChipsActivity" />
+        <activity android:name=".activity.ProgressActivity" />
+        <activity android:name=".activity.ToastActivity" />
+        <activity android:name=".activity.ImageViewActivity" />
+        <activity android:name=".activity.ToggleSwitchActivity" />
+        <activity android:name=".activity.RadioBtnActivity" />
+        <activity android:name=".activity.ButtonsActivity" />
+        <activity android:name=".activity.EditTextActivity" />
+        <activity android:name=".activity.TextViewActivity" />
+        <activity
+            android:name=".activity.MainActivity"
+            android:exported="true"
+            android:theme="@style/HomeScreenStyle">
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
+
+        <receiver android:name=".helper.TimerReceiver" />
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
