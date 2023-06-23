@@ -20,7 +20,7 @@ class PostRequestActivity : AppCompatActivity() {
         binding = ActivityPostRequestBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.viewModel = viewModel
-        binding.setLifecycleOwner { lifecycle }
+        binding.lifecycleOwner = this
         binding.btnSignIn.setOnClickListener {
             if (binding.etEmail.text.isNotEmpty() && binding.etPassword.text.isNotEmpty()) {
                 callLoginApi()

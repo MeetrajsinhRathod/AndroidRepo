@@ -13,15 +13,16 @@
     <color name="user_profile_secondary_color">#AFB0B6</color>
     <color name="dark_green">#0E9D57</color>
     <color name="dark_grey">#121421</color>
-    <color name="dark_blue">#1730C2</color>
     <color name="medicine_card_bg">#F6F5FA</color>
     <color name="bg_cv">#03A9F4</color>
     <color name="medicine_secondary">#E1E2E9</color>
     <color name="recyclerview_kt_screen_primary_color">#FF7A7A</color>
     <color name="recyclerview_component_bg_color">#20FF0000</color>
     <color name="recyclerview_component_border_color">#A60000</color>
-    <color name="light_blue_400">#FF29B6F6</color>
+    <color name="light_blue_400">#A8E4FF</color>
     <color name="light_blue_600">#FF039BE5</color>
     <color name="gray_400">#FFBDBDBD</color>
     <color name="gray_600">#FF757575</color>
+    <color name="dark_blue">#18508D</color>
+    <color name="oneCloudPrimaryColor">#38A6DE</color>
 </resources>
