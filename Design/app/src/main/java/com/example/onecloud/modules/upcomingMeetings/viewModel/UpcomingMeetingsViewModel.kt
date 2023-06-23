@@ -2,6 +2,7 @@ package com.example.onecloud.modules.upcomingMeetings.viewModel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.example.onecloud.Utills.formatDate
 import com.example.onecloud.api.RetrofitObject
 import com.example.onecloud.base.BaseViewModel
@@ -21,8 +22,8 @@ class UpcomingMeetingsViewModel: BaseViewModel() {
     var totalPage = MutableLiveData(1)
 
     fun getUpcomingMeetings(page: Int, limit: Int, token: String) {
-        GlobalScope.launch(Dispatchers.IO) {
-            val response = RetrofitObject.oneCloudApi.getUpcomingMeetings(page, 5, token)
+        viewModelScope.launch(Dispatchers.IO) {
+            val response = RetrofitObject.apiService.getUpcomingMeetings(page, 5)
             if (response.code() == 200) {
                 response.body()?.data?.results?.let { generateDateMeetingsPair(it) }
                 _meetingResponse.postValue(meetingList)

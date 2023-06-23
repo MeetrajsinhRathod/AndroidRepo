@@ -115,8 +115,8 @@
 
     <Button
         android:id="@+id/btnJoinMeeting"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/_65dp"
+        android:layout_height="@dimen/_37dp"
         android:layout_marginStart="@dimen/_12dp"
         android:text="@string/join"
         android:textAllCaps="false"

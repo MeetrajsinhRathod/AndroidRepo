@@ -3,6 +3,7 @@ package com.example.webService.viewModel
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.webService.api.HttpURLConnectionBase
 import com.example.webService.api.ResponseType
 import com.example.webService.api.HttpRequestEnum
@@ -38,7 +39,7 @@ class DeleteRequestViewModel: ViewModel() {
     }
 
     fun deleteUserWithRetrofit(userId: Int) {
-        GlobalScope.launch(Dispatchers.IO) {
+        viewModelScope.launch(Dispatchers.IO) {
             val response = RetrofitInstance.reqresApi.deleteUser(userId)
             if (response.code() == 204) {
                 setDeleteStatus(ResponseType.Success)

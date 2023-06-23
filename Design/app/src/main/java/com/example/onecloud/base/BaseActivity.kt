@@ -7,9 +7,6 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import androidx.lifecycle.ViewModelProvider
-import androidx.viewbinding.ViewBinding
-import androidx.viewbinding.ViewBindings
 import com.example.design.BR
 import com.example.design.R
 import com.example.onecloud.modules.login.activity.OneCloudLoginActivity

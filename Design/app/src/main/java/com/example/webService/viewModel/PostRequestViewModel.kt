@@ -3,6 +3,7 @@ package com.example.webService.viewModel
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.webService.api.HttpRequestEnum
 import com.example.webService.api.HttpURLConnectionBase
 import com.example.webService.api.OkHttp3Base
@@ -42,7 +43,7 @@ class PostRequestViewModel: ViewModel() {
     }
 
     fun signInWithRetrofit(loginRequest: LoginRequest) {
-        GlobalScope.launch(Dispatchers.IO) {
+        viewModelScope.launch(Dispatchers.IO) {
             val response = RetrofitInstance.reqresApi.signInUser(loginRequest)
             if (response.isSuccessful) {
                 setLoginStatus(ResponseType.Success)

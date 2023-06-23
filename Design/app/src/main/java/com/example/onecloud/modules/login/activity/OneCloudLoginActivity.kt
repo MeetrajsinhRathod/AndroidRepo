@@ -14,7 +14,8 @@ import com.google.android.material.textfield.TextInputLayout
 class OneCloudLoginActivity : BaseActivity<ActivityOneCloudLoginBinding, LoginViewModel>() {
 
     override fun getResId(): Int = R.layout.activity_one_cloud_login
-    override fun setViewModel(): LoginViewModel = ViewModelProvider(this)[LoginViewModel::class.java]
+    override fun setViewModel(): LoginViewModel =
+        ViewModelProvider(this)[LoginViewModel::class.java]
 
     override fun setUpView() {
         binding.etEmail.doOnTextChanged { text, _, _, _ ->
@@ -52,21 +53,28 @@ class OneCloudLoginActivity : BaseActivity<ActivityOneCloudLoginBinding, LoginVi
             if (it != null) {
                 saveUserData(it)
                 launchActivity<DashboardActivity>()
-            } else { showError("LogIn Failed Try again") }
+                finish()
+            } else {
+                showError("LogIn Failed Try again")
+            }
             binding.btnLogin.revertAnimation()
         }
     }
 
     private fun saveUserData(oneCloudUserLoginResponse: OneCloudUserLoginResponse) {
         val sharedPreferences = this.getSharedPreferences("application", MODE_PRIVATE)
-        sharedPreferences.edit().apply{
+        sharedPreferences.edit().apply {
             putString("userToken", oneCloudUserLoginResponse.data[0].token)
+            putString("userId", oneCloudUserLoginResponse.data[0].user)
             putBoolean("isUserLoggedIn", true)
             apply()
         }
     }
 
-    private fun setHelperTextForTextInputLayout(text: CharSequence?, textInputLayout: TextInputLayout) {
+    private fun setHelperTextForTextInputLayout(
+        text: CharSequence?,
+        textInputLayout: TextInputLayout
+    ) {
         if (text?.length == 0) {
             textInputLayout.helperText = "This field is required"
         } else {
