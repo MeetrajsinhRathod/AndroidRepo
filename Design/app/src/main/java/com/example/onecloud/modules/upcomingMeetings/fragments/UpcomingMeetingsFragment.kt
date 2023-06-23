@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.design.R
 import com.example.design.databinding.FragmentUpcomingMeetingsBinding
+import com.example.onecloud.modules.dashboard.activity.DashboardActivity
 import com.example.onecloud.modules.upcomingMeetings.adapter.MeetingsAdapter
 import com.example.onecloud.modules.upcomingMeetings.viewModel.UpcomingMeetingsViewModel
 import com.google.android.material.snackbar.Snackbar
@@ -69,7 +70,6 @@ class UpcomingMeetingsFragment : Fragment(R.layout.fragment_upcoming_meetings) {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
                 val linearLayoutManager: LinearLayoutManager = recyclerView.layoutManager as LinearLayoutManager
-                val totalItemCount: Int = linearLayoutManager.itemCount
                 val lastVisibleItem: Int = linearLayoutManager.findLastCompletelyVisibleItemPosition()
                 if (!meetingsAdapter.isLoading && lastVisibleItem >= totalPage + 1 && currentPage < totalPage) {
                     meetingsAdapter.showProgress()
@@ -82,24 +82,31 @@ class UpcomingMeetingsFragment : Fragment(R.layout.fragment_upcoming_meetings) {
 
     private fun observeMeetingResponse() {
         viewModel.meetingResponse.observe(viewLifecycleOwner) {
-            binding.swipeRefreshLayout.isRefreshing = false
             if (it != null) {
                 meetingsAdapter.submitList(it)
-            } else {
-                currentPage -= 1
             }
             meetingsAdapter.hideProgress()
-            binding.shimmerLayout.stopShimmer()
-            binding.shimmerLayout.visibility = View.GONE
+            binding.apply {
+                swipeRefreshLayout.isRefreshing = false
+                shimmerLayout.stopShimmer()
+                shimmerLayout.visibility = View.GONE
+            }
         }
         viewModel.totalPage.observe(viewLifecycleOwner) {
             totalPage = it
+        }
+        viewModel.errorResponse.observe(viewLifecycleOwner) {
+            (activity as DashboardActivity).showError(it.message ?: "Error Occurred. Please Try Again")
+            currentPage -= 1
+            meetingsAdapter.hideProgress()
+            binding.shimmerLayout.stopShimmer()
+            binding.shimmerLayout.visibility = View.GONE
         }
     }
 
     private fun copyLink() {
         Snackbar.make(
-             binding.root,
+            binding.root,
             "Link Copied",
             Snackbar.LENGTH_SHORT
         ).show()

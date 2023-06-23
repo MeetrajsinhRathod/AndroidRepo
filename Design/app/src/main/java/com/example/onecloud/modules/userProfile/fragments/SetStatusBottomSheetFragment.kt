@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.design.R
 import com.example.design.databinding.FragmentSetStatusBottomSheetBinding
 import com.example.design.fragments.BottomSheetFragment
+import com.example.onecloud.modules.dashboard.activity.DashboardActivity
 import com.example.onecloud.modules.userProfile.model.StatusData
 import com.example.onecloud.modules.userProfile.viewModel.SetStatusMessageViewModel
 
@@ -37,11 +38,13 @@ class SetStatusBottomSheetFragment(
         observeResponse()
     }
 
-
-
     private fun observeResponse() {
         viewModel.statusSuccessResponse.observe(viewLifecycleOwner) {
             responseCallback(it)
+            dismiss()
+        }
+        viewModel.errorResponse.observe(viewLifecycleOwner) {
+            (activity as DashboardActivity).showError(it.message ?: "Error Occurred. Please Try Again")
             dismiss()
         }
     }

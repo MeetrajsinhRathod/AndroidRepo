@@ -3,10 +3,12 @@ package com.example.webService.activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.MotionEvent
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
 import com.example.design.databinding.ActivityGetRequestBinding
+import com.example.design.helper.hideKeyboardOnTouchOutside
 import com.example.webService.adapter.UserDataAdapter
 import com.example.webService.api.WebServiceType
 import com.example.webService.viewModel.GetUserDataViewModel

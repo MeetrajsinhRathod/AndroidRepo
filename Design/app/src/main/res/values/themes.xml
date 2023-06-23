@@ -68,4 +68,10 @@
         <item name="android:statusBarColor">@color/white</item>
         <item name="android:windowLightStatusBar">true</item>
     </style>
+
+    <style name="OneCloudTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:statusBarColor">@color/dark_blue</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="colorPrimary">@color/oneCloudPrimaryColor</item>
+    </style>
 </resources>

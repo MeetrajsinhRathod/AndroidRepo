@@ -28,4 +28,5 @@
     <color name="onecloud_background_color">#F7FAFD</color>
     <color name="oneCloud_popup_window_background">#9918508D</color>
     <color name="light_grey">#ECEEF5</color>
+    <color name="error_red">@android:color/holo_red_light</color>
 </resources>

@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.design.R
 import com.example.design.databinding.FragmentCancelMeetingBottomSheetBinding
 import com.example.design.fragments.BottomSheetFragment
+import com.example.onecloud.modules.dashboard.activity.DashboardActivity
 import com.example.onecloud.modules.upcomingMeetings.viewModel.CancelMeetingViewModel
 import com.example.webService.api.ResponseType
 import com.google.android.material.snackbar.Snackbar
@@ -46,6 +47,7 @@ class CancelMeetingBottomSheet(
             viewModel.cancelMeeting(meetingId, binding.etDescription.text.toString())
         }
         observeCancelMeetingResponse()
+        setErrorResponseObserver()
     }
 
     override fun getTheme(): Int = R.style.RoundedBottomSheet
@@ -54,14 +56,15 @@ class CancelMeetingBottomSheet(
         viewModel.meetingResponse.observe(viewLifecycleOwner) {
             if (it == ResponseType.Success) {
                 reloadData()
-                dismiss()
-            } else {
-                Snackbar.make(
-                    binding.root,
-                    "Error Occurred. Unable to cancel scheduled meeting. Try again",
-                    Snackbar.LENGTH_SHORT,
-                ).setBackgroundTint(Color.RED).show()
             }
+            dismiss()
+        }
+    }
+
+    private fun setErrorResponseObserver() {
+        viewModel.errorResponse.observe(this) {
+            (activity as DashboardActivity).showError(it.message ?: "Error Occurred. Please Try Again")
+            dismiss()
         }
     }
 }

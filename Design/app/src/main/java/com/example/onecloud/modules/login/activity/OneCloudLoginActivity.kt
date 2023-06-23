@@ -25,6 +25,7 @@ class OneCloudLoginActivity : BaseActivity<ActivityOneCloudLoginBinding, LoginVi
             setHelperTextForTextInputLayout(text, binding.etPasswordLayout)
         }
         setResponseObserver()
+        setErrorResponseObserver()
         observeNavigation()
     }
 
@@ -50,13 +51,16 @@ class OneCloudLoginActivity : BaseActivity<ActivityOneCloudLoginBinding, LoginVi
 
     private fun setResponseObserver() {
         viewModel.loginResponse.observe(this) {
-            if (it != null) {
-                saveUserData(it)
-                launchActivity<DashboardActivity>()
-                finish()
-            } else {
-                showError("LogIn Failed Try again")
-            }
+            saveUserData(it)
+            launchActivity<DashboardActivity>()
+            finish()
+            binding.btnLogin.revertAnimation()
+        }
+    }
+
+    private fun setErrorResponseObserver() {
+        viewModel.errorResponse.observe(this) {
+            showError(it.message ?: "Error Occurred. Please Try Again")
             binding.btnLogin.revertAnimation()
         }
     }

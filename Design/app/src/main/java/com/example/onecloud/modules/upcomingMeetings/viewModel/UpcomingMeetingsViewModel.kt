@@ -5,9 +5,11 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.onecloud.Utills.formatDate
 import com.example.onecloud.api.RetrofitObject
+import com.example.onecloud.base.BaseErrorResponse
 import com.example.onecloud.base.BaseViewModel
 import com.example.onecloud.modules.upcomingMeetings.model.MeetingsListSealedClass
 import com.example.onecloud.modules.upcomingMeetings.model.UpcomingMeetingsDataResult
+import com.google.gson.Gson
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -18,7 +20,7 @@ class UpcomingMeetingsViewModel: BaseViewModel() {
     private val _meetingResponse = MutableLiveData<ArrayList<MeetingsListSealedClass>>()
     val meetingResponse: LiveData<ArrayList<MeetingsListSealedClass>>
         get() = _meetingResponse
-
+    var errorResponse = MutableLiveData<BaseErrorResponse>()
     var totalPage = MutableLiveData(1)
 
     fun getUpcomingMeetings(page: Int, limit: Int, token: String) {
@@ -28,6 +30,9 @@ class UpcomingMeetingsViewModel: BaseViewModel() {
                 response.body()?.data?.results?.let { generateDateMeetingsPair(it) }
                 _meetingResponse.postValue(meetingList)
                 totalPage.postValue(response.body()?.data?.totalPages ?: 1)
+            } else {
+                val error = Gson().fromJson(response.errorBody()?.string(), BaseErrorResponse::class.java)
+                errorResponse.postValue(error)
             }
         }
     }

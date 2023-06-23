@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.design.R
-import com.example.design.databinding.ActivityDataBindingBinding
 import com.example.design.databinding.ActivityDataPassBinding
 
 class DataPassActivity : AppCompatActivity() {

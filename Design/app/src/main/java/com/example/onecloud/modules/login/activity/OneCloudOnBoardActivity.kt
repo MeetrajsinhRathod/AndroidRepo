@@ -17,7 +17,7 @@ class OneCloudOnBoardActivity : BaseActivity<ActivityOneCloudOnboardBinding, Onb
 
     private fun observeNavigation() {
         viewModel.navigateTo.observe(this) {
-            if (it == OnboardingViewModel.NavigationEvent.navigateToLogin) {
+            if (it == OnboardingViewModel.NavigationEvent.NavigateToLogin) {
                 openLoginScreen()
             }
         }
@@ -25,5 +25,6 @@ class OneCloudOnBoardActivity : BaseActivity<ActivityOneCloudOnboardBinding, Onb
 
     private fun openLoginScreen() {
         launchActivity<OneCloudLoginActivity>()
+        finish()
     }
 }

@@ -8,7 +8,7 @@ class OnboardingViewModel: BaseViewModel() {
 
     sealed class NavigationEvent {
 
-        object navigateToLogin: NavigationEvent()
+        object NavigateToLogin: NavigationEvent()
     }
 
     private val _navigateTo = MutableLiveData<NavigationEvent>()
@@ -16,6 +16,6 @@ class OnboardingViewModel: BaseViewModel() {
         get() = _navigateTo
 
     fun navigateToLoginActivity() {
-        _navigateTo.postValue(NavigationEvent.navigateToLogin)
+        _navigateTo.postValue(NavigationEvent.NavigateToLogin)
     }
 }

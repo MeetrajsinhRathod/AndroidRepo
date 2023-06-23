@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.design.R
 import com.example.design.databinding.FragmentUserProfileBinding
 import com.example.onecloud.modules.dashboard.activity.DashboardActivity
+import com.example.onecloud.modules.login.activity.OneCloudOnBoardActivity
 import com.example.onecloud.modules.userProfile.model.ProfileData
 import com.example.onecloud.modules.userProfile.model.StatusData
 import com.example.onecloud.modules.userProfile.viewModel.UserProfileViewModel
@@ -60,7 +61,10 @@ class UserProfileFragment : Fragment() {
     private fun configLogOutBtn() {
         binding.btnLogout.setOnClickListener {
             sharedPref?.edit()?.putBoolean("isUserLoggedIn", false)?.apply()
-            (activity as DashboardActivity).finish()
+            (activity as DashboardActivity).apply {
+                finish()
+                launchActivity<OneCloudOnBoardActivity>()
+            }
         }
     }
 
@@ -79,16 +83,15 @@ class UserProfileFragment : Fragment() {
                 binding.groupProfileComponent.visibility = View.VISIBLE
                 binding.progressBarProfile.visibility = View.GONE
                 setUserProfile(it)
-            } else {
-                showErrorToast("Error occurred while fetching user profile. please try again")
             }
         }
         viewModel.statusSuccessResponse.observe(viewLifecycleOwner) {
             if(it != null) {
                 setStatusMessage(it)
-            } else {
-                showErrorToast("Error occurred while fetching status message. please try again")
             }
+        }
+        viewModel.errorResponse.observe(viewLifecycleOwner) {
+            (activity as DashboardActivity).showError(it.message ?: "Error Occurred. Please Try Again")
         }
     }
 

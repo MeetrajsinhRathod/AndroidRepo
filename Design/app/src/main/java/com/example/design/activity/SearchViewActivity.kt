@@ -5,6 +5,7 @@ import android.content.Context
 import android.database.Cursor
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
@@ -14,6 +15,7 @@ import android.widget.TextView
 import androidx.appcompat.widget.SearchView
 import com.example.design.R
 import com.example.design.databinding.ActivitySearchViewBinding
+import com.example.design.helper.hideKeyboardOnTouchOutside
 import com.example.design.model.Country
 
 class SearchViewActivity : AppCompatActivity() {
@@ -57,5 +59,13 @@ class SearchViewActivity : AppCompatActivity() {
                 return true
             }
         })
+    }
+
+    //override dispatchTouchEvent function to hide keyboard on touch outside of editText
+    override fun dispatchTouchEvent(event: MotionEvent): Boolean {
+        if (event.action == MotionEvent.ACTION_DOWN) {
+            this.hideKeyboardOnTouchOutside()
+        }
+        return super.dispatchTouchEvent(event)
     }
 }
