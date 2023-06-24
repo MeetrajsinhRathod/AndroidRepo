@@ -46,11 +46,9 @@ class UpcomingMeetingsViewModel: BaseViewModel() {
         val generateArray = arrayListOf<MeetingsListSealedClass>()
         meetingResult.forEach {
             val dateString = it.date.formatDate("EEEE, dd, MMMM, yyyy")
-            if (map.isEmpty()) {
-                map[dateString] = arrayListOf(it)
-            }
+
             if (map.containsKey(dateString)) {
-                map[dateString]!!.add(it)
+                map[dateString]?.add(it)
             } else {
                 map[dateString] = arrayListOf(it)
             }
