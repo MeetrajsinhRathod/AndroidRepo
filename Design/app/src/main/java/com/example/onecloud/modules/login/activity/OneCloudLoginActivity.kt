@@ -40,13 +40,13 @@ class OneCloudLoginActivity : BaseActivity<ActivityOneCloudLoginBinding, LoginVi
     }
 
     private fun callLoginApi() {
-        toggleTextField(false)
-        binding.btnLogin.startAnimation()
         if (!binding.etEmail.text.isNullOrEmpty() && !binding.etPassword.text.isNullOrEmpty()) {
             val loginRequest = OneCloudUserLoginRequest(
                 binding.etEmail.text.toString(),
                 binding.etPassword.text.toString()
             )
+            toggleTextField(false)
+            binding.btnLogin.startAnimation()
             viewModel.logInUser(loginRequest)
         }
     }
