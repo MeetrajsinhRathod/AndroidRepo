@@ -15,6 +15,7 @@ import com.example.design.activity.GridLayoutActivity
 import com.example.design.activity.ImageViewActivity
 import com.example.design.activity.IntentsActivity
 import com.example.design.activity.NavigationActivity
+import com.example.design.activity.PermissionModelActivity
 import com.example.design.activity.ProgressActivity
 import com.example.design.activity.RadioBtnActivity
 import com.example.design.activity.RecyclerViewActivity
@@ -60,5 +61,6 @@ enum class UIWidgetsEnum(val cls: Class<*>) {
     UserProfile(UserProfileActivity::class.java),
     RecyclerViewKT(RecyclerViewKtActivity::class.java),
     WebServices(WebServicesActivity::class.java),
-    OneCloudLogin(OneCloudOnBoardActivity::class.java)
+    OneCloudLogin(OneCloudOnBoardActivity::class.java),
+    PermissionModel(PermissionModelActivity::class.java)
 }

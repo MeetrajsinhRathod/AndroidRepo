@@ -2,50 +2,69 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
+        android:name="com.example.AppClass"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:name="com.example.AppClass"
         android:supportsRtl="true"
         android:theme="@style/Theme.Design"
-        tools:targetApi="31"
-        tools:ignore="LockedOrientationActivity" >
+        tools:ignore="LockedOrientationActivity"
+        tools:targetApi="31">
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
+        <activity
+            android:name=".activity.PermissionModelActivity"
+            android:exported="false" />
         <activity
             android:name=".activity.CoughMedicineActivity"
-            android:theme="@style/CoughMedicineTheme"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/CoughMedicineTheme" />
         <activity
             android:name=".activity.UserProfileActivity"
-            android:theme="@style/UserProfileTheme"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/UserProfileTheme" />
         <activity
             android:name=".activity.OneCloudAccountSecurity"
-            android:theme="@style/OneCloudTheme"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/OneCloudTheme" />
         <activity
             android:name=".activity.RecyclerViewKtActivity"
-            android:theme="@style/RecyclerViewKtTheme"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/RecyclerViewKtTheme" />
         <activity
             android:name="com.example.onecloud.modules.dashboard.activity.DashboardActivity"
-            android:theme="@style/OneCloudTheme"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/OneCloudTheme" />
         <activity
             android:name="com.example.onecloud.modules.login.activity.OneCloudLoginActivity"
-            android:theme="@style/OneCloudTheme"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/OneCloudTheme" />
         <activity
             android:name="com.example.onecloud.modules.login.activity.OneCloudOnBoardActivity"
-            android:theme="@style/OneCloudTheme"
-            android:screenOrientation="portrait" />
-        <activity android:name="com.example.webService.activity.DeleteRequestActivity"/>
-        <activity android:name="com.example.webService.activity.UpdateRequestActivity"/>
-        <activity android:name="com.example.webService.activity.PostRequestActivity"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/OneCloudTheme" />
+        <activity android:name="com.example.webService.activity.DeleteRequestActivity" />
+        <activity android:name="com.example.webService.activity.UpdateRequestActivity" />
+        <activity android:name="com.example.webService.activity.PostRequestActivity" />
         <activity
             android:name="com.example.webService.activity.GetRequestActivity"
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
@@ -57,8 +76,10 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+
                 <data android:scheme="https" />
             </intent-filter>
         </activity>
@@ -97,6 +118,7 @@
             android:theme="@style/HomeScreenStyle">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -107,4 +129,5 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
+
 </manifest>
